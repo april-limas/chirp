@@ -1,19 +1,21 @@
 import React, { useState } from "react"
-// import { useDispatch } from "react-redux";
-// import { actions } from "../../redux/actions/add-message"
+import { useSelector, useDispatch } from "react-redux";
+import { actions } from "../../redux/actions/add-message"
 
 export const AddMessage = () => {
     const [text, setText ] = useState("")
-    // const dispatch = useDispatch
+    const messageLoading = useSelector(state => ({
+        messageLoading : state.addMessage.messageLoading}))
+    const dispatch = useDispatch()
 
-    const handleOnchange = (e) => (
-            setText(e.target.value),
-            console.log('this is working')
+    const handleOnChange = (e) => (
+            setText(e.target.value)
     )
 
     const handlePostMessage = (event) => {
         event.preventDefault()
-        // dispatch(actions.postMessage)
+        dispatch(actions.postMessage(text))
+        console.log(messageLoading)
         setText("")
     }
 
@@ -21,9 +23,10 @@ export const AddMessage = () => {
         <>
             <form onSubmit={handlePostMessage}>
                 <p>What's on your mind?</p>
-                <input type="text" value={text} onChange={handleOnchange} placeholder="New Message"></input>
+                <input type="text" value={text} onChange={handleOnChange} placeholder="New Message"></input>
                 <button type="submit">Post New Message</button>
             </form>
+            { messageLoading && <h1>LOADING...</h1> }
         </>
     )
 }

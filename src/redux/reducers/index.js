@@ -1,8 +1,8 @@
 import { combineReducers } from "redux";
 import { authReducer } from "./auth";
-// import { AddMessage } from "../../components";
+import { addMessageReducer } from "./addMessage";
 
 export default combineReducers({ 
     auth: authReducer,
-    // addMessage: addMessageReducer
+    addMessage: addMessageReducer
 });
