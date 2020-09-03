@@ -1,11 +1,10 @@
 import React, { useState } from "react"
 import { useSelector, useDispatch } from "react-redux";
-import { actions } from "../../redux/actions/add-message"
+import { actions } from "../../redux/actions/messages"
 
 export const AddMessage = () => {
     const [text, setText ] = useState("")
-    const messageLoading = useSelector(state => ({
-        messageLoading : state.addMessage.messageLoading}))
+    const messageLoading = useSelector(state => state.addMessage.messageLoading)
     const dispatch = useDispatch()
 
     const handleOnChange = (e) => (
@@ -15,7 +14,6 @@ export const AddMessage = () => {
     const handlePostMessage = (event) => {
         event.preventDefault()
         dispatch(actions.postMessage(text))
-        console.log(messageLoading)
         setText("")
     }
 

@@ -1,2 +1,2 @@
 export * from "./auth";
-export * from "./add-message"
+export * from "./messages"

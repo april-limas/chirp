@@ -30,7 +30,6 @@ const postMessage = (message) => async (dispatch, getState) => {
       const payload = await api.addMessage(message);
       // ℹ️ℹ️This is how you woud debug the response to a requestℹ️ℹ️
       dispatch(postMessageSuccess(payload));
-      console.log({ payload })
     } catch (err) {
       dispatch(postMessageFailure(err.message));
     }
