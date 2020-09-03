@@ -1,5 +1,6 @@
 import axios from "axios";
 
+
 class API {
   axiosInstance = null;
 
@@ -56,7 +57,23 @@ class API {
       throw err;
     }
   }
+
+
+  async addMessage(text) {
+    try {
+      const result = await this.axiosInstance.post("/messages",
+        {text
+        });
+      return result;
+    } catch (err) {
+        helpMeInstructor(err);
+      throw err;
+    }
+  }
+
 }
+
+
 
 // WARNING.. do not touch below this line if you want to have a good day =]
 
