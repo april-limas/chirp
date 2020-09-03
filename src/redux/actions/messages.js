@@ -24,7 +24,7 @@ export const postMessageFailure = (error) => {
     }
 }
 
-const postMessage = (message) => async (dispatch, getState) => {
+export const postMessage = (message) => async (dispatch, getState) => {
     try {
       dispatch(postMessageRequest());
       const payload = await api.addMessage(message);
