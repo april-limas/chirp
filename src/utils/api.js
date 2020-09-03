@@ -56,6 +56,17 @@ class API {
       throw err;
     }
   }
+
+  async profile( username ) {
+    try {
+      const result = await this.axiosInstance.get(`/users/${username}`);
+      return result;
+    } catch (err) {
+      helpMeInstructor(err);
+      throw err;
+    }
+  }
+
 }
 
 // WARNING.. do not touch below this line if you want to have a good day =]
