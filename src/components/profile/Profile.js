@@ -11,17 +11,20 @@ export const Profile = () => {
     }
     ));
 
+    console.log(data)
+
     const dispatch = useDispatch()
 
     useEffect(() => {
         dispatch(actions.getUserInfo(username))
-        // console.log(data)
+        console.log({data})
     }, [])
 
     return (
         <>
             <h2>Profile</h2>
             <p>{username}</p>
+            <p>{JSON.stringify(data.user)}</p>
         </>
     );
 }
