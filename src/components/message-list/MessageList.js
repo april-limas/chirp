@@ -1,8 +1,15 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from 'react-redux';
 import { actions } from '../../redux/actions/messages';
+//import { MessageItem } from '../message-item';
 
-
+const MessageItem = ({item}) => {
+  return (
+    <>
+    <li>{item.text}</li>
+    </>
+  )
+}
 
 
 export const MessageList = () => {
@@ -15,21 +22,24 @@ export const MessageList = () => {
 
   useEffect(()=>{
     dispatch(actions.getMessageList(username))
-  })
+    console.log(messageList)
+  }, [])
 
 
 
   return (
     <>
-    
-     {/* <ol>
-      {messageList.map(item=>(
-        <MessageItem key={item.id}/>
-      ))}
-    </ol>  */}
-    <h1>MessageItem</h1>
+    {messageList && 
+      <>
+     <ul>
+      {messageList.messages.map(item=>(
+        <MessageItem item= {item} key={item.id}/>
+        ))}
+    </ul> 
+        </>
+}
       </>
   )
   }
 
-export default MessageList;  
+
