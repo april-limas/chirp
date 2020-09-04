@@ -56,6 +56,16 @@ class API {
       throw err;
     }
   }
+
+
+async getMessageList() {
+  try {
+    await this.axiosInstance.get("/messages?limit=100&offset=0&username=${username}");
+  } catch (err) {
+    helpMeInstructor(err);
+    throw err;
+  }
+}
 }
 
 // WARNING.. do not touch below this line if you want to have a good day =]
