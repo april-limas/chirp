@@ -6,7 +6,6 @@ import {
 
 const INITIAL_STATE = {
     data: [],
-    // username: "",
     userLoading: false,
     userError: "",
 };

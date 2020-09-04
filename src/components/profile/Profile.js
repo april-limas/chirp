@@ -11,13 +11,12 @@ export const Profile = () => {
     }
     ));
 
-    console.log(data)
+    
 
     const dispatch = useDispatch()
 
     useEffect(() => {
         dispatch(actions.getUserInfo(username))
-        console.log({ data })
     }, [])
 
     return (
