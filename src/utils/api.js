@@ -1,5 +1,6 @@
 import axios from "axios";
 
+
 class API {
   axiosInstance = null;
 
@@ -58,15 +59,29 @@ class API {
   }
 
 
-async getMessageList() {
-  try {
-    await this.axiosInstance.get("/messages?limit=100&offset=0&username=${username}");
-  } catch (err) {
-    helpMeInstructor(err);
-    throw err;
+  async addMessage(text) {
+    try {
+      const result = await this.axiosInstance.post("/messages",
+      {text
+      });
+      return result;
+    } catch (err) {
+      helpMeInstructor(err);
+      throw err;
+    }
+  }
+  
+  async getMessageList(username) {
+    try {
+      await this.axiosInstance.get(`/messages?limit=100&offset=0&username=${username}`);
+    } catch (err) {
+      helpMeInstructor(err);
+      throw err;
+    }
   }
 }
-}
+
+
 
 // WARNING.. do not touch below this line if you want to have a good day =]
 
