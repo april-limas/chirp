@@ -58,7 +58,14 @@ class API {
     }
   }
 
-
+  async profile( username ) {
+    try {
+      const result = await this.axiosInstance.get(`/users/${username}`);
+      return result;
+    } catch (err) {
+      helpMeInstructor(err);
+    }
+  } 
   async addMessage(text) {
     try {
       const result = await this.axiosInstance.post("/messages",
