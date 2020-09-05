@@ -29,7 +29,7 @@ export const addMessageReducer = (state = INITIAL_STATE, action) => {
                 error: action.payload
             }
         case MESSAGE_LIST_SUCCESS:
-            console.log(action.payload)
+            
         return {
                 ...state,
                 messageLoading: false,
