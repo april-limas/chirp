@@ -1,5 +1,6 @@
 import React from "react"
-import { AddMessage, MenuContainer, MessageList } from "../components"
+import { AddMessage, MenuContainer, MessageList } from "../components";
+import {LikeButton} from '../components/like-button';
 
 
 
