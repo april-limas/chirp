@@ -11,8 +11,6 @@ export const Profile = () => {
     }
     ));
 
-    
-
     const dispatch = useDispatch()
 
     useEffect(() => {

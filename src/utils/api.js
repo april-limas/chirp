@@ -69,15 +69,24 @@ class API {
   async addMessage(text) {
     try {
       const result = await this.axiosInstance.post("/messages",
-        {text
-        });
+      {text
+      });
       return result;
     } catch (err) {
-        helpMeInstructor(err);
+      helpMeInstructor(err);
       throw err;
     }
   }
-
+  
+  async getMessageList(username) {
+    try {
+      const result = await this.axiosInstance.get(`/messages?limit=100&offset=0&username=${username}`);
+      return result;
+    } catch (err) {
+      helpMeInstructor(err);
+      throw err;
+    }
+  }
 }
 
 
