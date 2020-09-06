@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from "react-redux";
 import { actions } from "../../redux/actions/auth";
+import Link from "react-router-dom";
 import "./signUpForm.css";
 
 
@@ -66,6 +67,8 @@ const signUp = () => {
                     Submit
                 </button>
             </form>
+
+            <Link to="/profile" className="btn btn-link">Profile</Link>
                 
         </React.Fragment>
     )
