@@ -10,6 +10,7 @@ export const Newsfeed = () => {
             <MenuContainer />
             <AddMessage />
             <MessageList />
+            <LikeButton />
         </>
     )
 }

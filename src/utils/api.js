@@ -58,7 +58,7 @@ class API {
     }
   }
 
-  async profile( username ) {
+  async getUserProfileInfo( username ) {
     try {
       const result = await this.axiosInstance.get(`/users/${username}`);
       return result;
@@ -98,7 +98,30 @@ class API {
     }
   }
 
-  
+  async likeMessage(messageId) {
+    try {
+      const result = await this.axiosInstance.post("/likes",
+      {messageId
+      });
+      return result;
+    } catch (err) {
+      helpMeInstructor(err);
+      throw err;
+    }
+  }
+
+  async removeLike(likeId) {
+    try {
+      const result = await this.axiosInstance.delete(`/likes/${likeId}`,
+      {likeId
+      });
+      return result;
+    } catch (err) {
+      helpMeInstructor(err);
+      throw err;
+    }
+  }
+
 }
 
 
