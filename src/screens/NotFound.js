@@ -5,6 +5,8 @@ const NotFound = ({ location }) => (
   <>
     <p> 404:
       Page not found for {location.pathname}</p>
+      <Link to="/">Sign-Up Form</Link>
+
   </>
 );
 
