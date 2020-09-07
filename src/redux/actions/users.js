@@ -26,7 +26,7 @@ export const getUserFailure = (err) => {
 const getUserInfo = (username) => async (dispatch, getState) => {
     try {
         dispatch(getUserRequest());
-        const payload = await api.profile(username);
+        const payload = await api.getUserProfileInfo(username);
         // ℹ️ℹ️This is how you woud debug the response to a requestℹ️ℹ️
           console.log({ payload })
         dispatch(getUserSuccess(payload));
