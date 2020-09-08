@@ -46,7 +46,6 @@ export const addMessageReducer = (state = INITIAL_STATE, action) => {
             return {
                 ...state,
                 messageLoading: false,
-                messageList: "",
                 error: action.payload
             }
         default:

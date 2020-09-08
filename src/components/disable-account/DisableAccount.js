@@ -1,17 +1,15 @@
 import React from "react"
 import { useSelector, useDispatch } from "react-redux"
 import { actions } from '../../redux/actions/users';
+import { actions as authActions } from '../../redux/actions/auth';
 
 export const DisableAccount = () => {
-    const { username, usersList } = useSelector(state => ({
-        username: state.auth.username,
-        usersList: state.users.usersList
-    }))
 
     const dispatch = useDispatch()
 
     const handleDeleteUser = () => { 
-        dispatch(actions.disableUserAccount(username))
+        dispatch(actions.disableUserAccount())
+        dispatch(authActions.logout(false))
     }
     
     return (

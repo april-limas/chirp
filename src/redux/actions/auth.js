@@ -16,7 +16,7 @@ const login = (credentials) => async (dispatch, getState) => {
     dispatch({ type: LOGIN });
     const payload = await api.login(credentials);
     // ℹ️ℹ️This is how you woud debug the response to a requestℹ️ℹ️
-    // console.log({ result })
+    // console.log({ payload })
     dispatch({ type: LOGIN_SUCCESS, payload });
   } catch (err) {
     dispatch({
@@ -26,11 +26,13 @@ const login = (credentials) => async (dispatch, getState) => {
   }
 };
 
-const logout = () => async (dispatch, getState) => {
+const logout = (check = true) => async (dispatch, getState) => {
   try {
     // We do not care about the result of logging out
     // as long as it succeeds
-    await api.logout();
+    if(check) {
+      await api.logout();
+    }
   } finally {
     /**
      * Let the reducer know that we are logged out

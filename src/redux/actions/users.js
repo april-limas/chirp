@@ -39,12 +39,10 @@ export const deleteUserFailure = (err) => {
     }
 }
 
-const getUserInfo = (username) => async (dispatch, getState) => {
+const getUserInfo = () => async (dispatch, getState) => {
     try {
         dispatch(getUserRequest());
-        const payload = await api.profile(username);
-        // ℹ️ℹ️This is how you woud debug the response to a requestℹ️ℹ️
-          console.log({ payload })
+        const payload = await api.profile(getState().auth.username);
         dispatch(getUserSuccess(payload));
     } catch (err) {
         dispatch(getUserFailure(err.message));
