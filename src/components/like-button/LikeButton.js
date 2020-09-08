@@ -3,8 +3,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { actions } from '../../redux/actions/auth';
 
 export const LikeButton = ({ messageId }) => {
-    const [id, setId] = useState({
-        
+    const [state, setState] = useState({
+        id: messageId
     })
     const dispatch = useDispatch()
     // const [state, setState] = useState(props)
@@ -17,8 +17,8 @@ export const LikeButton = ({ messageId }) => {
     // save like id in local state
     // Toggle like from on to off using like id
     // Toggle function also updates local state of lide id
-    const showMessage = (messageId) => {
-        console.log('hi')
+    const showMessage = () => {
+        console.log(state.id.messageId)
     }
 
 
@@ -26,13 +26,13 @@ export const LikeButton = ({ messageId }) => {
         console.log(state)
     }
 
-    if (messageId) {
-        console.log(messageId.messageId)
-    }
+    // if (messageId) {
+    //     console.log(state.id.messageId)
+    // }
 
     return (
         <>
-            <button onClick={(messageId)=>showMessage(messageId)}>Like</button>
+            <button onClick={showMessage}>Like</button>
         </>
     )
 }
