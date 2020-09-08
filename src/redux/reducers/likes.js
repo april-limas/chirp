@@ -6,3 +6,6 @@ import {
 } from '../actions';
 
 
+const INITIAL_STATE = {
+    
+}

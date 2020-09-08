@@ -78,9 +78,9 @@ class API {
     }
   }
   
-  async getMessageList(username) {
+  async getMessageList() {
     try {
-      const result = await this.axiosInstance.get(`/messages?limit=100&offset=0&username=${username}`);
+      const result = await this.axiosInstance.get('/messages?limit=100&offset=0');
       return result;
     } catch (err) {
       helpMeInstructor(err);
