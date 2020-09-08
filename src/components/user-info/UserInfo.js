@@ -3,6 +3,7 @@ import React from "react"
 export const UserInfo = ({user}) => {
     return (
         <>
+            <br/>
             <p>Username: {user.username}</p>
             <p>Display Name: {user.displayName}</p>
             <p>About The User: {user.about}</p>
