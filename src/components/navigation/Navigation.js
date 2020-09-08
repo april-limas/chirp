@@ -19,6 +19,12 @@ export const Navigation = () => (
         path="/profiles/:username"
         component={Newsfeed}
       />
+      <ConnectedRoute
+        exact
+        isProtected
+        path="/profile"
+        component={ProfileScreen}
+      />
       <ConnectedRoute path="*" component={NotFoundScreen} />
     </Switch>
   </BrowserRouter>

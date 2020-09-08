@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { actions } from '../../redux/actions/users';
+import { DisableAccount } from "../disable-account";
 
 
 export const Profile = () => {
@@ -29,6 +30,8 @@ export const Profile = () => {
                     <p>Account Updated: {data.user.updatedAt}</p>
 
                 </>}
+            
+            <DisableAccount />
 
         </>
     );
