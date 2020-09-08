@@ -88,6 +88,16 @@ class API {
     }
   }
 
+  async deleteAccount(username) {
+    try {
+      const result = await this.axiosInstance.delete(`/users/${username}`);
+      return result;
+    } catch (err) {
+      helpMeInstructor(err);
+      throw err;
+    }
+  }
+
   async likeMessage(messageId) {
     try {
       const result = await this.axiosInstance.post("/likes",

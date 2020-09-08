@@ -26,7 +26,7 @@ export const MessageList = () => {
     {messageList && 
       <>
      <ul>
-      {messageList.messages.map(item=>(
+      {messageList.messages.map(item=>( // fixed 
         <MessageItem item= {item} key={item.id}/>
         ))}
     </ul> 
