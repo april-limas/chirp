@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux"
 import { actions } from '../../redux/actions/users';
 import { actions as authActions } from '../../redux/actions/auth';
 
-export const DisableAccount = () => {
+export const DeleteAccount = () => {
 
     const dispatch = useDispatch()
 
@@ -14,7 +14,7 @@ export const DisableAccount = () => {
     
     return (
         <>
-            <button onClick={handleDeleteUser}>Disable Account</button>
+            <button onClick={handleDeleteUser}>Delete Account</button>
         </>
     )
 }
