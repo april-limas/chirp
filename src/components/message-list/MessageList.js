@@ -15,7 +15,7 @@ export const MessageList = () => {
   const dispatch = useDispatch()
 
   useEffect(()=>{
-    dispatch(actions.getMessageList(username))
+    dispatch(actions.getMessageList())
     
   }, [])
 
