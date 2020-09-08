@@ -17,9 +17,9 @@ export const LikeButton = ({ messageId }) => {
         dispatch(likeActions.likeMessage(state.id.messageId))
     }
 
-    const likeId = useSelector(state => state.likes.likeId)
+    const id = useSelector(state => state.likes)
     const removeLike = () => {
-        console.log(likeId)
+        console.log(id)
         // dispatch(actions.removeLikeFromMessage(likeId))
     }
     // Do api call to add like object to likes array

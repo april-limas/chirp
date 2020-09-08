@@ -42,10 +42,10 @@ export const messageListFailure = (error) => {
       }
 }
 
-export const addLike = (messadeId) => {
+export const addLike = (likeObj) => {
     return {
         type: ADD_LIKE,
-        payload: messadeId
+        payload: likeObj
     }
 }
 

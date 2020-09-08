@@ -7,29 +7,28 @@ import {
 
 
 const INITIAL_STATE = {
-    id: 0,
-    username: "",
-    messageId: 0,
-    createdAt: "",
+    like: {
+        id: 0,
+        username: "",
+        messageId: 0,
+        createdAt: ""
+    },
     statusCode: 0
 }
 
 export const likesReducer = (state = { INITIAL_STATE }, action) => {
     switch (action.type) {
         case ADD_LIKE:
-            const { id, username, messageId, createdAt, statusCode } = action.payload
+            const { statusCode, like } = action.payload
             return {
                 ...INITIAL_STATE,
-                id,
-                username,
-                messageId,
-                createdAt,
-                statusCode
+                like: {
+                    ...like
+                }
             };
         case REMOVE_LIKE:
             return {
                 ...INITIAL_STATE,
-                id,
                 statusCode
             }
         default:
