@@ -98,7 +98,7 @@ class API {
     }
   }
 
-  async likeMessage(messageId) {
+  async addLike(messageId) {
     try {
       const result = await this.axiosInstance.post("/likes",
       {messageId

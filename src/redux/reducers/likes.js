@@ -11,24 +11,26 @@ const INITIAL_STATE = {
     username: "",
     messageId: 0,
     createdAt: "",
-    likeId: 0
+    statusCode: 0
 }
 
 export const likesReducer = (state = { INITIAL_STATE }, action) => {
     switch (action.type) {
         case ADD_LIKE:
-            const { id, username, messageId, createdAt } = action.payload
+            const { id, username, messageId, createdAt, statusCode } = action.payload
             return {
                 ...INITIAL_STATE,
                 id,
                 username,
                 messageId,
-                createdAt
+                createdAt,
+                statusCode
             };
         case REMOVE_LIKE:
             return {
                 ...INITIAL_STATE,
-                
+                id,
+                statusCode
             }
         default:
             return state;
