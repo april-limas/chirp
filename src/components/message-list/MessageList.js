@@ -7,33 +7,25 @@ import { MessageItem } from '../message-item';
 
 
 export const MessageList = () => {
-  const {username, messageList} = useSelector(state => ({
-    username: state.auth.username,
-    messageList: state.addMessage.messageList
-  }))
+  const { messageList } = useSelector(state => {
+    return {
+      messageList: state.addMessage.messageList
+    }
+  })
 
   const dispatch = useDispatch()
 
-  useEffect(()=>{
-    dispatch(actions.getMessageList(username))
-    
-  }, [])
-
-
+  useEffect(()=> {
+    dispatch(actions.getMessageList())
+  }, []);
 
   return (
-    <>
-    {messageList && 
-      <>
-     <ul>
-      {messageList.messages.map(item=>(
-        <MessageItem item= {item} key={item.id}/>
+    <ul>
+      {messageList.map(item=>(
+        <MessageItem item={item} key={item.id}/>
         ))}
-    </ul> 
-        </>
+    </ul>
+    )
 }
-      </>
-  )
-  }
 
 

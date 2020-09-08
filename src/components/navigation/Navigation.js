@@ -1,8 +1,14 @@
 import React from "react";
 import { BrowserRouter, Switch } from "react-router-dom";
-import { HomeScreen, NotFoundScreen, ProfileScreen } from "../../screens";
+<<<<<<< HEAD
+import { HomeScreen, NotFoundScreen, ProfileScreen, SearchUser } from "../../screens";
+=======
+import { HomeScreen, ProfileScreen, NotFoundScreen, SearchUser } from "../../screens";
+>>>>>>> master
 import { ConnectedRoute } from "../connected-route/ConnectedRoute";
 import { Newsfeed } from "../../screens/Newsfeed";
+import { UserInfo } from "../user-info";
+import { LookUpUser } from "../look-up-user";
 
 export const Navigation = () => (
   <BrowserRouter>
@@ -29,7 +35,13 @@ export const Navigation = () => (
         exact
         isProtected
         path="/followers"
-        component={ProfileScreen}
+        component={FollowersPage}
+      />
+      <ConnectedRoute
+        exact
+        isProtected
+        path="/search"
+        component={SearchUser}
       />
       <ConnectedRoute path="*" component={NotFoundScreen} />
     </Switch>

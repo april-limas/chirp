@@ -16,6 +16,7 @@ export const Menu = () => {
           <>
             <Link to="/profile">Profile</Link>
             <Link to="/followers">Followers</Link>
+            <Link to="/search">Search User</Link>
             <Link to="/" onClick={logout}>
               Logout
             </Link>
