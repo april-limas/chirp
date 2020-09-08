@@ -43,19 +43,18 @@ export const postMessage = (message) => async (dispatch, getState) => {
     try {
       dispatch(postMessageRequest());
       const payload = await api.addMessage(message)
-      // ℹ️ℹ️This is how you woud debug the response to a requestℹ️ℹ️
       dispatch(postMessageSuccess(payload));
     } catch (err) {
       dispatch(postMessageFailure(err.message));
     }
   }
 
-export const getMessageList = (username) => async (dispatch, getState) => {
+export const getMessageList = () => async (dispatch, getState) => {
     try {
       dispatch(postMessageRequest());
-      const payload = await api.getMessageList(username)
-      // ℹ️ℹ️This is how you woud debug the response to a requestℹ️ℹ️
-      dispatch(messageListSuccess(payload));
+      const payload = await api.getMessageList()
+      console.log({payload})
+      dispatch(messageListSuccess(payload.messages));
     } catch (err) {
       dispatch(messageListFailure(err.message));
     }
