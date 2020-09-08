@@ -4,7 +4,7 @@ import { LoginFormContainer, MenuContainer } from "../components";
 export const HomeScreen = () => (
   <>
     <MenuContainer />
-    <h2>Your favorite microblogging platform</h2>
+    <h2>Kwitter</h2>
     <LoginFormContainer />
   </>
 );
