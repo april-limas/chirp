@@ -7,3 +7,4 @@ export * from "./message-list";
 export * from './profile';
 export * from "./add-a-message"
 export * from "./look-up-user"
+export * from "./user-info"

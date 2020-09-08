@@ -5,6 +5,7 @@ export const GET_USER_SUCCESS = 'GET_USER_SUCCESS';
 export const GET_USER_FAILURE = 'GET_USER_FAILURE';
 export const DELETE_USER_SUCCESS = 'DELETE_USER_SUCCESS';
 export const DELETE_USER_FAILURE = 'DELETE_USER_FAILURE'
+export const REMOVE_USER_DISPLAY = 'REMOVE_USER_DISPLAY'
 
 export const getUserRequest = () => {
     return {
@@ -39,10 +40,17 @@ export const deleteUserFailure = (err) => {
     }
 }
 
+export const removeUserDisplay = () => {
+    return {
+        type: REMOVE_USER_DISPLAY,
+    }
+}
+
 const getUserInfo = () => async (dispatch, getState) => {
     try {
         dispatch(getUserRequest());
         const payload = await api.profile(getState().auth.username);
+        console.log(getState().auth.username)
         dispatch(getUserSuccess(payload));
     } catch (err) {
         dispatch(getUserFailure(err.message));
@@ -63,4 +71,6 @@ const disableUserAccount = (username) => async (dispatch, getState) => {
 
 export const actions = { 
     getUserInfo, 
-    disableUserAccount }
+    disableUserAccount, 
+    removeUserDisplay
+ }

@@ -1,13 +1,24 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux"
-import { actions } from "../../redux/actions/users"
+import { actions, removeUserDisplay} from "../../redux/actions/users"
+import { UserInfo } from "../user-info";
+import { Link } from "react-router-dom";
+
+
 
 export const LookUpUser = () => {
-    const { username, setUsername } = useState("")
+    const [ username, setUsername ] = useState("")
 
-    const { data } = useSelector(state => state.users.data)
+    const { user } = useSelector(state => state.users.data)
 
     const dispatch = useDispatch()
+
+    useEffect(() => {
+        setUsername("")
+        return (
+            dispatch(removeUserDisplay())
+        )
+    }, [])
 
     const handleChange = (e) => {
         setUsername(e.target.value)
@@ -25,7 +36,7 @@ export const LookUpUser = () => {
             <input type="text" value={username} onChange={handleChange} placeholder="Username"/>
             <button type="submit">Look Up User</button>
         </form>
-        {/* { data.user && <p>{data.user.displayName}</p>} */}
+        { user && <UserInfo user={user} /> }
         </>
     )
 }

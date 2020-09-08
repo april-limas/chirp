@@ -2,8 +2,7 @@ import {
     GET_USER_REQUEST,
     GET_USER_SUCCESS,
     GET_USER_FAILURE,
-    DELETE_USER_SUCCESS,
-    DELETE_USER_FAILURE
+    REMOVE_USER_DISPLAY
 } from '../actions';
 
 const INITIAL_STATE = {
@@ -31,11 +30,11 @@ export const userReducer = (state = { ...INITIAL_STATE }, action) => {
                 userError: action.payload,
                 userLoading: false,
             };
-        // case DELETE_USER_SUCCESS:
-        //     return {
-        //         ...INITIAL_STATE,
-
-        //     }
+        case REMOVE_USER_DISPLAY:
+            return {
+                ...INITIAL_STATE,
+                data: []
+            }
         default:
             return state;
     }
