@@ -4,7 +4,6 @@ import { actions } from '../../redux/actions/users';
 import { DeleteAccount } from "../delete-account";
 
 
-
 export const Profile = () => {
 
     const { data, username } = useSelector(state => ({
@@ -21,7 +20,9 @@ export const Profile = () => {
 
     return (
         <>
+            <br/>
             <h2>Profile</h2>
+            <br/>
             <p>Username: {username}</p>
             {
                 data.user &&
@@ -31,9 +32,8 @@ export const Profile = () => {
                     <p>Account Updated: {data.user.updatedAt}</p>
 
                 </>}
-            
+            <br/>
             <DeleteAccount />
-
         </>
     );
 }

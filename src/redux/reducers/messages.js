@@ -9,7 +9,7 @@ import {
 const INITIAL_STATE = {
     messageLoading: false,
     message: "",
-    error: "",
+    messageError: "",
     messageList: []
 }
 
@@ -24,29 +24,25 @@ export const messageReducer = (state = INITIAL_STATE, action) => {
             return {
                 ...state,
                 messageLoading: false,
-                message: action.payload,
-                error: ""
+                message: action.payload
             }
         case POST_MESSAGE_FAILURE:
             return {
                 ...state,
                 messageLoading: false,
-                message: "",
-                error: action.payload
+                messageError: action.payload
             }
         case MESSAGE_LIST_SUCCESS:
-            
-        return {
+            return {
                 ...state,
                 messageLoading: false,
-                messageList: action.payload,
-                error: ""
+                messageList: action.payload
             }
         case MESSAGE_LIST_FAILURE:
             return {
                 ...state,
                 messageLoading: false,
-                error: action.payload
+                messageError: action.payload
             }
         default:
             return state

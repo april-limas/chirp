@@ -4,7 +4,7 @@ import { actions } from "../../redux/actions/messages"
 import { Loader } from "../loader"
 
 export const AddMessage = () => {
-    const [text, setText ] = useState("")
+    const [ text, setText ] = useState("")
     const messageLoading = useSelector(state => state.message.messageLoading)
 
     const dispatch = useDispatch()

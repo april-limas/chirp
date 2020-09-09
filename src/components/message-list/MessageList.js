@@ -4,8 +4,6 @@ import { actions } from '../../redux/actions/messages';
 import { MessageItem } from '../message-item';
 
 
-
-
 export const MessageList = () => {
   const { messageList } = useSelector(state => {
     return {
@@ -15,14 +13,14 @@ export const MessageList = () => {
 
   const dispatch = useDispatch()
 
-  useEffect(()=> {
+  useEffect(() => {
     dispatch(actions.getMessageList())
   }, []);
 
   return (
     <ul>
-      {messageList.map(item=>(
-        <MessageItem item={item} key={item.id}/>
+      {messageList.map(item => (
+        <MessageItem item={item} key={item.id} />
         ))}
     </ul>
     )

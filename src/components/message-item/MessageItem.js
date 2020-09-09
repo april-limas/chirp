@@ -1,5 +1,5 @@
 import React from 'react';
-import { link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
 export const MessageItem = ({item}) => {
@@ -7,7 +7,7 @@ export const MessageItem = ({item}) => {
       <>
         <br />
         <li>{item.username} posted on {item.createdAt.toString()}</li>
-        <li>{item.text}</li>
+        <li><Link>{item.text}</Link></li>
         <br />
         <br />
       </>

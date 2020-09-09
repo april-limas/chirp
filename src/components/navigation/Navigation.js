@@ -1,10 +1,7 @@
 import React from "react";
 import { BrowserRouter, Switch } from "react-router-dom";
-import { HomeScreen, ProfileScreen, NotFoundScreen, SearchUser } from "../../screens";
+import { HomeScreen, Newsfeed, ProfileScreen, FollowersPage,NotFoundScreen, SearchUser } from "../../screens";
 import { ConnectedRoute } from "../connected-route/ConnectedRoute";
-import { Newsfeed } from "../../screens/Newsfeed";
-import { FollowersPage } from "../../screens/FollowersPage"
-
 
 
 export const Navigation = () => (
