@@ -60,7 +60,6 @@ export const removeLike = (likeId) => {
 export const likeMessage = (messageId) => async (dispatch, getState) => {
   try {
     const payload = await api.addLike(messageId)
-    // ℹ️ℹ️This is how you woud debug the response to a requestℹ️ℹ️
     dispatch(addLike(payload));
   } finally {
     dispatch({type: LIKED})
