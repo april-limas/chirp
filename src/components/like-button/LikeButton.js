@@ -4,29 +4,36 @@ import { actions } from '../../redux/actions/auth';
 import { likesReducer } from '../../redux/reducers/likes';
 import { actions as likeActions } from '../../redux/actions/messages';
 
-export const LikeButton = ({ messageId }) => {
+export const LikeButton = ({ messageId, message }) => {
     const [state, setState] = useState({
         id: messageId
     })
     
-    // Do api call to get message using message id
+    
     const dispatch = useDispatch()
     
     const addLike = () => {
+        console.log(message)
+        let userNotFound = true
+        message.message.likes.map((like)=>{
+            if (like.username === state.auth.username) {
+                dispatch(actions.removeLikeFromMessage(like.id))
+                userNotFound = false
+            }
+        })
+        if (userNotFound) {
+            dispatch(likeActions.likeMessage(state.id.messageId))
+        }
         console.log(state.id.messageId)
-        dispatch(likeActions.likeMessage(state.id.messageId))
+        
     }
 
     const id = useSelector(state => state.likes)
     const removeLike = () => {
         console.log(id)
-        // dispatch(actions.removeLikeFromMessage(likeId))
+        
     }
-    // Do api call to add like object to likes array
-    // Update number of likes and display on page
-    // save like id in local state
-    // Toggle like from on to off using like id
-    // Toggle function also updates local state of lide id
+   
     const showMessageId = () => {
         console.log(state.id.messageId)
     }
