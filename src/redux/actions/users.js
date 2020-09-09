@@ -57,7 +57,7 @@ const getUserInfo = () => async (dispatch, getState) => {
     }
 };
 
-const disableUserAccount = (username) => async (dispatch, getState) => {
+const deleteUserAccount = (username) => async (dispatch, getState) => {
     try {
         dispatch(getUserRequest());
         const payload = await api.deleteAccount(username);
@@ -71,6 +71,6 @@ const disableUserAccount = (username) => async (dispatch, getState) => {
 
 export const actions = { 
     getUserInfo, 
-    disableUserAccount, 
+    deleteUserAccount, 
     removeUserDisplay
  }

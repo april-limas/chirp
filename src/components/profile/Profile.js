@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { actions } from '../../redux/actions/users';
-import { DeleteAccount } from "../disable-account";
+import { DeleteAccount } from "../delete-account";
 
 
 
