@@ -1,8 +1,8 @@
 import React from "react";
 import { BrowserRouter, Switch } from "react-router-dom";
-import { HomeScreen, ProfileScreen, NotFoundScreen } from "../../screens";
+import { HomeScreen, Newsfeed, ProfileScreen, FollowersPage,NotFoundScreen, SearchUser } from "../../screens";
 import { ConnectedRoute } from "../connected-route/ConnectedRoute";
-import { Newsfeed } from "../../screens/Newsfeed";
+
 
 export const Navigation = () => (
   <BrowserRouter>
@@ -24,6 +24,18 @@ export const Navigation = () => (
         isProtected
         path="/profile"
         component={ProfileScreen}
+      />
+      <ConnectedRoute
+        exact
+        isProtected
+        path="/followers"
+        component={FollowersPage}
+      />
+      <ConnectedRoute
+        exact
+        isProtected
+        path="/search"
+        component={SearchUser}
       />
       <ConnectedRoute path="*" component={NotFoundScreen} />
     </Switch>
