@@ -1,5 +1,5 @@
 import { 
-    POST_MESSAGE_REQUEST, 
+    MESSAGE_REQUEST, 
     POST_MESSAGE_SUCCESS, 
     POST_MESSAGE_FAILURE, 
     MESSAGE_LIST_SUCCESS, 
@@ -15,7 +15,7 @@ const INITIAL_STATE = {
 
 export const messageReducer = (state = INITIAL_STATE, action) => {
     switch (action.type) {
-        case POST_MESSAGE_REQUEST:
+        case MESSAGE_REQUEST:
             return {
                 ...state,
                 messageLoading: true
