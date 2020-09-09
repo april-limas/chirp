@@ -1,6 +1,6 @@
 import api from "../../utils/api";
 
-export const POST_MESSAGE_REQUEST = "POST_MESSAGE_REQUEST"
+export const MESSAGE_REQUEST = "MESSAGE_REQUEST"
 export const POST_MESSAGE_SUCCESS = "POST_MESSAGE_SUCCESS"
 export const POST_MESSAGE_FAILURE = "POST_MESSAGE_FAILURE"
 export const MESSAGE_LIST_SUCCESS = "MESSAGE_LIST_SUCCESS"
@@ -10,9 +10,9 @@ export const LIKED = 'LIKED'
 export const REMOVE_LIKE = 'REMOVE_LIKE'
 export const LIKE_REMOVED = 'LIKE_REMOVED'
 
-export const postMessageRequest = () => {
+export const messageRequest = () => {
     return {
-        type: POST_MESSAGE_REQUEST
+        type: MESSAGE_REQUEST
     }
 }
 
@@ -79,11 +79,10 @@ export const removeLikeFromMessage = (likeId) => async (dispatch, getState) => {
 
 export const postMessage = (message) => async (dispatch, getState) => {
     try {
-      dispatch(postMessageRequest());
+      dispatch(messageRequest());
       const payload = await api.addMessage(message)
       dispatch(postMessageSuccess(payload));
-      const newPayload = await api.getMessageList()
-      dispatch(messageListSuccess(newPayload))
+      dispatch(getMessageList())
     } catch (err) {
       dispatch(postMessageFailure(err.message));
     }
@@ -91,7 +90,7 @@ export const postMessage = (message) => async (dispatch, getState) => {
 
 export const getMessageList = () => async (dispatch, getState) => {
     try {
-      dispatch(postMessageRequest());
+      dispatch(messageRequest());
       const payload = await api.getMessageList()
       console.log({payload})
       dispatch(messageListSuccess(payload.messages));
