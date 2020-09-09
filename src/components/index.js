@@ -8,3 +8,4 @@ export * from './profile';
 export * from "./add-message"
 export * from "./look-up-user"
 export * from "./user-info"
+export * from "./user-info-link"

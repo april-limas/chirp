@@ -1,12 +1,23 @@
 import React from "react"
-import { MenuContainer } from "../menu"
+import { useSelector } from "react-redux"
 
-export const UserInfoLink = ({user}) => {
+
+export const UserInfoLink = () => {
+    const { user } = useSelector(state => state.users.data)
     return (
         <>
-            <MenuContainer />
             <br/>
-            <p>User</p>
+            <h2>User Info</h2>
+            <br/>
+            {user && 
+                <>
+                    <p>Display Name: {user.displayName}</p>
+                    <p>Username: {user.username}</p>
+                    <p>About the User: {user.about}</p>
+                    <p>Created Account: {user.createdAt}</p>
+                    <p>Last Account Update: {user.updatedAt}</p>
+                </>
+            }
         </>
     )
 }
