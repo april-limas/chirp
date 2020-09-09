@@ -1,6 +1,7 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { actions } from '../../redux/actions/users';
 
 
 //just a list of followers or also following? Unfollow and follow buttons?
@@ -9,21 +10,22 @@ import { Link } from 'react-router-dom';
 //so follower.id and followed.id?
 
 export const Followers = () => {
+        const {usersList} = useSelector(state=>state.users.usersList)
+        const dispatch = useDispatch()
+
+        useEffect(()=> {
+          dispatch(actions.getFollowers())
+        },[]) 
 
         
-        const followers = useSelector(selectAllFollowers)
-
-        const renderedFollowers = followers.map((followers) => (
-          <li key={followers.id}>
-            <Link to={`/users/${user.id}`}>{user.name}</Link>
-          </li>
-        ))
       
         return (
-          <section>
+        <>
             <h2>Followers</h2>
       
-            <ul>{renderedFollowers}</ul>
-          </section>
+            <ul>
+              JSON.stringify(usersList)
+            </ul>
+          </>
         )
       }
