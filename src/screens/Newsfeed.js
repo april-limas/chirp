@@ -1,14 +1,13 @@
 import React from "react"
-import { AddMessage, MenuContainer } from "../components"
+import { AddMessage, MenuContainer, MessageList } from "../components"
 
 
-
-export const Newsfeed = () => {
-    return (
-        <>
-            <MenuContainer />
-            <AddMessage />
-        
-        </>
-    )
-}
+export const Newsfeed = () => (
+    <>
+        <MenuContainer />
+        <br/>
+        <AddMessage />
+        <br/>
+        <MessageList />
+    </>
+)

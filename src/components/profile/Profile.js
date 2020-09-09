@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { actions } from '../../redux/actions/users';
+import { DeleteAccount } from "../delete-account";
 
 
 export const Profile = () => {
@@ -11,8 +12,6 @@ export const Profile = () => {
     }
     ));
 
-    
-
     const dispatch = useDispatch()
 
     useEffect(() => {
@@ -21,7 +20,9 @@ export const Profile = () => {
 
     return (
         <>
+            <br/>
             <h2>Profile</h2>
+            <br/>
             <p>Username: {username}</p>
             {
                 data.user &&
@@ -31,7 +32,8 @@ export const Profile = () => {
                     <p>Account Updated: {data.user.updatedAt}</p>
 
                 </>}
-
+            <br/>
+            <DeleteAccount />
         </>
     );
 }

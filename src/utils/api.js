@@ -69,15 +69,34 @@ class API {
   async addMessage(text) {
     try {
       const result = await this.axiosInstance.post("/messages",
-        {text
-        });
+      {text
+      });
       return result;
     } catch (err) {
-        helpMeInstructor(err);
+      helpMeInstructor(err);
+      throw err;
+    }
+  }
+  
+  async getMessageList() {
+    try {
+      const result = await this.axiosInstance.get(`/messages?limit=100&offset=0`);
+      return result;
+    } catch (err) {
+      helpMeInstructor(err);
       throw err;
     }
   }
 
+  async deleteAccount(username) {
+    try {
+      const result = await this.axiosInstance.delete(`/users/${username}`);
+      return result;
+    } catch (err) {
+      helpMeInstructor(err);
+      throw err;
+    }
+  }
 }
 
 
