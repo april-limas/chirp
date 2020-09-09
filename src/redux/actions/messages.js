@@ -54,7 +54,6 @@ export const getMessageList = () => async (dispatch, getState) => {
     try {
       dispatch(messageRequest());
       const payload = await api.getMessageList()
-      console.log({payload})
       dispatch(messageListSuccess(payload.messages));
     } catch (err) {
       dispatch(messageListFailure(err.message));

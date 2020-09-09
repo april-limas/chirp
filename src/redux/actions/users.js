@@ -50,7 +50,7 @@ const getUserInfo = () => async (dispatch, getState) => {
     try {
         dispatch(userRequest());
         const payload = await api.profile(getState().auth.username);
-        console.log(getState().auth.username)
+        console.log(payload)
         dispatch(getUserSuccess(payload));
     } catch (err) {
         dispatch(getUserFailure(err.message));
@@ -68,8 +68,20 @@ const deleteUserAccount = (username) => async (dispatch, getState) => {
     }
 };
 
+const getUserLinkInfo = (username) => async (dispatch, getState) => {
+    try {
+        dispatch(userRequest());
+        const payload = await api.profile(username);
+        console.log(payload)
+        dispatch(getUserSuccess(payload));
+    } catch (err) {
+        dispatch(getUserFailure(err.message));
+    }
+};
+
 export const actions = { 
     getUserInfo, 
     deleteUserAccount, 
-    removeUserDisplay
+    removeUserDisplay,
+    getUserLinkInfo
  }
