@@ -6,9 +6,9 @@ import { Link } from 'react-router-dom';
 //just a list of followers or also following? Unfollow and follow buttons?
 //pull from list of users or just link to each profile?
 //some dummy code added until I figure out exactly where things are coming from
+//so follower.id and followed.id?
 
-
-export const FollowersList = () => {
+export const Followers = () => {
 
         
         const followers = useSelector(selectAllFollowers)
