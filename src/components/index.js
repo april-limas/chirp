@@ -5,6 +5,6 @@ export * from "./navigation";
 export * from "./disable-account";
 export * from "./message-list";
 export * from './profile';
-export * from "./add-a-message"
+export * from "./add-message"
 export * from "./look-up-user"
 export * from "./user-info"

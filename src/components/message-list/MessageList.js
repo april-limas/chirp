@@ -9,7 +9,7 @@ import { MessageItem } from '../message-item';
 export const MessageList = () => {
   const { messageList } = useSelector(state => {
     return {
-      messageList: state.addMessage.messageList
+      messageList: state.message.messageList
     }
   })
 

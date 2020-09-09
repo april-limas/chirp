@@ -13,7 +13,7 @@ const INITIAL_STATE = {
     messageList: []
 }
 
-export const addMessageReducer = (state = INITIAL_STATE, action) => {
+export const messageReducer = (state = INITIAL_STATE, action) => {
     switch (action.type) {
         case POST_MESSAGE_REQUEST:
             return {
