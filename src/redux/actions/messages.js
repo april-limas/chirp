@@ -44,6 +44,7 @@ export const postMessage = (message) => async (dispatch, getState) => {
       dispatch(messageRequest());
       const payload = await api.addMessage(message)
       dispatch(postMessageSuccess(payload));
+      dispatch(getMessageList())
     } catch (err) {
       dispatch(postMessageFailure(err.message));
     }

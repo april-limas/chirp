@@ -9,14 +9,12 @@ export const AddMessage = () => {
 
     const dispatch = useDispatch()
 
-    const handleChange = (e) => (
-            setText(e.target.value)
-    )
+    const handleChange = (e) => setText(e.target.value)
+    
 
     const handleAddMessage = (event) => {
         event.preventDefault()
         dispatch(actions.postMessage(text))
-        dispatch(actions.getMessageList())
         setText("")
     }
 
