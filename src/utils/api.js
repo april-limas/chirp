@@ -80,7 +80,17 @@ class API {
   
   async getMessageList() {
     try {
-      const result = await this.axiosInstance.get('/messages?limit=100&offset=0');
+      const result = await this.axiosInstance.get(`/messages?limit=100&offset=0`);
+      return result;
+    } catch (err) {
+      helpMeInstructor(err);
+      throw err;
+    }
+  }
+
+  async deleteAccount(username) {
+    try {
+      const result = await this.axiosInstance.delete(`/users/${username}`);
       return result;
     } catch (err) {
       helpMeInstructor(err);

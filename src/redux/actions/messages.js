@@ -94,8 +94,8 @@ export const getMessageList = () => async (dispatch, getState) => {
     try {
       dispatch(postMessageRequest());
       const payload = await api.getMessageList()
-      // ℹ️ℹ️This is how you woud debug the response to a requestℹ️ℹ️
-      dispatch(messageListSuccess(payload));
+      console.log({payload})
+      dispatch(messageListSuccess(payload.messages));
     } catch (err) {
       dispatch(messageListFailure(err.message));
     }

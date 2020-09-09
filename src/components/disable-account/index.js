@@ -1,1 +1,1 @@
-export * from "./DisableAccount"
+export * from "./DeleteAccount"
