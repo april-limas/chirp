@@ -1,5 +1,5 @@
 import {
-    GET_USER_REQUEST,
+    USER_REQUEST,
     GET_USER_SUCCESS,
     GET_USER_FAILURE,
     REMOVE_USER_DISPLAY
@@ -8,27 +8,27 @@ import {
 const INITIAL_STATE = {
     data: [],
     userLoading: false,
-    userError: "",
+    userError: ""
 };
 
 export const userReducer = (state = { ...INITIAL_STATE }, action) => {
     switch (action.type) {
-        case GET_USER_REQUEST:
+        case USER_REQUEST:
             return {
                 ...INITIAL_STATE,
-                userLoading: true,
+                userLoading: true
             };
         case GET_USER_SUCCESS:
             return {
                 ...INITIAL_STATE,
                 data: action.payload,
-                userLoading: false,
+                userLoading: false
             };
         case GET_USER_FAILURE:
             return {
                 ...INITIAL_STATE,
                 userError: action.payload,
-                userLoading: false,
+                userLoading: false
             };
         case REMOVE_USER_DISPLAY:
             return {
