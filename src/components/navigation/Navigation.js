@@ -3,8 +3,9 @@ import { BrowserRouter, Switch } from "react-router-dom";
 import { HomeScreen, ProfileScreen, NotFoundScreen, SearchUser } from "../../screens";
 import { ConnectedRoute } from "../connected-route/ConnectedRoute";
 import { Newsfeed } from "../../screens/Newsfeed";
-import { UserInfo } from "../user-info";
-import { LookUpUser } from "../look-up-user";
+import { FollowersPage } from "../../screens/FollowersPage"
+
+
 
 export const Navigation = () => (
   <BrowserRouter>
@@ -30,15 +31,15 @@ export const Navigation = () => (
       <ConnectedRoute
         exact
         isProtected
+        path="/followers"
+        component={FollowersPage}
+      />
+      <ConnectedRoute
+        exact
+        isProtected
         path="/search"
         component={SearchUser}
       />
-      {/* <ConnectedRoute
-        exact
-        isProtected
-        path="/followers"
-        component={Followers}
-      /> */}
       <ConnectedRoute path="*" component={NotFoundScreen} />
     </Switch>
   </BrowserRouter>
