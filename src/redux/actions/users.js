@@ -50,7 +50,6 @@ const getUserInfo = () => async (dispatch, getState) => {
     try {
         dispatch(userRequest());
         const payload = await api.profile(getState().auth.username);
-        console.log(getState().auth.username)
         dispatch(getUserSuccess(payload));
     } catch (err) {
         dispatch(getUserFailure(err.message));
