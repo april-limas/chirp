@@ -5,3 +5,4 @@ export * from "./Newsfeed";
 export * from "./SearchUser";
 export * from "./FollowersPage"
 export * from "./UserLinkDisplay"
+export * from "./MessageLinkDisplay"

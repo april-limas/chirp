@@ -72,7 +72,6 @@ const getUserLinkInfo = (username) => async (dispatch, getState) => {
     try {
         dispatch(userRequest());
         const payload = await api.profile(username);
-        console.log(payload)
         dispatch(getUserSuccess(payload));
     } catch (err) {
         dispatch(getUserFailure(err.message));
