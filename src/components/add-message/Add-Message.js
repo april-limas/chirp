@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import { useSelector, useDispatch } from "react-redux";
 import { actions } from "../../redux/actions/messages"
+import { Loader } from "../loader"
 
 export const AddMessage = () => {
     const [text, setText ] = useState("")
@@ -24,7 +25,7 @@ export const AddMessage = () => {
                 <input type="text" value={text} onChange={handleOnChange} placeholder="New Message"></input>
                 <button type="submit">Post New Message</button>
             </form>
-            { messageLoading && <h1>LOADING...</h1> }
+            { messageLoading && <Loader /> }
         </>
     )
 }
