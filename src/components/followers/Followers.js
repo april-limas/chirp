@@ -10,7 +10,7 @@ import { actions } from '../../redux/actions/users';
 //so follower.id and followed.id?
 
 export const Followers = () => {
-        const {usersList} = useSelector(state=>state.users.usersList)
+        const {usersList} = useSelector(state=>state.users.users)
         const dispatch = useDispatch()
 
         useEffect(()=> {
