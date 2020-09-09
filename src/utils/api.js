@@ -58,7 +58,7 @@ class API {
     }
   }
 
-  async getUserProfileInfo( username ) {
+  async profile( username ) {
     try {
       const result = await this.axiosInstance.get(`/users/${username}`);
       return result;

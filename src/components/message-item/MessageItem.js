@@ -12,7 +12,7 @@ export const MessageItem = ({item}) => {
       <>
         <br />
         <li>{item.username} posted on {item.createdAt.toString()}</li>
-        <li><Link>{item.text}</Link></li>
+        <li><Link to='/'>{item.text}</Link></li>
         <br />
         <br />
       </>
