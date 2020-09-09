@@ -10,7 +10,12 @@ import { actions } from '../../redux/actions/users';
 //so follower.id and followed.id?
 
 export const Followers = () => {
-        const {usersList} = useSelector(state=>state.users.usersList)
+  const { data } = useSelector(state => ({
+    data: state.users.usersList.users
+}
+));
+
+        console.log(data)
         const dispatch = useDispatch()
 
         useEffect(()=> {
@@ -22,10 +27,15 @@ export const Followers = () => {
         return (
         <>
             <h2>Followers</h2>
-      
+
             <ul>
-              JSON.stringify(usersList)
+                {data && data.map(item => (
+                <li>{item.displayName}</li>
+                ))}
             </ul>
+            
+      
+           
           </>
         )
       }
