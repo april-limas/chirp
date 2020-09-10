@@ -32,7 +32,8 @@ export const Profile = () => {
                     <p>Account Created: {userInfo.user.createdAt}</p>
                     <p>Account Updated: {userInfo.user.updatedAt}</p>
 
-                </>}
+                </>
+            }
             <br/>
             { userLoading && <Loader /> }
         </>
