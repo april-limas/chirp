@@ -5,47 +5,31 @@ import { likesReducer } from '../../redux/reducers/likes';
 import { actions as likeActions } from '../../redux/actions/messages';
 
 export const LikeButton = ({ messageId, message }) => {
-    const [state, setState] = useState({
-        id: messageId
-    })
     
-    
+    const user = useSelector(state => state.auth.username)
+
+    // Do api call to get message using message id
     const dispatch = useDispatch()
-    
-    const addLike = () => {
+
+    const handleLike = () => {
+        let userFound = false
         console.log(message)
-        let userNotFound = true
-        message.message.likes.map((like)=>{
-            if (like.username === state.auth.username) {
-                dispatch(actions.removeLikeFromMessage(like.id))
-                userNotFound = false
+        message.message.likes.map((like) => {
+            if (like.username === user) {
+                dispatch(likeActions.removeLikeFromMessage(like.id))
+                userFound = true
             }
         })
-        if (userNotFound) {
-            dispatch(likeActions.likeMessage(state.id.messageId))
+        if (userFound === false) {
+            console.log(message.message.id)
+            dispatch(likeActions.likeMessage(message.message.id))
         }
-        console.log(state.id.messageId)
-        
     }
 
-    const id = useSelector(state => state.likes)
-    const removeLike = () => {
-        console.log(id)
-        
-    }
-   
-    const showMessageId = () => {
-        console.log(state.id.messageId)
-    }
 
-  
-    
-
-    
     return (
         <>
-            <button onClick={addLike}>Like</button>
-            <button onClick={removeLike}>Remove Like</button>
+            <button onClick={handleLike}>Like</button>
         </>
     )
 }

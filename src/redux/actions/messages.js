@@ -72,6 +72,7 @@ export const removeLikeError = (err) => {
 
 export const likeMessage = (messageId) => async (dispatch, getState) => {
   try {
+    console.log(messageId)
     await api.addLike(messageId)
     const payload = await api.getMessageList()
     dispatch(messageListSuccess(payload.messages));
@@ -82,7 +83,7 @@ export const likeMessage = (messageId) => async (dispatch, getState) => {
 
 export const removeLikeFromMessage = (likeId) => async (dispatch, getState) => {
   try {
-    await api.removeLike(likeId)
+    await api.removeLike(likeId);
     const payload = await api.getMessageList()
     dispatch(messageListSuccess(payload.messages));
   } catch (err) {
