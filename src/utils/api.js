@@ -115,6 +115,28 @@ class API {
         {
           messageId
         });
+      } catch (err) {
+        helpMeInstructor(err);
+      }
+    }
+
+  async messageLinkInfo(messageId) {
+    try {
+      const result = await this.axiosInstance.get(`/messages/${messageId}`);
+      return result;
+    } catch (err) {
+      helpMeInstructor(err);
+    }
+  }
+
+  async editProfile({ username, password, about, displayName }) {
+    try {
+      const result = await this.axiosInstance.patch(`/users/${username}`, {
+        password,
+        about,
+        displayName
+      });
+      console.log(result)
       return result;
     } catch (err) {
       helpMeInstructor(err);
@@ -127,6 +149,19 @@ class API {
       const result = await this.axiosInstance.delete(`/likes/${likeId}`,
         {
           likeId
+        });
+    } catch (err) {
+      helpMeInstructor(err);
+    }
+  }
+  
+  async signUpRequest({ username, displayName, password }) {
+    try {
+      const result = await this.axiosInstance.post("/users",
+        {
+          username,
+          displayName,
+          password
         });
       return result;
     } catch (err) {
@@ -148,6 +183,8 @@ class API {
   }
 
 }
+
+
 
 
 // WARNING.. do not touch below this line if you want to have a good day =]
