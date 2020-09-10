@@ -9,7 +9,7 @@ export const FollowersItem = ({ user }) => {
   const dispatch = useDispatch()
   
   const handleUserLink = (event) => {
-    dispatch(actions.getUserLinkInfo(user.username))
+    dispatch(actions.getUserInfo(user.username))
   }
 
   return (

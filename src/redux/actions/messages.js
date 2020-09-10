@@ -5,6 +5,10 @@ export const POST_MESSAGE_SUCCESS = "POST_MESSAGE_SUCCESS"
 export const POST_MESSAGE_FAILURE = "POST_MESSAGE_FAILURE"
 export const MESSAGE_LIST_SUCCESS = "MESSAGE_LIST_SUCCESS"
 export const MESSAGE_LIST_FAILURE = "MESSAGE_LIST_FAILURE"
+export const ADD_LIKE = "ADD_LIKE"
+export const REMOVE_LIKE_ERROR = 'REMOVE_LIKE_ERRO'
+export const REMOVE_LIKE = 'REMOVE_LIKE'
+export const ADD_LIKE_ERROR = 'ADD_LIKE_ERROR'
 
 export const messageRequest = () => {
     return {
@@ -36,8 +40,56 @@ export const messageListFailure = (error) => {
         type: MESSAGE_LIST_FAILURE,
         payload: error
       }
-
 }
+
+export const addLike = (likeObj) => {
+    return {
+        type: ADD_LIKE,
+        payload: likeObj
+    }
+}
+
+export const removeLike = (likeId) => {
+    return {
+        type: REMOVE_LIKE,
+        payload: likeId
+    }
+}
+
+export const addLikeError = (err) => {
+  return {
+    type: ADD_LIKE_ERROR,
+    payload: err
+  }
+}
+
+export const removeLikeError = (err) => {
+  return {
+    type: REMOVE_LIKE_ERROR,
+    pauload: err
+  }
+}
+
+export const likeMessage = (messageId) => async (dispatch, getState) => {
+  try {
+    await api.addLike(messageId)
+    const payload = await api.getMessageList()
+    dispatch(messageListSuccess(payload.messages));
+  } catch (err) {
+    dispatch(addLikeError)
+  }
+}
+
+export const removeLikeFromMessage = (likeId) => async (dispatch, getState) => {
+  try {
+    await api.removeLike(likeId);
+    const payload = await api.getMessageList()
+    dispatch(messageListSuccess(payload.messages));
+  } catch (err) {
+    dispatch(removeLikeError)
+  }
+}
+
 
 export const postMessage = (message) => async (dispatch, getState) => {
     try {
@@ -73,5 +125,7 @@ export const getMessageList = () => async (dispatch, getState) => {
   export const actions = {
     postMessage,
     getMessageList,
+    likeMessage,
+    removeLikeFromMessage,
     getMessageLinkInfo
   }
