@@ -159,7 +159,6 @@ class API {
         about,
         displayName
       });
-      console.log(result)
       return result;
     } catch (err) {
       helpMeInstructor(err);

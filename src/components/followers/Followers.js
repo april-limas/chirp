@@ -15,7 +15,6 @@ export const Followers = () => {
 
   useEffect(() => {
     dispatch(actions.getFollowers());
-    console.log(data)
   }, []);
 
   return (

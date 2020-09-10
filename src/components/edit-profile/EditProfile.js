@@ -3,18 +3,20 @@ import { useSelector, useDispatch } from "react-redux"
 import { actions } from "../../redux/actions/users";
 
 export const EditProfile = () => {
-    const [ state, setState ] = useState({
-        username: "",
-        password: "",
-        about: "",
-        displayName: ""
-    })
-
     const { userInfo, username } = useSelector(state => ({
         username: state.auth.username,
         userInfo: state.users.userInfo
     }
     ));
+
+    const [ state, setState ] = useState({
+        username: username,
+        password: "",
+        about: "",
+        displayName: ""
+    })
+
+    
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -33,45 +35,34 @@ export const EditProfile = () => {
     return (
         <>
             <form onSubmit={handleSubmit}>
-                <label htmlFor="username">Username</label>
+                <label htmlFor="password">Password</label>
                 <div>
                     <input
                         type="text"
-                        name="username"
-                        value={state.username}
-                        placeholder={username}
-                        autoFocus
-                        onChange={handleChange}
-                    />
-                </div>
-                <label htmlFor="username">Password</label>
-                <div>
-                    <input
-                        type="text"
-                        name="username"
+                        name="password"
                         value={state.password}
                         autoFocus
                         onChange={handleChange}
                     />
                 </div>
-                <label htmlFor="username">Display Name</label>
+                <label htmlFor="displayName">Display Name</label>
                 <div>
                     <input
                         type="text"
-                        name="username"
+                        name="displayName"
                         value={state.displayName}
-                        placeholder={userInfo.user.displayName}
+                        // placeholder={userInfo.user.displayName}
                         autoFocus
                         onChange={handleChange}
                     />
                 </div>
-                <label htmlFor="username">About</label>
+                <label htmlFor="about">About</label>
                 <div>
                     <input
                         type="text"
-                        name="username"
+                        name="about"
                         value={state.about}
-                        placeholder={userInfo.user.about}
+                        // placeholder={userInfo.user.about}
                         autoFocus
                         onChange={handleChange}
                     />

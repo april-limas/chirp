@@ -98,7 +98,6 @@ const editUserProfile = (state) => async (dispatch, getState) => {
     try {
         dispatch(userRequest());
         const payload = await api.editProfile(state);
-        console.log(payload)
         dispatch(getUserSuccess(payload));
     } catch (err) {
         dispatch(getUserFailure(err.message));
