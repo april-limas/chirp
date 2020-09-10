@@ -98,16 +98,17 @@ class API {
     }
   }
 
-  async messageLinkInfo( messageId ) {
-    try {
-      const result = await this.axiosInstance.get(`/messages/${messageId}`);
-      return result;
-    } catch (err) {
-      helpMeInstructor(err);
-    }
-  } 
-}
 
+async getFollowersList() {
+  try {
+    const result = await this.axiosInstance.get("/users?limit=100&offset=0");
+    return result;
+  } catch (err) {
+    helpMeInstructor(err);
+    throw err;
+  }
+}
+}
 
 
 // WARNING.. do not touch below this line if you want to have a good day =]

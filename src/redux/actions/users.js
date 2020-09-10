@@ -6,6 +6,8 @@ export const GET_USER_FAILURE = 'GET_USER_FAILURE';
 export const DELETE_USER_SUCCESS = 'DELETE_USER_SUCCESS';
 export const DELETE_USER_FAILURE = 'DELETE_USER_FAILURE'
 export const REMOVE_USER_DISPLAY = 'REMOVE_USER_DISPLAY'
+export const GET_FOLLOWERS_SUCCESS = 'GET_FOLLOWERS_SUCCESS'
+export const GET_FOLLOWERS_FAILURE = 'GET_FOLLOWERS_FAILURE'
 
 export const userRequest = () => {
     return {
@@ -46,11 +48,25 @@ export const removeUserDisplay = () => {
     }
 }
 
+export const getFollowersSuccess = (followers) => {
+    return {
+        type: GET_FOLLOWERS_SUCCESS,
+        payload: followers
+    }
+}
+
+export const getFollowersFailure = (err) => {
+    return {
+        type: GET_FOLLOWERS_FAILURE,
+        payload: err
+    }
+}
+
+
 const getUserInfo = () => async (dispatch, getState) => {
     try {
         dispatch(userRequest());
         const payload = await api.profile(getState().auth.username);
-        console.log(payload)
         dispatch(getUserSuccess(payload));
     } catch (err) {
         dispatch(getUserFailure(err.message));
@@ -68,6 +84,16 @@ const deleteUserAccount = (username) => async (dispatch, getState) => {
     }
 };
 
+const getFollowers = () => async (dispatch, getState) => {
+    try {
+        dispatch(userRequest());
+        const payload = await api.getFollowersList();
+        dispatch(getFollowersSuccess(payload));
+    } catch (err) {
+        dispatch(getFollowersFailure(err.message));
+    }
+}
+      
 const getUserLinkInfo = (username) => async (dispatch, getState) => {
     try {
         dispatch(userRequest());
@@ -82,5 +108,6 @@ export const actions = {
     getUserInfo, 
     deleteUserAccount, 
     removeUserDisplay,
+    getFollowers,
     getUserLinkInfo
  }
