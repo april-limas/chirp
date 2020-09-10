@@ -33,7 +33,7 @@ export const Profile = () => {
 
                 </>}
             <br/>
-            <DeleteAccount />
+            
         </>
     );
 }
