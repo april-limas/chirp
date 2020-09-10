@@ -10,7 +10,7 @@ export const MessageItem = ({item}) => {
   const dispatch = useDispatch()
 
   const handleUserLink = (event) => {
-    dispatch(actions.getUserLinkInfo(item.username))
+    dispatch(actions.getUserInfo(item.username))
   }
 
   const handleMessageLink = (event) => {

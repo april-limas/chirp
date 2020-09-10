@@ -64,7 +64,6 @@ export const getMessageList = () => async (dispatch, getState) => {
     try {
       dispatch(messageRequest());
       const payload = await api.messageLinkInfo(messageId)
-      console.log({payload})
       dispatch(postMessageSuccess(payload));
     } catch (err) {
       dispatch(postMessageFailure(err.message));

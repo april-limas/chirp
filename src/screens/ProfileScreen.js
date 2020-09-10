@@ -14,7 +14,6 @@ export const ProfileScreen = () => {
     <Profile />
     <Link to="/edit-profile"><p>Edit Profile</p></Link>
     <br />
-    <br />
     <div>
       <DeleteAccount />
     </div>

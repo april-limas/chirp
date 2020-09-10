@@ -15,6 +15,7 @@ export const DeleteAccount = () => {
     return (
         <>
             <button onClick={handleDeleteUser}>Delete Account</button>
+            
         </>
     )
 }

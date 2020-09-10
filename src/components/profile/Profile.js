@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { actions } from '../../redux/actions/users';
 import { DeleteAccount } from "../delete-account";
-
+import { Loader } from "../loader"
 
 export const Profile = () => {
 
@@ -11,6 +11,8 @@ export const Profile = () => {
         data: state.users.data
     }
     ));
+
+    const userLoading = useSelector(state => state.users.userLoading)
 
     const dispatch = useDispatch()
 
@@ -33,7 +35,7 @@ export const Profile = () => {
 
                 </>}
             <br/>
-            
+            { userLoading && <Loader /> }
         </>
     );
 }
