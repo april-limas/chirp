@@ -100,6 +100,30 @@ class API {
     }
   }
 
+  async messageLinkInfo( messageId ) {
+    try {
+      const result = await this.axiosInstance.get(`/messages/${messageId}`);
+      return result;
+    } catch (err) {
+      helpMeInstructor(err);
+    }
+  } 
+
+  async editProfile({ username, password, about, displayName }) {
+    try {
+      const result = await this.axiosInstance.patch(`/users/${username}`, {
+        password,
+        about,
+        displayName
+      });
+      console.log(result)
+      return result;
+    } catch (err) {
+      helpMeInstructor(err);
+      throw err;
+    }
+  }
+
   async deleteAccount(username) {
     try {
       const result = await this.axiosInstance.delete(`/users/${username}`);
@@ -137,7 +161,6 @@ class API {
         about,
         displayName
       });
-      console.log(result)
       return result;
     } catch (err) {
       helpMeInstructor(err);

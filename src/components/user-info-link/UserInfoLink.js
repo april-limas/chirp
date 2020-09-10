@@ -3,7 +3,7 @@ import { useSelector } from "react-redux"
 
 
 export const UserInfoLink = () => {
-    const { user } = useSelector(state => state.users.data)
+    const { user } = useSelector(state => state.users.userInfo)
     return (
         <>
             <br/>
