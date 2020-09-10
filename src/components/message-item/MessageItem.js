@@ -17,7 +17,6 @@ export const MessageItem = ({item}) => {
     dispatch(messageActions.getMessageLinkInfo(item.id))
     
   }
-
   
     return (
       <>
