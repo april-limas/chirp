@@ -1,7 +1,7 @@
 import React, { useState }  from "react"
 import { useSelector, useDispatch } from "react-redux"
 import { actions } from "../../redux/actions/users";
-import { Loader } from "../loader"
+
 
 export const EditProfile = () => {
     const { userInfo, username, userLoading } = useSelector(state => ({
