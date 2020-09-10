@@ -8,7 +8,7 @@ import { Loader } from "../loader"
 export const LookUpUser = () => {
     const [ username, setUsername ] = useState("")
 
-    const { user } = useSelector(state => state.users.data)
+    const { user } = useSelector(state => state.users.userInfo)
     const userLoading = useSelector(state => state.users.userLoading)
 
     const dispatch = useDispatch()

@@ -15,10 +15,10 @@ export const userRequest = () => {
     }
 }
 
-export const getUserSuccess = (data) => {
+export const getUserSuccess = (user) => {
     return {
         type: GET_USER_SUCCESS,
-        payload: data
+        payload: user
     }
 }
 export const getUserFailure = (err) => {
@@ -94,9 +94,21 @@ const getFollowers = () => async (dispatch, getState) => {
     }
 }
 
+const editUserProfile = (state) => async (dispatch, getState) => {
+    try {
+        dispatch(userRequest());
+        const payload = await api.editProfile(state);
+        console.log(payload)
+        dispatch(getUserSuccess(payload));
+    } catch (err) {
+        dispatch(getUserFailure(err.message));
+    }
+}
+
 export const actions = { 
     getUserInfo, 
     deleteUserAccount, 
     removeUserDisplay,
-    getFollowers
+    getFollowers,
+    editUserProfile
  }
