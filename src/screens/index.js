@@ -6,4 +6,5 @@ export * from "./SearchUser";
 export * from "./FollowersPage"
 export * from "./UserLinkDisplay"
 export * from "./MessageLinkDisplay"
+export * from "./EditProfileScreen"
 export * from "./SignUpForm"

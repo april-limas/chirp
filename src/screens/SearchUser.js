@@ -4,8 +4,8 @@ import { MenuContainer, LookUpUser } from "../components"
 export const SearchUser = () => (
     <>
         <MenuContainer />
-        <br/>
-        <br/>
+        <br />
+        <br />
         <LookUpUser />
     </>
 )

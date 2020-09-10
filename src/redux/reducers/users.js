@@ -8,10 +8,10 @@ import {
 } from '../actions';
 
 const INITIAL_STATE = {
-    data: [],
+    userInfo: [],
     userLoading: false,
     userError: "",
-    usersList: []
+    usersList: []   
 };
 
 export const userReducer = (state = { ...INITIAL_STATE }, action) => {
@@ -24,7 +24,7 @@ export const userReducer = (state = { ...INITIAL_STATE }, action) => {
         case GET_USER_SUCCESS:
             return {
                 ...INITIAL_STATE,
-                data: action.payload,
+                userInfo: action.payload,
                 userLoading: false
             };
         case GET_USER_FAILURE:
@@ -36,7 +36,7 @@ export const userReducer = (state = { ...INITIAL_STATE }, action) => {
         case REMOVE_USER_DISPLAY:
             return {
                 ...INITIAL_STATE,
-                data: []
+                userInfo: []
             };
         case GET_FOLLOWERS_SUCCESS:
             return {

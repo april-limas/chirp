@@ -1,14 +1,13 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { actions } from '../../redux/actions/users';
-import { DeleteAccount } from "../delete-account";
 import { Loader } from "../loader"
 
 export const Profile = () => {
 
-    const { data, username } = useSelector(state => ({
+    const { userInfo, username } = useSelector(state => ({
         username: state.auth.username,
-        data: state.users.data
+        userInfo: state.users.userInfo
     }
     ));
 
@@ -27,16 +26,16 @@ export const Profile = () => {
             <br/>
             <p>Username: {username}</p>
             {
-                data.user &&
+                userInfo.user &&
                 <>
-                    <p>Display Name: {data.user.displayName}</p>
-                    <p>About Me: {data.user.about}</p>
-                    <p>Account Created: {data.user.createdAt}</p>
-                    <p>Account Updated: {data.user.updatedAt}</p>
+                    <p>Display Name: {userInfo.user.displayName}</p>
+                    <p>About Me: {userInfo.user.about}</p>
+                    <p>Account Created: {userInfo.user.createdAt}</p>
+                    <p>Account Updated: {userInfo.user.updatedAt}</p>
 
-                </>}
+                </>
+            }
             <br/>
-            <DeleteAccount />
             { userLoading && <Loader /> }
         </>
     );
