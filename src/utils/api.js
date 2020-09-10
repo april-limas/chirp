@@ -66,6 +66,7 @@ class API {
       helpMeInstructor(err);
     }
   } 
+
   async addMessage(text) {
     try {
       const result = await this.axiosInstance.post("/messages",
@@ -98,7 +99,6 @@ class API {
     }
   }
 
-
 async getFollowersList() {
   try {
     const result = await this.axiosInstance.get("/users?limit=100&offset=0");
@@ -108,6 +108,21 @@ async getFollowersList() {
     throw err;
   }
 }
+
+async signUpRequest({ username, displayName, password }) {
+    try {
+      const result = await this.axiosInstance.post("/users",
+      { username,
+        displayName,
+        password
+      });
+      return result;
+    } catch (err) {
+      helpMeInstructor(err);
+      throw err;
+    }
+  }
+
 }
 
 

@@ -94,9 +94,20 @@ const getFollowers = () => async (dispatch, getState) => {
     }
 }
 
+const userSignUp = (credentials) => async (dispatch, getState) => {
+    try {
+        dispatch(userRequest());
+        const payload = await api.signUpRequest(credentials);
+        dispatch(getUserSuccess(payload));
+    } catch (err) {
+        dispatch(getUserFailure(err.message));
+    }
+}
+
 export const actions = { 
     getUserInfo, 
     deleteUserAccount, 
     removeUserDisplay,
-    getFollowers
+    getFollowers, 
+    userSignUp
  }
