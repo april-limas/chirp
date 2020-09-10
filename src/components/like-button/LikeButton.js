@@ -27,7 +27,6 @@ export const LikeButton = ({ messageId, message }) => {
 
     const handleLike = () => {
         let userFound = false
-        console.log(message)
         message.message.likes.map((like) => {
             if (like.username === user) {
                 dispatch(likeActions.removeLikeFromMessage(like.id))
@@ -35,17 +34,17 @@ export const LikeButton = ({ messageId, message }) => {
             }
         })
         if (userFound === false) {
-            console.log(message.message.id)
             dispatch(likeActions.likeMessage(message.message.id))
         }
-        console.log(isLiked)
     }
 
-
+    const messageIsLiked = isLiked
 
     return (
         <>
-            <button onClick={handleLike}>Like</button>
+            {messageIsLiked
+            ? <button onClick={handleLike}>Unlike</button>
+            : <button onClick={handleLike}>Like</button>}
         </>
     )
 }

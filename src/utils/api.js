@@ -113,7 +113,6 @@ class API {
       const result = await this.axiosInstance.post("/likes",
       {messageId
       });
-      console.log(result)
       return result;
     } catch (err) {
       helpMeInstructor(err);
@@ -124,7 +123,6 @@ class API {
   async removeLike(likeId) {
     try {
       const result = await this.axiosInstance.delete(`/likes/${likeId}`);
-      console.log(result)
       return result;
     } catch (err) {
       helpMeInstructor(err);

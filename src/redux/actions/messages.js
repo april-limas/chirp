@@ -72,7 +72,6 @@ export const removeLikeError = (err) => {
 
 export const likeMessage = (messageId) => async (dispatch, getState) => {
   try {
-    console.log(messageId)
     await api.addLike(messageId)
     const payload = await api.getMessageList()
     dispatch(messageListSuccess(payload.messages));
