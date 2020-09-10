@@ -65,7 +65,8 @@ class API {
     } catch (err) {
       helpMeInstructor(err);
     }
-  }
+  } 
+
   async addMessage(text) {
     try {
       const result = await this.axiosInstance.post("/messages",
@@ -109,7 +110,7 @@ class API {
     }
   }
 
-  async likeMessage(messageId) {
+  async addLike(messageId) {
     try {
       const result = await this.axiosInstance.post("/likes",
         {
@@ -175,6 +176,27 @@ class API {
   async getFollowersList() {
     try {
       const result = await this.axiosInstance.get("/users?limit=100&offset=0");
+      return result;
+    } catch (err) {
+      helpMeInstructor(err);
+      throw err;
+    }
+  }
+
+  async getMessage(messageId) {
+    try {
+      console.log(messageId)
+      const result = await this.axiosInstance.get(`/messages/${messageId}`);
+      console.log(result)
+    } catch (err) {
+      helpMeInstructor(err);
+      throw err;
+    }
+  }
+
+  async getFollowersList() {
+    try {
+      const result = await this.axiosInstance.get(`/users?limit=100&offset=0`);
       return result;
     } catch (err) {
       helpMeInstructor(err);

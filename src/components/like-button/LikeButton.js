@@ -1,42 +1,50 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from "react-redux";
 import { actions } from '../../redux/actions/auth';
 import { likesReducer } from '../../redux/reducers/likes';
+import { actions as likeActions } from '../../redux/actions/messages';
 
-export const LikeButton = ({ messageId }) => {
-    const [state, setState] = useState({
-        id: messageId
-    })
+export const LikeButton = ({ messageId, message }) => {
     
-    // Do api call to get message using message id
+    const user = useSelector(state => state.auth.username)
+
+    const [isLiked, setIsLiked] = useState()
+
     const dispatch = useDispatch()
-    
-    const addLike = (state) => {
 
-        dispatch(actions.likeMessage(state.id.messageId))
+    useEffect(() => {
+        let userLiked = false
+        message.message.likes.map((like)=>{
+            if (like.username === user){
+                setIsLiked(true)
+                userLiked = true
+            }
+        })
+        if (userLiked === false) {
+            setIsLiked(false)
+        }
+    })
+
+    const handleLike = () => {
+        let userFound = false
+        message.message.likes.map((like) => {
+            if (like.username === user) {
+                dispatch(likeActions.removeLikeFromMessage(like.id))
+                userFound = true
+            }
+        })
+        if (userFound === false) {
+            dispatch(likeActions.likeMessage(message.message.id))
+        }
     }
 
-    const likeId = useSelector(state => state.likes.likeId)
-    const removeLike = (state) => {
+    const messageIsLiked = isLiked
 
-        dispatch(actions.removeLikeFromMessage(likeId))
-    }
-    // Do api call to add like object to likes array
-    // Update number of likes and display on page
-    // save like id in local state
-    // Toggle like from on to off using like id
-    // Toggle function also updates local state of lide id
-    const showMessageId = () => {
-        console.log(state.id.messageId)
-    }
-
-
-    
-
-    
     return (
         <>
-            <button onClick={showMessageId}>Like</button>
+            {messageIsLiked
+            ? <button onClick={handleLike}>Unlike</button>
+            : <button onClick={handleLike}>Like</button>}
         </>
     )
 }
