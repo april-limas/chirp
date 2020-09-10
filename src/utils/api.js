@@ -66,7 +66,6 @@ class API {
       helpMeInstructor(err);
     }
   } 
-
   async addMessage(text) {
     try {
       const result = await this.axiosInstance.post("/messages",
@@ -99,17 +98,31 @@ class API {
     }
   }
 
-async getFollowersList() {
-  try {
-    const result = await this.axiosInstance.get("/users?limit=100&offset=0");
-    return result;
-  } catch (err) {
-    helpMeInstructor(err);
-    throw err;
-  }
-}
+  async messageLinkInfo( messageId ) {
+    try {
+      const result = await this.axiosInstance.get(`/messages/${messageId}`);
+      return result;
+    } catch (err) {
+      helpMeInstructor(err);
+    }
+  } 
 
-async signUpRequest({ username, displayName, password }) {
+  async editProfile({ username, password, about, displayName }) {
+    try {
+      const result = await this.axiosInstance.patch(`/users/${username}`, {
+        password,
+        about,
+        displayName
+      });
+      console.log(result)
+      return result;
+    } catch (err) {
+      helpMeInstructor(err);
+      throw err;
+    }
+  }
+
+  async signUpRequest({ username, displayName, password }) {
     try {
       const result = await this.axiosInstance.post("/users",
       { username,
@@ -122,8 +135,9 @@ async signUpRequest({ username, displayName, password }) {
       throw err;
     }
   }
-
+  
 }
+
 
 
 // WARNING.. do not touch below this line if you want to have a good day =]
