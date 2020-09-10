@@ -66,8 +66,7 @@ export const getFollowersFailure = (err) => {
 const getUserInfo = (username) => async (dispatch, getState) => {
     try {
         dispatch(userRequest());
-        const payload = await api.profile(getState().auth.username);
-        console.log(payload)
+        const payload = await api.profile(username);
         dispatch(getUserSuccess(payload));
     } catch (err) {
         dispatch(getUserFailure(err.message));

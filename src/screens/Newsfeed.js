@@ -1,6 +1,6 @@
 import React from "react"
 import { AddMessage, MenuContainer, MessageList } from "../components";
-import {LikeButton} from '../components/like-button';
+
 
 
 export const Newsfeed = () => (
@@ -10,5 +10,6 @@ export const Newsfeed = () => (
         <AddMessage />
         <br/>
         <MessageList />
+       
     </>
 )
