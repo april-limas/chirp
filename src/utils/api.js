@@ -58,7 +58,7 @@ class API {
     }
   }
 
-  async profile( username ) {
+  async profile(username) {
     try {
       const result = await this.axiosInstance.get(`/users/${username}`);
       return result;
@@ -70,15 +70,16 @@ class API {
   async addMessage(text) {
     try {
       const result = await this.axiosInstance.post("/messages",
-      {text
-      });
+        {
+          text
+        });
       return result;
     } catch (err) {
       helpMeInstructor(err);
       throw err;
     }
   }
-  
+
   async getMessageList() {
     try {
       const result = await this.axiosInstance.get(`/messages?limit=100&offset=0`);
@@ -136,21 +137,22 @@ class API {
   async addLike(messageId) {
     try {
       const result = await this.axiosInstance.post("/likes",
-      {messageId
-      });
-    } catch (err) {
-      helpMeInstructor(err);
+        {
+          messageId
+        });
+      } catch (err) {
+        helpMeInstructor(err);
+      }
     }
-  }
 
-  async messageLinkInfo( messageId ) {
+  async messageLinkInfo(messageId) {
     try {
       const result = await this.axiosInstance.get(`/messages/${messageId}`);
       return result;
     } catch (err) {
       helpMeInstructor(err);
     }
-  } 
+  }
 
   async editProfile({ username, password, about, displayName }) {
     try {
@@ -168,7 +170,24 @@ class API {
 
   async removeLike(likeId) {
     try {
-      const result = await this.axiosInstance.delete(`/likes/${likeId}`);
+      const result = await this.axiosInstance.delete(`/likes/${likeId}`,
+        {
+          likeId
+        });
+    } catch (err) {
+      helpMeInstructor(err);
+    }
+  }
+  
+  async signUpRequest({ username, displayName, password }) {
+    try {
+      const result = await this.axiosInstance.post("/users",
+        {
+          username,
+          displayName,
+          password
+        });
+      return result;
     } catch (err) {
       helpMeInstructor(err);
       throw err;
@@ -176,13 +195,10 @@ class API {
   }
 
 
-  async signUpRequest({ username, displayName, password }) {
+
+  async getFollowersList() {
     try {
-      const result = await this.axiosInstance.post("/users",
-      { username,
-        displayName,
-        password
-      });
+      const result = await this.axiosInstance.get("/users?limit=100&offset=0");
       return result;
     } catch (err) {
       helpMeInstructor(err);
@@ -211,7 +227,18 @@ class API {
     }
   }
 
+  async deleteMessage(messageId) {
+    try {
+      const result = await this.axiosInstance.delete(`/messages/${messageId}`);
+      return result;
+    } catch (err) {
+      helpMeInstructor(err);
+      throw err;
+    }
+  }
+
 }
+
 
 
 

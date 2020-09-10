@@ -5,7 +5,7 @@ import { likesReducer } from '../../redux/reducers/likes';
 import { actions as likeActions } from '../../redux/actions/messages';
 
 export const LikeButton = ({ messageId, message }) => {
-    
+
     const user = useSelector(state => state.auth.username)
 
     const [isLiked, setIsLiked] = useState()
@@ -14,8 +14,8 @@ export const LikeButton = ({ messageId, message }) => {
 
     useEffect(() => {
         let userLiked = false
-        message.message.likes.map((like)=>{
-            if (like.username === user){
+        message.message.likes.map((like) => {
+            if (like.username === user) {
                 setIsLiked(true)
                 userLiked = true
             }
@@ -42,9 +42,11 @@ export const LikeButton = ({ messageId, message }) => {
 
     return (
         <>
+            Likes: {message.message.likes.length}
+            <br/>
             {messageIsLiked
-            ? <button onClick={handleLike}>Unlike</button>
-            : <button onClick={handleLike}>Like</button>}
+                ? <button onClick={handleLike}>Unlike</button>
+                : <button onClick={handleLike}>Like</button>}
         </>
     )
 }
