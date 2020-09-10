@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux"
-import { actions, removeUserDisplay} from "../../redux/actions/users"
+import { actions} from "../../redux/actions/users"
 import { UserInfo } from "../user-info";
 import { Loader } from "../loader"
 
