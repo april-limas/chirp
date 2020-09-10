@@ -24,9 +24,25 @@ export const LookUpUser = () => {
 
     return (
         <>
+            <h2>Look Up User</h2>
+            <br />
             <form onSubmit={handleSubmit}>
-                <input type="text" value={username} onChange={handleChange} placeholder="Username"/>
-                <button type="submit" onClick={() => setToggle(true)}>Look Up User</button>
+                <label htmlFor="username">Username</label>
+                <div>
+                    <input 
+                        type="text" 
+                        value={username} 
+                        onChange={handleChange} 
+                    />
+                </div>
+                <br />
+                <div>
+                    <button 
+                        type="submit" 
+                        onClick={() => setToggle(true)}>
+                            Look Up User
+                    </button>
+                </div>
             </form>
             { toggle && user && <UserInfo user={user} /> }
             { userLoading && <Loader /> }
