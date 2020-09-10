@@ -2,14 +2,14 @@ import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux"
 import { actions, removeUserDisplay} from "../../redux/actions/users"
 import { UserInfo } from "../user-info";
-
-
+import { Loader } from "../loader"
 
 
 export const LookUpUser = () => {
     const [ username, setUsername ] = useState("")
 
     const { user } = useSelector(state => state.users.data)
+    const userLoading = useSelector(state => state.users.userLoading)
 
     const dispatch = useDispatch()
 
@@ -34,6 +34,7 @@ export const LookUpUser = () => {
                 <button type="submit">Look Up User</button>
             </form>
             { user && <UserInfo user={user} /> }
+            { userLoading && <Loader /> }
         </>
     )
 }

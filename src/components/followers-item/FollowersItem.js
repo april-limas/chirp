@@ -5,9 +5,8 @@ import { actions } from '../../redux/actions/users';
 
 
 export const FollowersItem = ({ user }) => {
-
   
-  const dispatch=useDispatch()
+  const dispatch = useDispatch()
   
   const handleUserLink = (event) => {
     dispatch(actions.getUserLinkInfo(user.username))

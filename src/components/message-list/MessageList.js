@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from 'react-redux';
 import { actions } from '../../redux/actions/messages';
 import { MessageItem } from '../message-item';
+import { Loader } from "../loader"
 
 
 export const MessageList = () => {
@@ -11,6 +12,8 @@ export const MessageList = () => {
     }
   })
 
+  const messageLoading = useSelector(state => state.message.messageLoading)
+
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -18,10 +21,13 @@ export const MessageList = () => {
   }, []);
 
   return (
-    <ul>
-      {messageList.map(item => (
-        <MessageItem item={item} key={item.id} />
-        ))}
-    </ul>
+    <>
+      <ul>
+        {messageList.map(item => (
+          <MessageItem item={item} key={item.id} />
+          ))}
+      </ul>
+      { messageLoading && <Loader /> }
+    </>
     )
 }
