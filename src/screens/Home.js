@@ -5,9 +5,9 @@ import {Link} from 'react-router-dom';
 export const HomeScreen = () => (
   <>
     <MenuContainer />
-    <br/>
+    <br />
     <h2>Kwitter</h2>
-    <br/>
+    <br />
     <LoginFormContainer />
     <Link to="/">Sign-Up Today and join our community!</Link>
 

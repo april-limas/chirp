@@ -9,7 +9,7 @@ export const LookUpUser = () => {
     const [ username, setUsername ] = useState("")
     const [ toggle, setToggle ] = useState(false)
 
-    const { user } = useSelector(state => state.users.data)
+    const { user } = useSelector(state => state.users.userInfo)
     const userLoading = useSelector(state => state.users.userLoading)
 
     const dispatch = useDispatch()
