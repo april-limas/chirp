@@ -30,6 +30,7 @@ export const Profile = () => {
                 data.user &&
                 <>
                     <p>Display Name: {data.user.displayName}</p>
+                    <p>About Me: {data.user.about}</p>
                     <p>Account Created: {data.user.createdAt}</p>
                     <p>Account Updated: {data.user.updatedAt}</p>
 
