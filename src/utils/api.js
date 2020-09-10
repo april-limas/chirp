@@ -66,6 +66,7 @@ class API {
       helpMeInstructor(err);
     }
   } 
+
   async addMessage(text) {
     try {
       const result = await this.axiosInstance.post("/messages",
@@ -113,6 +114,28 @@ class API {
       const result = await this.axiosInstance.post("/likes",
       {messageId
       });
+    } catch (err) {
+      helpMeInstructor(err);
+    }
+  }
+
+  async messageLinkInfo( messageId ) {
+    try {
+      const result = await this.axiosInstance.get(`/messages/${messageId}`);
+      return result;
+    } catch (err) {
+      helpMeInstructor(err);
+    }
+  } 
+
+  async editProfile({ username, password, about, displayName }) {
+    try {
+      const result = await this.axiosInstance.patch(`/users/${username}`, {
+        password,
+        about,
+        displayName
+      });
+      console.log(result)
       return result;
     } catch (err) {
       helpMeInstructor(err);
@@ -123,6 +146,20 @@ class API {
   async removeLike(likeId) {
     try {
       const result = await this.axiosInstance.delete(`/likes/${likeId}`);
+    } catch (err) {
+      helpMeInstructor(err);
+      throw err;
+    }
+  }
+
+
+  async signUpRequest({ username, displayName, password }) {
+    try {
+      const result = await this.axiosInstance.post("/users",
+      { username,
+        displayName,
+        password
+      });
       return result;
     } catch (err) {
       helpMeInstructor(err);
@@ -135,6 +172,15 @@ class API {
       console.log(messageId)
       const result = await this.axiosInstance.get(`/messages/${messageId}`);
       console.log(result)
+    } catch (err) {
+      helpMeInstructor(err);
+      throw err;
+    }
+  }
+
+  async getFollowersList() {
+    try {
+      const result = await this.axiosInstance.get(`/users?limit=100&offset=0`);
       return result;
     } catch (err) {
       helpMeInstructor(err);
