@@ -1,12 +1,16 @@
 import React from "react"
-import { MenuContainer, UserInfoLink } from "../components"
+import { useSelector } from "react-redux"
+import { MenuContainer, UserInfoLink, Loader } from "../components"
 
 
 export const UserLinkDisplay = () => {
+    const userLoading = useSelector(state => state.users.userLoading)
+
     return (
         <>
             <MenuContainer />
             <UserInfoLink />
+            { userLoading && <Loader /> }
         </>
     )
 }

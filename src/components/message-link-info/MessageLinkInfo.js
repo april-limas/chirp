@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 
 
 export const MessageLinkInfo = () => {
-    const {message} = useSelector(state => state.message.message)
+    const { message } = useSelector(state => state.message.message)
     
     return (
         <>
