@@ -38,21 +38,21 @@ export const SignUp = () => {
                         onChange={handleChange}
                     />
                 </div>
-                <label htmlFor="username">Password</label>
+                <label htmlFor="password">Password</label>
                 <div>
                     <input
                         type="text"
-                        name="username"
+                        name="password"
                         value={state.password}
                         autoFocus
                         onChange={handleChange}
                     />
                 </div>
-                <label htmlFor="username">Display Name</label>
+                <label htmlFor="displayName">Display Name</label>
                 <div>
                     <input
                         type="text"
-                        name="username"
+                        name="displayName"
                         value={state.displayName}
                         autoFocus
                         onChange={handleChange}
