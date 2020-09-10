@@ -1,11 +1,13 @@
 import React, { useState }  from "react"
 import { useSelector, useDispatch } from "react-redux"
 import { actions } from "../../redux/actions/users";
+import { Loader } from "../loader"
 
 export const EditProfile = () => {
-    const { userInfo, username } = useSelector(state => ({
+    const { userInfo, username, userLoading } = useSelector(state => ({
         username: state.auth.username,
-        userInfo: state.users.userInfo
+        userInfo: state.users.userInfo,
+        userLoading: state.users.userLoading
     }
     ));
 
@@ -16,12 +18,19 @@ export const EditProfile = () => {
         displayName: ""
     })
 
-    
+    const [ toggle, setToggle ] = useState(false)
 
     const handleSubmit = (event) => {
         event.preventDefault();
         dispatch(actions.editUserProfile(state));
-      };
+        setToggle(true)
+        setState((prevState) => ({
+            ...prevState, 
+            password: "",
+            about: "",
+            displayName: ""
+        }))
+    };
 
     const dispatch = useDispatch()
 
@@ -38,10 +47,11 @@ export const EditProfile = () => {
                 <label htmlFor="password">Password</label>
                 <div>
                     <input
-                        type="text"
+                        type="password"
                         name="password"
                         value={state.password}
                         autoFocus
+                        required
                         onChange={handleChange}
                     />
                 </div>
@@ -51,8 +61,9 @@ export const EditProfile = () => {
                         type="text"
                         name="displayName"
                         value={state.displayName}
-                        // placeholder={userInfo.user.displayName}
+                        placeholder={ userLoading ? null : userInfo.user.displayName}
                         autoFocus
+                        required
                         onChange={handleChange}
                     />
                 </div>
@@ -62,13 +73,17 @@ export const EditProfile = () => {
                         type="text"
                         name="about"
                         value={state.about}
-                        // placeholder={userInfo.user.about}
+                        placeholder={ userLoading ? null : userInfo.user.about}
                         autoFocus
+                        required
                         onChange={handleChange}
                     />
                 </div>
                 <br/>
                 <button type="submit">Submit</button>
+                <br />
+                <br />
+                { toggle && <p>Your profile has been updated.</p>}
             </form>
         </>
     )
