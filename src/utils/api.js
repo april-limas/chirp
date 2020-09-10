@@ -97,6 +97,15 @@ class API {
       throw err;
     }
   }
+
+  async messageLinkInfo( messageId ) {
+    try {
+      const result = await this.axiosInstance.get(`/messages/${messageId}`);
+      return result;
+    } catch (err) {
+      helpMeInstructor(err);
+    }
+  } 
 }
 
 

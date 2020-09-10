@@ -60,7 +60,19 @@ export const getMessageList = () => async (dispatch, getState) => {
     }
   }
 
+  export const getMessageLinkInfo = (messageId) => async (dispatch, getState) => {
+    try {
+      dispatch(messageRequest());
+      const payload = await api.messageLinkInfo(messageId)
+      console.log({payload})
+      dispatch(postMessageSuccess(payload));
+    } catch (err) {
+      dispatch(postMessageFailure(err.message));
+    }
+  }
+
   export const actions = {
     postMessage,
-    getMessageList
+    getMessageList,
+    getMessageLinkInfo
   }
