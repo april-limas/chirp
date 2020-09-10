@@ -135,6 +135,16 @@ class API {
       throw err;
     }
   }
+
+  async getFollowersList() {
+    try {
+      const result = await this.axiosInstance.get(`/users?limit=100&offset=0`);
+      return result;
+    } catch (err) {
+      helpMeInstructor(err);
+      throw err;
+    }
+  }
   
 }
 
