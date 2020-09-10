@@ -43,6 +43,8 @@ export const EditProfile = () => {
 
     return (
         <>
+            <h2>Edit Profile</h2>
+            <br />
             <form onSubmit={handleSubmit}>
                 <label htmlFor="password">Password</label>
                 <div>

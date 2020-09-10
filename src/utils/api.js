@@ -195,7 +195,6 @@ class API {
   }
 
 
-
   async getFollowersList() {
     try {
       const result = await this.axiosInstance.get("/users?limit=100&offset=0");

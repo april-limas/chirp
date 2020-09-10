@@ -1,4 +1,4 @@
-export * from "./Home";
+export * from "./LogInPage";
 export * from "./ProfileScreen";
 export * from "./NotFound";
 export * from "./Newsfeed";

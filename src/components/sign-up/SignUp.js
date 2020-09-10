@@ -1,6 +1,7 @@
 import React, { useState }  from "react"
 import { useSelector, useDispatch } from "react-redux"
 import { actions } from "../../redux/actions/users";
+import { Link } from "react-router-dom"
 
 export const SignUp = () => {
     const [ state, setState ] = useState({
@@ -8,12 +9,15 @@ export const SignUp = () => {
         displayName: "",
         password: "",
     })
+
+    const [ toggle, setToggle ] = useState(false)
     
     const dispatch = useDispatch()
 
     const handleSubmit = (event) => {
         event.preventDefault();
         dispatch(actions.userSignUp(state));
+        setToggle(true)
     };
 
 
@@ -65,6 +69,13 @@ export const SignUp = () => {
                 <br/>
                 <button type="submit">Submit</button>
             </form>
+            <br />
+            { toggle && 
+                <>
+                    <p>Thank you for signing up!</p>
+                    <p>Please click <Link to="/">here</Link> to log in and post your first tweet!</p>
+                </>
+            }   
         </>
     )
 }
