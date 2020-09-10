@@ -58,26 +58,27 @@ class API {
     }
   }
 
-  async profile( username ) {
+  async profile(username) {
     try {
       const result = await this.axiosInstance.get(`/users/${username}`);
       return result;
     } catch (err) {
       helpMeInstructor(err);
     }
-  } 
+  }
   async addMessage(text) {
     try {
       const result = await this.axiosInstance.post("/messages",
-      {text
-      });
+        {
+          text
+        });
       return result;
     } catch (err) {
       helpMeInstructor(err);
       throw err;
     }
   }
-  
+
   async getMessageList() {
     try {
       const result = await this.axiosInstance.get(`/messages?limit=100&offset=0`);
@@ -111,8 +112,9 @@ class API {
   async likeMessage(messageId) {
     try {
       const result = await this.axiosInstance.post("/likes",
-      {messageId
-      });
+        {
+          messageId
+        });
       return result;
     } catch (err) {
       helpMeInstructor(err);
@@ -123,8 +125,21 @@ class API {
   async removeLike(likeId) {
     try {
       const result = await this.axiosInstance.delete(`/likes/${likeId}`,
-      {likeId
-      });
+        {
+          likeId
+        });
+      return result;
+    } catch (err) {
+      helpMeInstructor(err);
+      throw err;
+    }
+  }
+
+
+
+  async getFollowersList() {
+    try {
+      const result = await this.axiosInstance.get("/users?limit=100&offset=0");
       return result;
     } catch (err) {
       helpMeInstructor(err);
@@ -133,7 +148,6 @@ class API {
   }
 
 }
-
 
 
 // WARNING.. do not touch below this line if you want to have a good day =]
