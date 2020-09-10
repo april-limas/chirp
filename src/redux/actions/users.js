@@ -63,10 +63,10 @@ export const getFollowersFailure = (err) => {
 }
 
 
-const getUserInfo = () => async (dispatch, getState) => {
+const getUserInfo = (username) => async (dispatch, getState) => {
     try {
         dispatch(userRequest());
-        const payload = await api.profile(getState().auth.username);
+        const payload = await api.profile(username);
         dispatch(getUserSuccess(payload));
     } catch (err) {
         dispatch(getUserFailure(err.message));
@@ -93,21 +93,10 @@ const getFollowers = () => async (dispatch, getState) => {
         dispatch(getFollowersFailure(err.message));
     }
 }
-      
-const getUserLinkInfo = (username) => async (dispatch, getState) => {
-    try {
-        dispatch(userRequest());
-        const payload = await api.profile(username);
-        dispatch(getUserSuccess(payload));
-    } catch (err) {
-        dispatch(getUserFailure(err.message));
-    }
-};
 
 export const actions = { 
     getUserInfo, 
     deleteUserAccount, 
     removeUserDisplay,
-    getFollowers,
-    getUserLinkInfo
+    getFollowers
  }
