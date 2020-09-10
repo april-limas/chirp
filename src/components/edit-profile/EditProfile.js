@@ -1,9 +1,16 @@
 import React from "react"
+// import { useSelector, useDispatch } from "react-redux"
+
 
 export const EditProfile = () => {
+    
+
     return (
         <>
-            <button>Edit Profile</button>
+            <form>
+                <input type="text"/>
+
+            </form>
         </>
     )
 }

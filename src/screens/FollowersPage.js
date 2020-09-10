@@ -4,7 +4,7 @@ import { MenuContainer } from "../components"
 export const FollowersPage = () => (
     <>
         <MenuContainer />
-        <br/>
+        <br />
         <p>Followers Page</p>
     </>
 )

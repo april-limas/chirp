@@ -1,20 +1,26 @@
 import React from "react";
 import { MenuContainer, Profile, DeleteAccount } from "../components";
-import { EditProfile } from "../components/edit-profile";
+
+import { Link } from "react-router-dom"
 
 
-export const ProfileScreen = () => (
+export const ProfileScreen = () => {
+
+  
+
+  return (
   <>
     <MenuContainer />
     <Profile />
-    <EditProfile />
-    <br/>
-    <br/>
+    <Link to="/edit-profile"><p>Edit Profile</p></Link>
+    <br />
+    <br />
     <div>
       <DeleteAccount />
     </div>
   </>
-)
+)}
+
 
 
 

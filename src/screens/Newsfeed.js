@@ -5,9 +5,9 @@ import { AddMessage, MenuContainer, MessageList } from "../components"
 export const Newsfeed = () => (
     <>
         <MenuContainer />
-        <br/>
+        <br />
         <AddMessage />
-        <br/>
+        <br />
         <MessageList />
     </>
 )
