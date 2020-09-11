@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter, Switch } from "react-router-dom";
-import { HomeScreen, Newsfeed, ProfileScreen, FollowersPage,NotFoundScreen, SearchUser, UserLinkDisplay, MessageLinkDisplay, EditProfileScreen } from "../../screens";
+import { Newsfeed, ProfileScreen, FollowersPage,NotFoundScreen, SearchUser, UserLinkDisplay, MessageLinkDisplay, EditProfileScreen, SignUpForm, LogInPage } from "../../screens";
 import { ConnectedRoute } from "../connected-route/ConnectedRoute";
 
 
@@ -12,7 +12,7 @@ export const Navigation = () => (
         exact
         path="/"
         redirectIfAuthenticated
-        component={HomeScreen}
+        component={LogInPage}
       />
       <ConnectedRoute
         exact
@@ -55,6 +55,11 @@ export const Navigation = () => (
         isProtected
         path="/edit-profile"
         component={EditProfileScreen}
+      />
+      <ConnectedRoute
+        exact
+        path="/sign-up"
+        component={SignUpForm}
       />
       <ConnectedRoute path="*" component={NotFoundScreen} />
     </Switch>

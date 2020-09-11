@@ -1,17 +1,13 @@
 import React from "react";
-import React from  'react';
-import { MenuContainer } from "../components";
+import { MenuContainer, SignUp } from "../components";
 
-const signUpForm = () => {
-    return (
+export const SignUpForm = () => (
+    
         <>
-
             <MenuContainer />
-            <h2>Sign-Up</h2>
+            <SignUp />
             
         </>
-
 )
-};
+    
 
-export default signUpForm;

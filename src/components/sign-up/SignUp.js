@@ -1,38 +1,25 @@
 import React, { useState }  from "react"
 import { useSelector, useDispatch } from "react-redux"
 import { actions } from "../../redux/actions/users";
+import { Link } from "react-router-dom"
 
-
-export const EditProfile = () => {
-    const { userInfo, username, userLoading } = useSelector(state => ({
-        username: state.auth.username,
-        userInfo: state.users.userInfo,
-        userLoading: state.users.userLoading
-    }
-    ));
-
+export const SignUp = () => {
     const [ state, setState ] = useState({
-        username: username,
+        username: "",
+        displayName: "",
         password: "",
-        about: "",
-        displayName: ""
     })
 
     const [ toggle, setToggle ] = useState(false)
+    
+    const dispatch = useDispatch()
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        dispatch(actions.editUserProfile(state));
+        dispatch(actions.userSignUp(state));
         setToggle(true)
-        setState((prevState) => ({
-            ...prevState, 
-            password: "",
-            about: "",
-            displayName: ""
-        }))
     };
 
-    const dispatch = useDispatch()
 
     const handleChange = (event) => {
         const inputName = event.target.name;
@@ -43,9 +30,21 @@ export const EditProfile = () => {
 
     return (
         <>
-            <h2>Edit Profile</h2>
+            <br />
+            <h2>Sign Up</h2>
             <br />
             <form onSubmit={handleSubmit}>
+                <label htmlFor="username">Username</label>
+                <div>
+                    <input
+                        type="text"
+                        name="username"
+                        value={state.username}
+                        autoFocus
+                        required
+                        onChange={handleChange}
+                    />
+                </div>
                 <label htmlFor="password">Password</label>
                 <div>
                     <input
@@ -53,7 +52,7 @@ export const EditProfile = () => {
                         name="password"
                         value={state.password}
                         autoFocus
-                        required
+                        required    
                         onChange={handleChange}
                     />
                 </div>
@@ -63,19 +62,6 @@ export const EditProfile = () => {
                         type="text"
                         name="displayName"
                         value={state.displayName}
-                        placeholder={ userLoading ? null : userInfo.user.displayName}
-                        autoFocus
-                        required
-                        onChange={handleChange}
-                    />
-                </div>
-                <label htmlFor="about">About</label>
-                <div>
-                    <input
-                        type="text"
-                        name="about"
-                        value={state.about}
-                        placeholder={ userLoading ? null : userInfo.user.about}
                         autoFocus
                         required
                         onChange={handleChange}
@@ -83,10 +69,14 @@ export const EditProfile = () => {
                 </div>
                 <br/>
                 <button type="submit">Submit</button>
-                <br />
-                <br />
-                { toggle && <p>Your profile has been updated.</p>}
             </form>
+            <br />
+            { toggle && 
+                <>
+                    <p>Thank you for signing up!</p>
+                    <p>Please click <Link to="/">here</Link> to log in and post your first tweet!</p>
+                </>
+            }   
         </>
     )
 }

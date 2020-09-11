@@ -48,6 +48,7 @@ export const LoginForm = () => {
           required
           onChange={handleChange}
         />
+        <br />
         <button type="submit" disabled={loading}>
           Login
         </button>

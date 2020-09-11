@@ -29,6 +29,7 @@ export const Profile = () => {
                 userInfo.user &&
                 <>
                     <p>Display Name: {userInfo.user.displayName}</p>
+                    <p>About Me: {userInfo.user.about}</p>
                     <p>Account Created: {userInfo.user.createdAt}</p>
                     <p>Account Updated: {userInfo.user.updatedAt}</p>
 
