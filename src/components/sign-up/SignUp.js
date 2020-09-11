@@ -30,6 +30,7 @@ export const SignUp = () => {
 
     return (
         <>
+            <br />
             <h2>Sign Up</h2>
             <br />
             <form onSubmit={handleSubmit}>
