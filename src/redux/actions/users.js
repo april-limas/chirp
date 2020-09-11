@@ -66,7 +66,11 @@ export const getFollowersFailure = (err) => {
 const getUserInfo = (username) => async (dispatch, getState) => {
     try {
         dispatch(userRequest());
-        const payload = await api.profile(username);
+        let payload = await api.profile(username);
+        if (payload === undefined) {
+            payload = []
+            throw new SyntaxError("The username does not exist. Please try again.")
+        }
         dispatch(getUserSuccess(payload));
     } catch (err) {
         dispatch(getUserFailure(err.message));
@@ -77,10 +81,6 @@ const deleteUserAccount = (username) => async (dispatch, getState) => {
     try {
         dispatch(userRequest());
         const payload = await api.deleteAccount(username);
-        if (payload === undefined) {
-            payload === null
-            
-        }
         dispatch(deleteUserSuccess(payload));
     } catch (err) {
         dispatch(deleteUserFailure(err.message));

@@ -11,6 +11,7 @@ export const LookUpUser = () => {
 
     const { user } = useSelector(state => state.users.userInfo)
     const userLoading = useSelector(state => state.users.userLoading)
+    const userError = useSelector(state => state.users.userError)
 
     const dispatch = useDispatch()
 
@@ -45,6 +46,8 @@ export const LookUpUser = () => {
                 </div>
             </form>
             { toggle && user && <UserInfo user={user} /> }
+            <br />
+            { userError && <p>{userError}</p>}
             { userLoading && <Loader /> }
         </>
     )
