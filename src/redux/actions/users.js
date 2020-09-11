@@ -77,7 +77,10 @@ const deleteUserAccount = (username) => async (dispatch, getState) => {
     try {
         dispatch(userRequest());
         const payload = await api.deleteAccount(username);
-        // ℹ️ℹ️This is how you woud debug the response to a requestℹ️ℹ️
+        if (payload === undefined) {
+            payload === null
+            
+        }
         dispatch(deleteUserSuccess(payload));
     } catch (err) {
         dispatch(deleteUserFailure(err.message));
