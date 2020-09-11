@@ -3,8 +3,8 @@ export * from "./ProfileScreen";
 export * from "./NotFound";
 export * from "./Newsfeed";
 export * from "./SearchUser";
-export * from "./FollowersPage"
-export * from "./UserLinkDisplay"
-export * from "./MessageLinkDisplay"
-export * from "./EditProfileScreen"
-export * from "./SignUpForm"
+export * from "./FollowersPage";
+export * from "./UserLinkDisplay";
+export * from "./MessageLinkDisplay";
+export * from "./EditProfileScreen";
+export * from "./SignUpForm";
