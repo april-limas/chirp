@@ -71,10 +71,12 @@ export const SignUp = () => {
                 <button type="submit">Submit</button>
             </form>
             <br />
+            <p>Already registered?</p>
+            <p>Log in <Link to="/">here</Link>.</p>
             { toggle && 
                 <>
                     <p>Thank you for signing up!</p>
-                    <p>Please click <Link to="/">here</Link> to log in and post your first tweet!</p>
+                    <p>Please click <Link to="/">here</Link> to log in and post your first chirp!</p>
                 </>
             }   
         </>
