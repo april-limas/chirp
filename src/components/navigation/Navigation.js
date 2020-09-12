@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter, Switch } from "react-router-dom";
-import { Newsfeed, ProfileScreen, FollowersPage, NotFoundScreen, SearchUser, UserLinkDisplay, MessageLinkDisplay, EditProfileScreen, SignUpForm, LogInPage } from "../../screens";
+import { Newsfeed, ProfileScreen, FollowersPage, NotFoundScreen, SearchUser, UserLinkDisplay, MessageLinkDisplay, EditProfileScreen, SignUpForm, LogInPage, DeletedUserPage } from "../../screens";
 import { ConnectedRoute } from "../connected-route/ConnectedRoute";
 
 
@@ -60,6 +60,11 @@ export const Navigation = () => (
         exact
         path="/sign-up"
         component={SignUpForm}
+      />
+      <ConnectedRoute
+        exact
+        path="/delete"
+        component={DeletedUserPage}
       />
       <ConnectedRoute path="*" component={NotFoundScreen} />
     </Switch>

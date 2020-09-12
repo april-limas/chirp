@@ -6,10 +6,10 @@ export const LogInPage = () => (
   <>
     <MenuContainer />
     <br />
-    <h2>Kwitter</h2>
     <br />
     <LoginFormContainer />
     <br />
+    <p>Not registered yet?</p>
     <p>Sign up today and join our community! Click <Link to="/sign-up">here</Link>.</p>
     
 

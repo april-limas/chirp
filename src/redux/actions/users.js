@@ -42,12 +42,6 @@ export const deleteUserFailure = (err) => {
     }
 }
 
-export const removeUserDisplay = () => {
-    return {
-        type: REMOVE_USER_DISPLAY
-    }
-}
-
 export const getFollowersSuccess = (followers) => {
     return {
         type: GET_FOLLOWERS_SUCCESS,
@@ -120,7 +114,6 @@ const editUserProfile = (state) => async (dispatch, getState) => {
 export const actions = { 
     getUserInfo, 
     deleteUserAccount, 
-    removeUserDisplay,
     getFollowers, 
     userSignUp,
     editUserProfile

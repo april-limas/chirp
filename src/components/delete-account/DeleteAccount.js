@@ -1,15 +1,22 @@
 import React from "react"
-import { useDispatch } from "react-redux"
+import { useSelector, useDispatch } from "react-redux"
 import { actions } from '../../redux/actions/users';
 import { actions as authActions } from '../../redux/actions/auth';
+import { useHistory } from "react-router-dom";
+
 
 export const DeleteAccount = () => {
+    const { username } = useSelector(state => ({
+        username: state.auth.username,
+    }))
 
     const dispatch = useDispatch()
+    const history = useHistory()
 
     const handleDeleteUser = () => { 
-        dispatch(actions.deleteUserAccount())
+        dispatch(actions.deleteUserAccount(username))
         dispatch(authActions.logout(false))
+        history.push("/delete");
     }
     
     return (
