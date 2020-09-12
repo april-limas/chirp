@@ -28,7 +28,7 @@ export const Profile = () => {
                     <>
                         <p>Chirper: {userInfo.user.displayName}</p>
                         <p>Username: @{username}</p>
-                        <p>About: {userInfo.user.about}</p>
+                        <p>{ userInfo.user.about && `About: ${userInfo.user.about}`}</p>
                         <p>Account Created: {userInfo.user.createdAt}</p>
                         <p>Account Updated: {userInfo.user.updatedAt}</p>
 
