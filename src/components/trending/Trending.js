@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { actions } from '../../redux/actions/messages';
+import {LikeButton} from '../like-button';
+import {v4 as uuidv4} from 'uuid';
 
 export const Trending = () => {
 
@@ -10,13 +12,10 @@ export const Trending = () => {
 
     useEffect(() => {
         dispatch(actions.getMessageList())
-        // console.log(messageList)
-        // getTrendingKweets()
     }, [])
 
     const getTrendingKweets = () => {
         let topTenKweets = messageList.sort((a, b) => b.likes.length - a.likes.length).slice(0, 10)
-        console.log(topTenKweets)
         return topTenKweets
     }
 
@@ -26,13 +25,16 @@ export const Trending = () => {
         <>
             <br />
             <h2>Trending Kweets</h2>
-            {getTrendingKweets().map((kweet) => (
-                <p>{kweet.username}
-                    <br />
-                    {kweet.text}
-                    <br />
-                    Likes: {kweet.likes.length}</p>
-            ))}
+            <ul>
+                {getTrendingKweets().map((kweet) => (
+                    <li key={uuidv4()}>Username: {kweet.username}
+                        <br/>
+                        {kweet.text}
+                        <br/>
+                    Likes: {kweet.likes.length}<br/>
+                    <br/><br/></li>
+                ))}
+            </ul>
         </>
     )
 }
