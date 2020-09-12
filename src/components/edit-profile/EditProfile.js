@@ -1,6 +1,6 @@
 import React, { useState }  from "react"
 import { useSelector, useDispatch } from "react-redux"
-import { actions } from "../../redux/actions/users";
+import { actions } from "../../redux/actions/users"
 
 
 export const EditProfile = () => {
@@ -8,8 +8,7 @@ export const EditProfile = () => {
         username: state.auth.username,
         userInfo: state.users.userInfo,
         userLoading: state.users.userLoading
-    }
-    ));
+    }))
 
     const [ state, setState ] = useState({
         username: username,
@@ -30,7 +29,7 @@ export const EditProfile = () => {
             about: "",
             displayName: ""
         }))
-    };
+    }
 
     const dispatch = useDispatch()
 
@@ -38,7 +37,7 @@ export const EditProfile = () => {
         const inputName = event.target.name;
         const inputValue = event.target.value;
         setState((prevState) => ({ ...prevState, [inputName]: inputValue }));
-      };
+    }
 
 
     return (
@@ -47,42 +46,47 @@ export const EditProfile = () => {
             <br />
             <form onSubmit={handleSubmit}>
                 <label htmlFor="password">Password</label>
-                <div>
-                    <input
-                        type="password"
-                        name="password"
-                        value={state.password}
-                        autoFocus
-                        required
-                        onChange={handleChange}
-                    />
-                </div>
+                <br />
+                <input
+                    type="password"
+                    name="password"
+                    value={state.password}
+                    autoFocus
+                    required
+                    onChange={handleChange}
+                />
+                <br />
+                <br />
                 <label htmlFor="displayName">Display Name</label>
-                <div>
-                    <input
-                        type="text"
-                        name="displayName"
-                        value={state.displayName}
-                        placeholder={ userLoading ? null : userInfo.user.displayName}
-                        autoFocus
-                        required
-                        onChange={handleChange}
-                    />
-                </div>
+                <br />
+                <input
+                    type="text"
+                    name="displayName"
+                    value={state.displayName}
+                    placeholder={ userLoading ? null : userInfo.user.displayName}
+                    autoFocus
+                    required
+                    onChange={handleChange}
+                />
+                <br />
+                <br />
                 <label htmlFor="about">About</label>
-                <div>
-                    <input
-                        type="text"
-                        name="about"
-                        value={state.about}
-                        placeholder={ userLoading ? null : userInfo.user.about}
-                        autoFocus
-                        required
-                        onChange={handleChange}
-                    />
-                </div>
+                <br />
+                <input
+                    type="text"
+                    name="about"
+                    value={state.about}
+                    placeholder={ userLoading ? null : userInfo.user.about}
+                    autoFocus
+                    required
+                    onChange={handleChange}
+                />
+                <br />
                 <br/>
-                <button type="submit">Submit</button>
+                <button 
+                    type="submit">
+                        Submit
+                </button>
                 <br />
                 <br />
                 { toggle && <p>Your profile has been updated.</p>}

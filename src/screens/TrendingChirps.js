@@ -1,7 +1,7 @@
 import React from 'react';
 import {MenuContainer, Trending} from '../components';
 
-export const TrendingKweets = () => {
+export const TrendingChirps = () => {
 
     return (
         <>

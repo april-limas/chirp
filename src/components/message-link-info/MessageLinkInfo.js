@@ -1,19 +1,20 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React from "react"
+import { useSelector } from "react-redux"
 
 
 export const MessageLinkInfo = () => {
     const { message } = useSelector(state => state.message.message)
     
+    
     return (
         <>
-        <br />
-        <h2>Tweet Info</h2>
-        <br />
-        <p>User: {message.username}</p>
-        <p>Tweet: {message.text}</p>
-        <p>Date Posted: {message.createdAt}</p>
-        <p>Likes: {message.likes.length}</p>
+            <br />
+            <h2>Chirp Info</h2>
+            <br />
+            <p>Chirper: {message.username}</p>
+            <p>Chirp: {message.text}</p>
+            <p>Posted: {message.createdAt}</p>
+            <p>Hoots: {message.likes.length}</p>
         </>
     )
 }

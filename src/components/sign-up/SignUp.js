@@ -1,7 +1,8 @@
-import React, { useState }  from "react"
-import { useSelector, useDispatch } from "react-redux"
-import { actions } from "../../redux/actions/users";
+import React, { useState } from "react"
+import { useDispatch } from "react-redux"
+import { actions } from "../../redux/actions/users"
 import { Link } from "react-router-dom"
+
 
 export const SignUp = () => {
     const [ state, setState ] = useState({
@@ -15,17 +16,16 @@ export const SignUp = () => {
     const dispatch = useDispatch()
 
     const handleSubmit = (event) => {
-        event.preventDefault();
-        dispatch(actions.userSignUp(state));
+        event.preventDefault()
+        dispatch(actions.userSignUp(state))
         setToggle(true)
-    };
-
+    }
 
     const handleChange = (event) => {
-        const inputName = event.target.name;
-        const inputValue = event.target.value;
-        setState((prevState) => ({ ...prevState, [inputName]: inputValue }));
-      };
+        const inputName = event.target.name
+        const inputValue = event.target.value
+        setState((prevState) => ({ ...prevState, [inputName]: inputValue }))
+    }
 
 
     return (
@@ -35,39 +35,41 @@ export const SignUp = () => {
             <br />
             <form onSubmit={handleSubmit}>
                 <label htmlFor="username">Username</label>
-                <div>
-                    <input
-                        type="text"
-                        name="username"
-                        value={state.username}
-                        autoFocus
-                        required
-                        onChange={handleChange}
-                    />
-                </div>
+                <br />
+                <input
+                    type="text"
+                    name="username"
+                    value={state.username}
+                    autoFocus
+                    required
+                    onChange={handleChange}
+                />
+                <br />
+                <br />
                 <label htmlFor="password">Password</label>
-                <div>
-                    <input
-                        type="password"
-                        name="password"
-                        value={state.password}
-                        autoFocus
-                        required    
-                        onChange={handleChange}
-                    />
-                </div>
+                <br />
+                <input
+                    type="password"
+                    name="password"
+                    value={state.password}
+                    autoFocus
+                    required    
+                    onChange={handleChange}
+                />
+                <br />
+                <br />
                 <label htmlFor="displayName">Display Name</label>
-                <div>
-                    <input
-                        type="text"
-                        name="displayName"
-                        value={state.displayName}
-                        autoFocus
-                        required
-                        onChange={handleChange}
-                    />
-                </div>
-                <br/>
+                <br />
+                <input
+                    type="text"
+                    name="displayName"
+                    value={state.displayName}
+                    autoFocus
+                    required
+                    onChange={handleChange}
+                />
+                <br />
+                <br />
                 <button type="submit">Submit</button>
             </form>
             <br />

@@ -1,27 +1,32 @@
-import React, { useState } from "react";
+import React, { useState } from "react"
 import { useSelector, useDispatch } from "react-redux"
 import { actions} from "../../redux/actions/users"
-import { UserInfo } from "../user-info";
+import { UserInfo } from "../user-info"
 import { Loader } from "../loader"
 
 
 export const LookUpUser = () => {
-    const [ username, setUsername ] = useState("")
-    const [ toggle, setToggle ] = useState(false)
-
     const { user } = useSelector(state => state.users.userInfo)
-    const userLoading = useSelector(state => state.users.userLoading)
-    const userError = useSelector(state => state.users.userError)
+
+    const { userLoading, userError } = useSelector(state => ({
+        userLoading: state.users.userLoading,
+        userError: state.users.userError
+    }))
+
+    const [ username, setUsername ] = useState("")
+
+    const [ toggle, setToggle ] = useState(false)
 
     const dispatch = useDispatch()
 
     const handleChange = (e) => setUsername(e.target.value)
     
-        const handleSubmit = (event) => {
+    const handleSubmit = (event) => {
         event.preventDefault()
         dispatch(actions.getUserInfo(username))
         setUsername("")
     }
+
 
     return (
         <>
@@ -29,26 +34,26 @@ export const LookUpUser = () => {
             <br />
             <form onSubmit={handleSubmit}>
                 <label htmlFor="username">Username</label>
-                <div>
-                    <input 
-                        type="text" 
-                        value={username} 
-                        onChange={handleChange} 
-                    />
-                </div>
                 <br />
-                <div>
-                    <button 
-                        type="submit" 
-                        onClick={() => setToggle(true)}>
-                            Look Up User
-                    </button>
-                </div>
+                <input 
+                    type="text" 
+                    value={username} 
+                    onChange={handleChange} 
+                />
+                <br />
+                <br />
+                <button 
+                    type="submit" 
+                    onClick={() => setToggle(true)}>
+                        Look Up User
+                </button>
             </form>
             { toggle && user && <UserInfo user={user} /> }
             <br />
-            { userError && <p>{userError}</p>}
+            { toggle && userError && <p>{userError}</p>}
             { userLoading && <Loader /> }
         </>
     )
 }
+                
+                

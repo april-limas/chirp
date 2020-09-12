@@ -8,7 +8,7 @@ export const LikeButton = ({ messageId, message }) => {
 
     const user = useSelector(state => state.auth.username)
 
-    const [isLiked, setIsLiked] = useState()
+    const [isLiked, setIsLiked] = useState(false)
 
     const dispatch = useDispatch()
 
