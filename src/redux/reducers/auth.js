@@ -1,4 +1,9 @@
-import { LOGIN, LOGIN_SUCCESS, LOGIN_FAILURE, LOGOUT } from "../actions";
+import { 
+  LOGIN, 
+  LOGIN_SUCCESS, 
+  LOGIN_FAILURE, 
+  LOGOUT 
+} from "../actions";
 
 // INITIAL STATE
 const INITIAL_STATE = {

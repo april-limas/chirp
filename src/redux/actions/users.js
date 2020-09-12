@@ -42,12 +42,6 @@ export const deleteUserFailure = (err) => {
     }
 }
 
-export const removeUserDisplay = () => {
-    return {
-        type: REMOVE_USER_DISPLAY
-    }
-}
-
 export const getFollowersSuccess = (followers) => {
     return {
         type: GET_FOLLOWERS_SUCCESS,
@@ -66,7 +60,11 @@ export const getFollowersFailure = (err) => {
 const getUserInfo = (username) => async (dispatch, getState) => {
     try {
         dispatch(userRequest());
-        const payload = await api.profile(username);
+        let payload = await api.profile(username);
+        if (payload === undefined) {
+            payload = []
+            throw new SyntaxError("The username does not exist. Please try again.")
+        }
         dispatch(getUserSuccess(payload));
     } catch (err) {
         dispatch(getUserFailure(err.message));
@@ -77,7 +75,6 @@ const deleteUserAccount = (username) => async (dispatch, getState) => {
     try {
         dispatch(userRequest());
         const payload = await api.deleteAccount(username);
-        // ℹ️ℹ️This is how you woud debug the response to a requestℹ️ℹ️
         dispatch(deleteUserSuccess(payload));
     } catch (err) {
         dispatch(deleteUserFailure(err.message));
@@ -117,7 +114,6 @@ const editUserProfile = (state) => async (dispatch, getState) => {
 export const actions = { 
     getUserInfo, 
     deleteUserAccount, 
-    removeUserDisplay,
     getFollowers, 
     userSignUp,
     editUserProfile
