@@ -17,3 +17,4 @@ export * from "./user-info-link"
 export * from "./sign-up"
 export * from './trending'
 export * from "./deleted-user-msg"
+export * from "./page-not-found"

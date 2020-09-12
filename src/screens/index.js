@@ -1,6 +1,6 @@
 export * from "./LogInPage";
 export * from "./ProfileScreen";
-export * from "./NotFound";
+export * from "./NotFoundScreen";
 export * from "./Newsfeed";
 export * from "./SearchUser";
 export * from "./FollowersPage"
