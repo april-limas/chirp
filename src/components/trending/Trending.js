@@ -1,13 +1,12 @@
-import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { actions } from '../../redux/actions/users';
-import { actions as messageActions } from '../../redux/actions/messages';
-import {v4 as uuidv4} from 'uuid';
+import React, { useEffect } from "react"
+import { useSelector, useDispatch } from "react-redux"
+import { actions } from "../../redux/actions/users"
+import { actions as messageActions } from "../../redux/actions/messages"
+import {v4 as uuidv4} from "uuid"
 import { Loader } from "../loader"
 import { Link } from "react-router-dom"
 
 export const Trending = () => {
-
     const { messageList } = useSelector(state => state.message)
     const loading = useSelector(state => state.message.messageLoading)
 
@@ -22,6 +21,7 @@ export const Trending = () => {
         return topTenChirps
     }
 
+
     return (
         <>
             <br />
@@ -30,14 +30,14 @@ export const Trending = () => {
             <ol>
                 {getTrendingChirps().map((chirp) => (
                     <li key={uuidv4()}>
-                        Username: <Link to="/user" 
+                        Chirper: <Link to="/user" 
                             onClick={() => dispatch(actions.getUserInfo(chirp.username))}>
                             {chirp.username}</Link>
                         <br/>
                         Chirp:<Link to="/message" 
                             onClick={() => dispatch(messageActions.getMessageLinkInfo(chirp.id))}>      {chirp.text}</Link>
                         <br/>
-                        Likes: {chirp.likes.length}
+                        Hoots: {chirp.likes.length}
                         <br/>
                         <br/>
                         <br/>

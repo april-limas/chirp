@@ -1,14 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import { useSelector, useDispatch } from "react-redux";
-import { actions } from '../../redux/actions/auth';
-import { likesReducer } from '../../redux/reducers/likes';
-import { actions as likeActions } from '../../redux/actions/messages';
+import React, { useState, useEffect } from "react"
+import { useSelector, useDispatch } from "react-redux"
+import { actions as likeActions } from "../../redux/actions/messages"
+
 
 export const LikeButton = ({ messageId, message }) => {
-
     const user = useSelector(state => state.auth.username)
 
-    const [isLiked, setIsLiked] = useState(false)
+    const [ isLiked, setIsLiked ] = useState(false)
 
     const dispatch = useDispatch()
 
@@ -42,11 +40,11 @@ export const LikeButton = ({ messageId, message }) => {
 
     return (
         <>
-            Likes: {message.message.likes.length}
+            Hoots: {message.message.likes.length}
             <br/>
             {messageIsLiked
-                ? <button onClick={handleLike}>Unlike</button>
-                : <button onClick={handleLike}>Like</button>}
+                ? <button onClick={handleLike}>Peck</button>
+                : <button onClick={handleLike}>Hoot</button>}
         </>
     )
 }

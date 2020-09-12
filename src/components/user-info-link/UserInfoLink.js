@@ -4,18 +4,20 @@ import { useSelector } from "react-redux"
 
 export const UserInfoLink = () => {
     const { user } = useSelector(state => state.users.userInfo)
+
+
     return (
         <>
             <br/>
             <h2>User Info</h2>
             <br/>
-            {user && 
+            { user && 
                 <>
-                    <p>Display Name: {user.displayName}</p>
-                    <p>Username: {user.username}</p>
-                    <p>About the User: {user.about}</p>
+                    <p>Chirper: {user.displayName}</p>
+                    <p>Username: @{user.username}</p>
+                    { user.about && <p>`About: ${user.about}`</p>}
                     <p>Created Account: {user.createdAt}</p>
-                    <p>Last Account Update: {user.updatedAt}</p>
+                    <p>Account Updated: {user.updatedAt}</p>
                 </>
             }
         </>
