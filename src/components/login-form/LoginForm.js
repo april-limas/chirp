@@ -1,8 +1,8 @@
-import React, { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { actions } from "../../redux/actions/auth";
-import { Loader } from "../loader";
-import "./LoginForm.css";
+import React, { useState } from "react"
+import { useSelector, useDispatch } from "react-redux"
+import { actions } from "../../redux/actions/auth"
+import { Loader } from "../loader"
+import "./LoginForm.css"
 
 export const LoginForm = () => {
   const { loading, error } = useSelector((state) => ({
@@ -10,7 +10,7 @@ export const LoginForm = () => {
     error: state.auth.error,
   }));
 
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
 
   const [state, setState] = useState({
     username: "",
@@ -18,15 +18,15 @@ export const LoginForm = () => {
   });
 
   const handleLogin = (event) => {
-    event.preventDefault();
-    dispatch(actions.login(state));
+    event.preventDefault()
+    dispatch(actions.login(state))
   };
 
   const handleChange = (event) => {
-    const inputName = event.target.name;
-    const inputValue = event.target.value;
-    setState((prevState) => ({ ...prevState, [inputName]: inputValue }));
-  };
+    const inputName = event.target.name
+    const inputValue = event.target.value
+    setState((prevState) => ({ ...prevState, [inputName]: inputValue }))
+  }
 
   return (
     <React.Fragment>
@@ -56,5 +56,5 @@ export const LoginForm = () => {
       {loading && <Loader />}
       {error && <p style={{ color: "red" }}>{error.message}</p>}
     </React.Fragment>
-  );
-};
+  )
+}

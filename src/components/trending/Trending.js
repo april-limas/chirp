@@ -2,7 +2,7 @@ import React, { useEffect } from "react"
 import { useSelector, useDispatch } from "react-redux"
 import { actions } from "../../redux/actions/users"
 import { actions as messageActions } from "../../redux/actions/messages"
-import {v4 as uuidv4} from "uuid"
+import { v4 as uuidv4 } from "uuid"
 import { Loader } from "../loader"
 import { Link } from "react-router-dom"
 
