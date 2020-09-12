@@ -15,4 +15,5 @@ export * from "./edit-profile"
 export * from "./followers-item"
 export * from "./user-info-link"
 export * from "./sign-up"
+export * from './trending'
 export * from "./deleted-user-msg"

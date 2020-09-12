@@ -15,6 +15,7 @@ export const Menu = () => {
         {isAuthenticated ? (
           <>
             <Link to="/profiles/:username">Newsfeed</Link>
+            <Link to="/trending">Trending</Link>
             <Link to="/profile">Profile</Link>
             <Link to="/followers">Followers</Link>
             <Link to="/search">Search User</Link>

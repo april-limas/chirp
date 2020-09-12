@@ -1,7 +1,8 @@
 import React from "react";
 import { BrowserRouter, Switch } from "react-router-dom";
-import { Newsfeed, ProfileScreen, FollowersPage, NotFoundScreen, SearchUser, UserLinkDisplay, MessageLinkDisplay, EditProfileScreen, SignUpForm, LogInPage, DeletedUserPage } from "../../screens";
+import { Newsfeed, ProfileScreen, FollowersPage, NotFoundScreen, SearchUser, UserLinkDisplay, MessageLinkDisplay, EditProfileScreen, SignUpForm, LogInPage, DeletedUserPage, TrendingKweets } from "../../screens";
 import { ConnectedRoute } from "../connected-route/ConnectedRoute";
+
 
 
 
@@ -55,6 +56,12 @@ export const Navigation = () => (
         isProtected
         path="/edit-profile"
         component={EditProfileScreen}
+      />
+      <ConnectedRoute
+        exact
+        isProtected
+        path="/trending"
+        component={TrendingKweets}
       />
       <ConnectedRoute
         exact
