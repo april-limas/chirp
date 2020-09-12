@@ -40,11 +40,12 @@ export const LikeButton = ({ messageId, message }) => {
 
     return (
         <>
-            Hoots: {message.message.likes.length}
+            Hoots: { message.message.likes.length }
             <br/>
-            {messageIsLiked
+            { messageIsLiked
                 ? <button onClick={handleLike}>Peck</button>
-                : <button onClick={handleLike}>Hoot</button>}
+                : <button onClick={handleLike}>Hoots</button> 
+            }
         </>
     )
 }

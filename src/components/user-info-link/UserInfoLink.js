@@ -15,7 +15,7 @@ export const UserInfoLink = () => {
                 <>
                     <p>Chirper: {user.displayName}</p>
                     <p>Username: @{user.username}</p>
-                    { user.about && <p>`About: ${user.about}`</p>}
+                    <p>{ user.about && `About: ${user.about}`}</p>
                     <p>Created Account: {user.createdAt}</p>
                     <p>Account Updated: {user.updatedAt}</p>
                 </>

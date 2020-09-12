@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"
 import { LikeButton } from "../like-button"
 import { actions } from "../../redux/actions/users"
 import { actions as messageActions } from "../../redux/actions/messages"
-import {DeleteMessage } from "../delete-message"
+import { DeleteMessage } from "../delete-message"
 
 
 export const MessageItem = ({item}) => {
@@ -19,7 +19,7 @@ export const MessageItem = ({item}) => {
     dispatch(actions.getUserInfo(item.username))
   }
 
-  const handleMessageLink = (event) => {
+  const handleMessageLink = () => {
     dispatch(messageActions.getMessageLinkInfo(item.id))
   }
   

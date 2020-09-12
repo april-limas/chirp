@@ -18,7 +18,7 @@ export const MessageList = () => {
 
   useEffect(() => {
     dispatch(actions.getMessageList())
-  }, []);
+  }, [])
 
   return (
     <>

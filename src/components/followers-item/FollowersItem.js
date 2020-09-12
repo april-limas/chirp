@@ -21,7 +21,7 @@ export const FollowersItem = ({ user }) => {
           {user.displayName}
           </Link> 
       </li>
-      <li>@{user.username}</li>
+      <p>@{user.username}</p>
       <br />
     </>
   )
