@@ -18,7 +18,7 @@ export const Trending = () => {
     }, [])
 
     const getTrendingChirps = () => {
-        let topTenChirps = messageList.sort((a, b) => b.likes.length - a.likes.length).slice(0, 10)
+        let topTenChirps = messageList.sort((a, b) => b.likes.length - a.likes.length).slice(0, 20)
         return topTenChirps
     }
 
@@ -26,10 +26,11 @@ export const Trending = () => {
     return (
         <>
             <br />
+            <h2 style={{textAlign: 'center'}}>Trending Chirps</h2>
             <br />
-            <ol>
+            <ol style={{textAlign: 'center'}}>
                 {getTrendingChirps().map((chirp) => (
-                    <Media>
+                    <Media style={{margin: '0 auto', display: 'block'}}>
                         <img
                             width={64}
                             height={64}
@@ -38,7 +39,7 @@ export const Trending = () => {
                             alt="Generic placeholder"
                         />
                         <Media.Body>
-                            <h6><li key={uuidv4()} style={{marginLeft: '20px'}}>
+                            <h6><li key={uuidv4()} style={{display: 'block', lineHeight: '30px'}}>
                                 Chirper: <Link to="/user"
                                     onClick={() => dispatch(actions.getUserInfo(chirp.username))}>
                                     {chirp.username}</Link>
@@ -50,11 +51,8 @@ export const Trending = () => {
                                 <br />
                                 <br />
                                 <br />
-                            </li></h6>
-
-
-
-
+                                </li>
+                            </h6>
                         </Media.Body>
                     </Media>
                 ))}

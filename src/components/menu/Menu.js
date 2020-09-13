@@ -8,7 +8,7 @@ export const Menu = () => {
   const dispatch = useDispatch()
   const logout = () => dispatch(actions.logout())
   return (
-    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+    <Navbar collapseOnSelect sticky="bottom" expand="lg" bg="dark" variant="dark">
       <Navbar.Brand href="/profiles/:username">Chirp</Navbar.Brand>
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
