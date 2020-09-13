@@ -48,10 +48,3 @@ export const Profile = () => {
         </>
     )
 }
-
-
-                        // <p>Chirper: {userInfo.user.displayName}</p>
-                        // <p>Username: @{username}</p>
-                        // <p>{ userInfo.user.about && `About: ${userInfo.user.about}`}</p>
-                        // <p>Created: {userInfo.user.createdAt}</p>
-                        // <p>Updated: {userInfo.user.updatedAt}</p>

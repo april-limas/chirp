@@ -2,7 +2,6 @@ import React, { useState } from "react"
 import { useSelector, useDispatch } from "react-redux"
 import { actions } from "../../redux/actions/auth"
 import { Loader } from "../loader"
-import "./LoginForm.css"
 import { Link } from "react-router-dom"
 import { Form, Button } from "react-bootstrap"
 

@@ -5,6 +5,7 @@ import { actions as messageActions } from "../../redux/actions/messages"
 import { v4 as uuidv4 } from "uuid"
 import { Loader } from "../loader"
 import { Link } from "react-router-dom"
+import { Media } from "react-bootstrap"
 
 export const Trending = () => {
     const { messageList } = useSelector(state => state.message)
@@ -25,26 +26,60 @@ export const Trending = () => {
     return (
         <>
             <br />
-            <h2>Trending Chirps</h2>
             <br />
             <ol>
                 {getTrendingChirps().map((chirp) => (
-                    <li key={uuidv4()}>
-                        Chirper: <Link to="/user" 
-                            onClick={() => dispatch(actions.getUserInfo(chirp.username))}>
-                            {chirp.username}</Link>
-                        <br/>
-                        Chirp:<Link to="/message" 
-                            onClick={() => dispatch(messageActions.getMessageLinkInfo(chirp.id))}>      {chirp.text}</Link>
-                        <br/>
-                        Hoots: {chirp.likes.length}
-                        <br/>
-                        <br/>
-                        <br/>
-                    </li>
+                    <Media>
+                        <img
+                            width={64}
+                            height={64}
+                            className="mr-3"
+                            src="https://nas-national-prod.s3.amazonaws.com/styles/hero_mobile/s3/h_a1_7443_5_painted-bunting_julie_torkomian_adult-male.jpg?itok=dMVj7z0b"
+                            alt="Generic placeholder"
+                        />
+                        <Media.Body>
+                            <h6><li key={uuidv4()} style={{marginLeft: '20px'}}>
+                                Chirper: <Link to="/user"
+                                    onClick={() => dispatch(actions.getUserInfo(chirp.username))}>
+                                    {chirp.username}</Link>
+                                <br />
+                                Chirp:<Link to="/message"
+                                    onClick={() => dispatch(messageActions.getMessageLinkInfo(chirp.id))}>      {chirp.text}</Link>
+                                <br />
+                                Hoots: {chirp.likes.length}
+                                <br />
+                                <br />
+                                <br />
+                            </li></h6>
+
+
+
+
+                        </Media.Body>
+                    </Media>
                 ))}
             </ol>
-            { loading && <Loader />}
         </>
     )
 }
+{/* <br />
+<h2>Trending Chirps</h2>
+<br />
+<ol>
+    {getTrendingChirps().map((chirp) => (
+        <li key={uuidv4()}>
+            Chirper: <Link to="/user" 
+                onClick={() => dispatch(actions.getUserInfo(chirp.username))}>
+                {chirp.username}</Link>
+            <br/>
+            Chirp:<Link to="/message" 
+                onClick={() => dispatch(messageActions.getMessageLinkInfo(chirp.id))}>      {chirp.text}</Link>
+            <br/>
+            Hoots: {chirp.likes.length}
+            <br/>
+            <br/>
+            <br/>
+        </li>
+    ))}
+</ol>
+{ loading && <Loader />} */}

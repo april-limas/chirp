@@ -6,6 +6,9 @@ export const UserInfo = ({ user }) => {
 
     return (
         <>
+            <br/>
+            <h2 style={{textAlign: 'center'}}>Chirper Info</h2>
+            <br/>
             <Card style={{ width: '28rem', margin: '0 auto', position: 'absolute', bottom: '130px', left: '470px'  }}>
                 <Card.Img variant="top" src="https://nas-national-prod.s3.amazonaws.com/styles/hero_mobile/s3/h_a1_7443_5_painted-bunting_julie_torkomian_adult-male.jpg?itok=dMVj7z0b" />
                 <Card.Body>
@@ -22,9 +25,3 @@ export const UserInfo = ({ user }) => {
 
 
 }
-{/* <br/>
-<p>Chirper: {user.displayName}</p>
-<p>Username: @{user.username}</p>
-<p>{ user.about && `About: ${user.about}`}</p>
-<p>Account Created: {user.createdAt}</p>
-<p>Account Last Updated: {user.updatedAt}</p> */}
