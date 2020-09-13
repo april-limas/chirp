@@ -9,7 +9,7 @@ export const Menu = () => {
   const logout = () => dispatch(actions.logout())
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-      <Navbar.Brand href="#home">Chirp</Navbar.Brand>
+      <Navbar.Brand href="/">Chirp</Navbar.Brand>
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
             {isAuthenticated ? (
@@ -26,7 +26,7 @@ export const Menu = () => {
           <Nav.Link href="/search">Search User</Nav.Link>
         </Nav>
         <Nav>
-          <Nav.Link eventKey={2} href="#/" onClick={logout}>
+          <Nav.Link href="#/" onClick={logout}>
             LogOut
           </Nav.Link>
         </Nav>

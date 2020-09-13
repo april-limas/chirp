@@ -1,0 +1,13 @@
+.messageItem {
+    margin: 0 auto;
+    width: 400px;
+    height: 150px;
+}
+
+.date {
+    float: right;
+}
+
+.spacing {
+    line-height: 30px;
+}

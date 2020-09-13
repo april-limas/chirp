@@ -1,11 +1,11 @@
 import React from "react"
-import { DeletedUserMsg, MenuContainer } from "../components"
+import { MenuContainer, DeletedUser } from "../components"
 
 export const DeletedUserPage = () => {
     return (
         <>
             <MenuContainer />
-            <DeletedUserMsg />
+            <DeletedUser />
         </>
     )
 }

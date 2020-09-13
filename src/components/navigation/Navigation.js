@@ -1,6 +1,6 @@
 import React from "react"
 import { BrowserRouter, Switch } from "react-router-dom"
-import { Newsfeed, ProfileScreen, FollowersPage, NotFoundScreen, SearchUser, UserLinkDisplay, MessageLinkDisplay, EditProfileScreen, SignUpForm, LogInPage, DeletedUserPage, TrendingChirps } from "../../screens"
+import { Newsfeed, ProfileScreen, FollowersPage, NotFoundScreen, SearchUser, UserLinkDisplay, MessageLinkDisplay, EditProfileScreen, SignUpForm, LogInPage, DeletedUserPage, TrendingChirps, HomePage } from "../../screens"
 import { ConnectedRoute } from "../connected-route/ConnectedRoute"
 
 
@@ -11,6 +11,12 @@ export const Navigation = () => (
         exact
         path="/"
         redirectIfAuthenticated
+        component={ HomePage }
+      />
+      <ConnectedRoute
+        exact
+        redirectIfAuthenticated
+        path="/log-in"
         component={ LogInPage }
       />
       <ConnectedRoute

@@ -3,6 +3,8 @@ import { useSelector, useDispatch } from "react-redux"
 import { actions } from "../../redux/actions/auth"
 import { Loader } from "../loader"
 import "./LoginForm.css"
+import { Link } from "react-router-dom"
+import { Form, Button } from "react-bootstrap"
 
 export const LoginForm = () => {
   const { loading, error } = useSelector((state) => ({
@@ -29,32 +31,72 @@ export const LoginForm = () => {
   }
 
   return (
-    <React.Fragment>
-      <form id="login-form" onSubmit={handleLogin}>
-        <label htmlFor="username">Username</label>
-        <input
-          type="text"
-          name="username"
-          value={state.username}
-          autoFocus
-          required
-          onChange={handleChange}
-        />
-        <label htmlFor="password">Password</label>
-        <input
-          type="password"
-          name="password"
-          value={state.password}
-          required
-          onChange={handleChange}
-        />
-        <br />
-        <button type="submit" disabled={loading}>
-          Login
-        </button>
-      </form>
-      {loading && <Loader />}
-      {error && <p style={{ color: "red" }}>{error.message}</p>}
-    </React.Fragment>
+    <>
+    <Form onSubmit={handleLogin}>
+            <br />
+            <h2>Log in to Chirp</h2>
+            <br />
+            <Form.Group controlId="formBasicEmail">
+                    <Form.Label>Username</Form.Label>
+                    <Form.Control
+                        type="text"
+                        name="username"
+                        value={state.username}
+                        autoFocus
+                        required
+                        onChange={handleChange}
+                    />
+            </Form.Group>
+
+            <Form.Group controlId="formBasicPassword">
+                <Form.Label>Password</Form.Label>
+                <Form.Control
+                    type="password"
+                    name="password"
+                    value={state.password}
+                    autoFocus
+                    required
+                    onChange={handleChange}
+                />
+            </Form.Group>
+            <br />
+            <Button variant="primary" type="submit" disabled={loading}>
+                Log In
+            </Button>
+            <br />
+            <br />
+            <Link to="/sign-up">Sign up for Chirp</Link>
+            {loading && <Loader />}
+            {error && <p style={{ color: "red" }}>{error.message}</p>}
+        </Form>
+    </>
   )
 }
+
+    // <React.Fragment>
+    //   <form id="login-form" onSubmit={handleLogin}>
+    //     <label htmlFor="username">Username</label>
+    //     <input
+    //       type="text"
+    //       name="username"
+    //       value={state.username}
+    //       autoFocus
+    //       required
+    //       onChange={handleChange}
+    //     />
+    //     <label htmlFor="password">Password</label>
+    //     <input
+    //       type="password"
+    //       name="password"
+    //       value={state.password}
+    //       required
+    //       onChange={handleChange}
+    //     />
+    //     <br />
+    //     <button type="submit" disabled={loading}>
+    //       Login
+    //     </button>
+    //   </form>
+    //   {loading && <Loader />}
+    //   {error && <p style={{ color: "red" }}>{error.message}</p>}
+    // </React.Fragment>

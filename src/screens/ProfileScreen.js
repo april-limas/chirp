@@ -12,10 +12,9 @@ export const ProfileScreen = () => {
   <>
     <MenuContainer />
     <Profile />
-    <Link to="/edit-profile"><p>Edit Profile</p></Link>
     <br />
     <div>
-      <DeleteAccount />
+    <DeleteAccount />
     </div>
   </>
 )}

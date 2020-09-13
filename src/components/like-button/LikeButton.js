@@ -43,8 +43,8 @@ export const LikeButton = ({ messageId, message }) => {
             Hoots: { message.message.likes.length }
             <br/>
             { messageIsLiked
-                ? <button onClick={handleLike}>Peck</button>
-                : <button onClick={handleLike}>Hoots</button> 
+                ? <button style={{marginTop: '10px'}} onClick={handleLike}>Peck</button>
+                : <button style={{marginTop: '10px'}} onClick={handleLike}>Hoot</button> 
             }
         </>
     )

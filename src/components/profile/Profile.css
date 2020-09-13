@@ -1,0 +1,12 @@
+.profileCard { 
+    width: 28rem; 
+    margin: 0 auto;   
+}
+
+.profile {
+    text-align: center;
+}
+
+.button {
+    background-color: red;
+}
