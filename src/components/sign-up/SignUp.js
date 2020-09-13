@@ -10,6 +10,7 @@ export const SignUp = () => {
         username: "",
         displayName: "",
         password: "",
+        // picture: null
     })
 
     const [ show, setShow ] = useState(false)
@@ -20,12 +21,14 @@ export const SignUp = () => {
     const handleSubmit = (event) => {
         event.preventDefault()
         dispatch(actions.userSignUp(state))
+        // dispatch(actions.uploadPhoto(state))
         setToggle(true)
         setShow(true)
         setState({
             username: "",
             displayName: "",
             password: "",
+            // picture: null
         })
     }
     
@@ -34,6 +37,13 @@ export const SignUp = () => {
         const inputValue = event.target.value
         setState((prevState) => ({ ...prevState, [inputName]: inputValue }))
     }
+
+    // const handleSelectPhoto = (event) => {
+    //     setState(prevState => ({ 
+    //         ...prevState, 
+    //         picture: event.target.files[0]
+    //     }))
+    // }
     
     const handleClose = () => setShow(false);
 
@@ -41,7 +51,7 @@ export const SignUp = () => {
 
         <Form className="formContainer" onSubmit={handleSubmit}>
             <br />
-            <h2>Sign Up</h2>
+            <h2 className="title">Sign Up</h2>
             <br />
             <Form.Group controlId="formBasicEmail">
                 <Form.Label>Username</Form.Label>
@@ -72,8 +82,7 @@ export const SignUp = () => {
                     onChange={handleChange}
                 />
                 <Form.Text className="text-muted">
-                    Your password must be 8-20 characters long, contain letters and numbers, and
-                    must not contain spaces, special characters, or emoji.
+                    Your password must be 8-20 characters long, contain letters and numbers.
                 </Form.Text>
             </Form.Group>
 
@@ -90,8 +99,18 @@ export const SignUp = () => {
                 />
             </Form.Group>
 
-            <br />
+            {/* <Form.Group controlId="formBasicPhoto">
+                <Form.Label>Add Photo</Form.Label>
+                <Form.Control
+                    type="file"
+                    name="photo"
+                    value={state.photo}
+                    onChange={handleSelectPhoto}
+                />
+            </Form.Group> */}
 
+            <br />
+            
             <Button variant="primary" type="submit">
                 Submit
             </Button>

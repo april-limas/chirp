@@ -5,7 +5,9 @@ import {
     GET_FOLLOWERS_SUCCESS,
     GET_FOLLOWERS_FAILURE,
     DELETE_USER_SUCCESS,
-    DELETE_USER_FAILURE
+    DELETE_USER_FAILURE,
+    ADD_PHOTO_SUCCESS,
+    ADD_PHOTO_FAILURE
 } from '../actions';
 
 const INITIAL_STATE = {
@@ -13,7 +15,8 @@ const INITIAL_STATE = {
     userLoading: false,
     userError: "",
     usersList: [],
-    username: ""
+    username: "",
+    pictureLocation: null
 };
 
 export const userReducer = (state = { ...INITIAL_STATE }, action) => {
@@ -55,6 +58,16 @@ export const userReducer = (state = { ...INITIAL_STATE }, action) => {
                 ...INITIAL_STATE,
                 userError: action.payload
             }
+        case ADD_PHOTO_SUCCESS:
+            return {
+                ...INITIAL_STATE,
+                pictureLocation: action.payload.pictureLocation
+            };
+        case ADD_PHOTO_FAILURE:
+                return {
+                    ...INITIAL_STATE,
+                    userError: action.payload
+                }
         default:
             return state;
     }

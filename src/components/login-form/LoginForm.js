@@ -31,9 +31,10 @@ export const LoginForm = () => {
 
   return (
     <>
-    <Form onSubmit={handleLogin}>
+    <Form className="formContainer" onSubmit={handleLogin}>
             <br />
-            <h2>Log in to Chirp</h2>
+            <h2 className="title">Log in to Chirp</h2>
+            <br />
             <br />
             <Form.Group controlId="formBasicEmail">
                     <Form.Label>Username</Form.Label>

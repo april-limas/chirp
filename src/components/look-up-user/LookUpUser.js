@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux"
 import { actions} from "../../redux/actions/users"
 import { UserInfo } from "../user-info"
 import { Loader } from "../loader"
-import { Button, Modal } from "react-bootstrap"
+import { Button, Modal, Jumbotron, Form } from "react-bootstrap"
 
 
 export const LookUpUser = () => {
@@ -35,27 +35,33 @@ export const LookUpUser = () => {
 
     return (
         <>
-            <h2>Look Up User</h2>
-            <br />
-            <form onSubmit={handleSubmit}>
-                <label htmlFor="username">Username</label>
-                <br />
-                <input 
-                    type="text" 
-                    value={username} 
-                    onChange={handleChange} 
-                />
-                <br />
-                <br />
-                <button 
-                    type="submit" 
-                    onClick={() => setToggle(true)}>
-                        Look Up User
-                </button>
-            </form>
+            <Jumbotron style={{float: 'left', width: '20%', marginLeft: '20px', marginTop: '9px'}}>
+                <Form onSubmit={handleSubmit}>
+                    <Form.Group controlId="formBasicEmail">
+                        <Form.Label>Look Up Username</Form.Label>
+                    </Form.Group>
+
+                    <Form.Group controlId="formBasicPassword">
+                        <Form.Control 
+                            type="text" 
+                            value={username} 
+                            onChange={handleChange} 
+                        />
+                    </Form.Group>
+                    
+                    <Button 
+                        variant="flat" 
+                        type="submit"
+                        style={{backgroundColor: '#ff803d', color: 'white'}}
+                        onClick={() => setToggle(true)}>
+                        Submit
+                    </Button>
+                </Form>
+            </Jumbotron>
             { toggle && user && <UserInfo user={user} /> }
             <br />
             { toggle && userError && show &&
+            
                 <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
                   <Modal.Title>Whoops...</Modal.Title>
@@ -74,4 +80,23 @@ export const LookUpUser = () => {
 }
                 
                 
-{/* <p>{userError}</p> */}
+
+
+{/* <h2>Look Up User</h2>
+<br />
+<form onSubmit={handleSubmit}>
+    <label htmlFor="username">Username</label>
+    <br />
+    <input 
+        type="text" 
+        value={username} 
+        onChange={handleChange} 
+    />
+    <br />
+    <br />
+    <button 
+        type="submit" 
+        onClick={() => setToggle(true)}>
+            Look Up User
+    </button>
+</form> */}

@@ -5,7 +5,7 @@ import { LikeButton } from "../like-button"
 import { actions } from "../../redux/actions/users"
 import { actions as messageActions } from "../../redux/actions/messages"
 import { DeleteMessage } from "../delete-message"
-import { Toast } from "react-bootstrap"
+import { Toast, Jumbotron } from "react-bootstrap"
 import "./MessageItem.css"
 
 export const MessageItem = ({ item }) => {
@@ -27,11 +27,13 @@ export const MessageItem = ({ item }) => {
 
   return (
     <>
+      <Jumbotron className="messageListBox">
         <Toast className="messageItem">
           <Toast.Header closeButton={false}>
             <img src="holder.js/20x20?text=%20" className="rounded mr-2" alt="" />
             <strong 
               className="mr-auto spacing"><Link
+              style={{color: '#7d0c92'}}
               to="/user"
               onClick={handleUserLink}>
               {item.username}
@@ -39,6 +41,7 @@ export const MessageItem = ({ item }) => {
             <small className="date">{item.createdAt}</small>
           </Toast.Header>
           <Toast.Body><Link
+            style={{color: '#af41c4'}}
             className="spacing"
             to="/message"
             onClick={handleMessageLink}>
@@ -49,10 +52,13 @@ export const MessageItem = ({ item }) => {
             <DeleteMessage message={{ message: item }} />
           </Toast.Body>
         </Toast>
+        </Jumbotron>
     </>
   )
 }
 
+// #af41c4
+// #a910c6
 
 {/* <br />
 <li><Link 

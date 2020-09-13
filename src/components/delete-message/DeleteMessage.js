@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react"
 import { useSelector, useDispatch } from "react-redux"
 import { actions } from "../../redux/actions/messages"
+import { Button } from "react-bootstrap"
 
 
 export const DeleteMessage = ({message}) => { 
@@ -24,10 +25,12 @@ export const DeleteMessage = ({message}) => {
     return (
         <>
             { isCurrentUser && 
-                <button 
+                <Button 
+                style={{ marginLeft: '110px', marginTop: '10px' }}
+                variant="danger"
                 onClick={handleDeleteMessage}>
-                    Delete Message
-                </button>
+                    Delete Chirp
+                </Button>
             }
         </>
     )

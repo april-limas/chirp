@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react"
 import { useSelector, useDispatch } from "react-redux"
 import { actions as likeActions } from "../../redux/actions/messages"
+import { Button } from "react-bootstrap"
 
 
 export const LikeButton = ({ messageId, message }) => {
@@ -43,8 +44,8 @@ export const LikeButton = ({ messageId, message }) => {
             Hoots: { message.message.likes.length }
             <br/>
             { messageIsLiked
-                ? <button style={{marginTop: '10px'}} onClick={handleLike}>Peck</button>
-                : <button style={{marginTop: '10px'}} onClick={handleLike}>Hoot</button> 
+                ? <Button variant="flat" style={{ marginTop: '10px', backgroundColor: '#d64cf0', color: 'white'}} onClick={handleLike}>Peck</Button>
+                : <Button variant="flat" style={{ marginTop: '10px', backgroundColor: '#ff7825', color: 'white'}}onClick={handleLike}>Hoot</Button> 
             }
         </>
     )

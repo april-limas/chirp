@@ -49,9 +49,9 @@ export const EditProfile = () => {
         <>
             <Form className="formContainer" onSubmit={handleSubmit}>
             <br />
-            <h2>Edit Profile</h2>
+            <h2 className="title">Edit Profile</h2>
             <br />
-
+            <br />
             <Form.Group controlId="formBasicDisplayName">
                 <Form.Label>Display Name</Form.Label>
                 <Form.Control

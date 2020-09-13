@@ -1,6 +1,6 @@
 import React from "react"
 import { AddMessage, MenuContainer, MessageList } from "../components";
-
+import "./style.css"
 
 
 export const Newsfeed = () => (
@@ -10,6 +10,6 @@ export const Newsfeed = () => (
         <AddMessage />
         <br />
         <MessageList />
-       
+
     </>
 )

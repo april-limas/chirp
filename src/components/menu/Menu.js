@@ -8,25 +8,25 @@ export const Menu = () => {
   const dispatch = useDispatch()
   const logout = () => dispatch(actions.logout())
   return (
-    <Navbar collapseOnSelect sticky="bottom" expand="lg" bg="dark" variant="dark">
-      <Navbar.Brand href="/profiles/:username">Chirp</Navbar.Brand>
+    <Navbar collapseOnSelect sticky="top" expand="lg" style={{backgroundColor: 'orange'}}>
+      <Navbar.Brand style={{color: 'white'}} href="/profiles/:username">Chirp</Navbar.Brand>
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
             {isAuthenticated ? (
               <>
         <Nav className="mr-auto">
-          <Nav.Link href="/profiles/:username">Newsfeed</Nav.Link>
-          <Nav.Link href="/trending">Trending</Nav.Link>
-          <NavDropdown title="Profile" id="collasible-nav-dropdown">
-            <NavDropdown.Item href="/profile">About</NavDropdown.Item>
-            <NavDropdown.Item href="/edit-profile">Edit Profile</NavDropdown.Item>
-            <NavDropdown.Item href="/followers">Followers</NavDropdown.Item>
+          <Nav.Link href="/profiles/:username" style={{color: 'white'}}>Newsfeed</Nav.Link>
+          <Nav.Link href="/trending" style={{color: 'white'}}>Trending</Nav.Link>
+          <NavDropdown title="Profile" id="collasible-nav-dropdown" style={{color: 'purple'}}>
+            <NavDropdown.Item href="/profile" style={{color: 'orange'}}>About</NavDropdown.Item>
+            <NavDropdown.Item href="/edit-profile" style={{color: 'orange'}}>Edit Profile</NavDropdown.Item>
+            <NavDropdown.Item href="/followers" style={{color: 'orange'}}>Followers</NavDropdown.Item>
             <NavDropdown.Divider />
           </NavDropdown>
-          <Nav.Link href="/search">Search User</Nav.Link>
+          <Nav.Link href="/search" style={{color: 'white'}}>Search User</Nav.Link>
         </Nav>
         <Nav>
-          <Nav.Link href="#/" onClick={logout}>
+          <Nav.Link href="#/" style={{color: 'white'}} onClick={logout}>
             LogOut
           </Nav.Link>
         </Nav>
