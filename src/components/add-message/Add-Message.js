@@ -26,7 +26,7 @@ export const AddMessage = () => {
             <Jumbotron className="messageBox">
                 <Form onSubmit={handleAddMessage}>
                     <Form.Group controlId="formBasicEmail">
-                        <Form.Label>What do you want to chirp today?</Form.Label>
+                        <Form.Label style={{color: '#565656'}}>What do you want to chirp today?</Form.Label>
                     </Form.Group>
 
                     <Form.Group controlId="formBasicPassword">
@@ -34,6 +34,7 @@ export const AddMessage = () => {
                             type="text" 
                             size="lg"
                             value={text} 
+                            style={{color: '#565656'}}
                             onChange={handleChange}
                         />
                     </Form.Group>
@@ -41,7 +42,7 @@ export const AddMessage = () => {
                     <Button 
                         variant="flat" 
                         type="submit"
-                        style={{backgroundColor: '#ff803d', color: 'white'}}>
+                        style={{backgroundColor: '#ff803d', color: 'white', marginTop: '20px'}}>
                         Post Chirp
                     </Button>
                     { messageLoading && <Loader /> } 

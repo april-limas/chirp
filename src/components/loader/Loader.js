@@ -6,7 +6,7 @@ export const Loader = () => {
     
     return (
         <>
-            <Spinner animation="grow" variant="primary" />
+            <Spinner animation="grow" variant="flat" style={{backgroundColor: '#d64cf0'}} />
         </>
     )
 }

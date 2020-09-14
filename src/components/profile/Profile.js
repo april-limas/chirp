@@ -2,8 +2,10 @@ import React, { useEffect } from "react"
 import { useSelector, useDispatch } from "react-redux"
 import { actions } from "../../redux/actions/users"
 import { Loader } from "../loader"
-import { Card, Button} from "react-bootstrap"
+import { Card, Button } from "react-bootstrap"
 import { Link } from "react-router-dom"
+import profilePhoto from "../../assets/purplebird.png"
+import moment from "moment"
 import "./Profile.css"
 
 
@@ -30,20 +32,20 @@ export const Profile = () => {
                 userInfo.user &&
                 <>
                     <Card className="profileCard">
-                        <Card.Img variant="top" src="https://nas-national-prod.s3.amazonaws.com/styles/hero_mobile/s3/h_a1_7443_5_painted-bunting_julie_torkomian_adult-male.jpg?itok=dMVj7z0b" />
+                        <Card.Img variant="top" src={profilePhoto} style={{ width: '300px', height: '300px', marginLeft: '60px' }} />
                         <Card.Body>
                             <Card.Title>Chirper: {userInfo.user.displayName}</Card.Title>
                             <Card.Text>Username: @{username}</Card.Text>
-                            <Card.Text>{ userInfo.user.about && `About: ${userInfo.user.about}`}</Card.Text>
-                            <Card.Text>Created: {userInfo.user.createdAt}</Card.Text>
-                            <Card.Text>Updated: {userInfo.user.updatedAt}</Card.Text>
-                            <Button variant="secondary" href="/edit-profile">Edit Profile</Button>
+                            <Card.Text>{userInfo.user.about && `About: ${userInfo.user.about}`}</Card.Text>
+                            <Card.Text>Created: {moment(userInfo.user.createdAt).startOf('minute').fromNow()}</Card.Text>
+                            <Card.Text>Updated: {moment(userInfo.user.updatedAt).startOf('minute').fromNow()}</Card.Text>
+                            <Button variant="flat" href="/edit-profile" style={{ backgroundColor: '#c89be9', color: 'white' }}>Edit Profile</Button>
                         </Card.Body>
                     </Card>
                 </>
             }
             <br />
-            
+
             { userLoading && <Loader />}
         </>
     )

@@ -53,8 +53,9 @@ export const SignUp = () => {
             <br />
             <h2 className="title">Sign Up</h2>
             <br />
+            <br />
             <Form.Group controlId="formBasicEmail">
-                <Form.Label>Username</Form.Label>
+                <Form.Label style={{color: '#565656'}}>Username</Form.Label>
                 <Form.Control
                         type="text"
                         placeholder="Choose username"
@@ -62,6 +63,7 @@ export const SignUp = () => {
                         value={state.username}
                         autoFocus
                         required
+                        style={{color: '#565656' }}
                         onChange={handleChange}
                     />
     
@@ -71,7 +73,7 @@ export const SignUp = () => {
             </Form.Group>
 
             <Form.Group controlId="formBasicPassword">
-                <Form.Label>Password</Form.Label>
+                <Form.Label style={{color: '#565656'}}>Password</Form.Label>
                 <Form.Control
                     type="password"
                     placeholder="Choose password"
@@ -79,15 +81,14 @@ export const SignUp = () => {
                     value={state.password}
                     autoFocus
                     required
+                    style={{color: '#565656'}}
                     onChange={handleChange}
                 />
-                <Form.Text className="text-muted">
-                    Your password must be 8-20 characters long, contain letters and numbers.
-                </Form.Text>
+            
             </Form.Group>
 
             <Form.Group controlId="formBasicDisplayName">
-                <Form.Label>Display Name</Form.Label>
+                <Form.Label style={{color: '#565656'}}>Display Name</Form.Label>
                 <Form.Control
                     type="text"
                     placeholder="Choose display name"
@@ -95,6 +96,7 @@ export const SignUp = () => {
                     value={state.displayName}
                     autoFocus
                     required
+                    style={{color: '#565656'}}
                     onChange={handleChange}
                 />
             </Form.Group>
@@ -111,29 +113,31 @@ export const SignUp = () => {
 
             <br />
             
-            <Button variant="primary" type="submit">
+            <Button variant="flat" type="submit"  style={{backgroundColor: '#c89be9', color: 'white'}}>
                 Submit
             </Button>
 
             <br />
             <br />
-            <p>Already registered?</p>
-            <p>Log in <Link to="/log-in">here</Link>.</p>
+            <p style={{color: '#565656'}}>Already registered?</p>
+            <p style={{color: '#565656'}}>Log in <Link to="/log-in" style={{color: '#af41c4'}}>here</Link>.</p>
             { toggle && show &&
                 <>
                     <Modal show={show} onHide={handleClose}>
                     <Modal.Header closeButton>
-                    <Modal.Title>Thank you for signing up!</Modal.Title>
+                    <Modal.Title style={{color: '#565656'}}>Thank you for signing up!</Modal.Title>
                     </Modal.Header>
-                    <Modal.Body>Please click the log in button to post your first chirp!</Modal.Body>
+                    <Modal.Body style={{color: '#565656'}}>Please click the log in button to post your first chirp!</Modal.Body>
                     <Modal.Footer>
                     <Button 
-                        variant="secondary" 
+                        variant="flat" 
+                        style={{backgroundColor: '#c89be9', color: 'white'}}
                         onClick={handleClose}>
                         Close
                     </Button>
                     <Button 
-                        variant="primary" 
+                        variant="flat"
+                        style={{backgroundColor: '#c89be9', color: 'white'}}
                         href="/log-in">
                         Log In
                     </Button>

@@ -26,7 +26,7 @@ export const DeleteMessage = ({message}) => {
         <>
             { isCurrentUser && 
                 <Button 
-                style={{ marginLeft: '110px', marginTop: '10px' }}
+                style={{ marginLeft: '110px', marginTop: '-3px' }}
                 variant="danger"
                 onClick={handleDeleteMessage}>
                     Delete Chirp

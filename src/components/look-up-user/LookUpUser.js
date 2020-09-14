@@ -38,13 +38,14 @@ export const LookUpUser = () => {
             <Jumbotron style={{float: 'left', width: '20%', marginLeft: '20px', marginTop: '9px'}}>
                 <Form onSubmit={handleSubmit}>
                     <Form.Group controlId="formBasicEmail">
-                        <Form.Label>Look Up Username</Form.Label>
+                        <Form.Label style={{color: '#565656'}}>Look Up Username</Form.Label>
                     </Form.Group>
 
                     <Form.Group controlId="formBasicPassword">
                         <Form.Control 
                             type="text" 
                             value={username} 
+                            style={{color: '#565656'}}
                             onChange={handleChange} 
                         />
                     </Form.Group>
@@ -68,7 +69,10 @@ export const LookUpUser = () => {
                 </Modal.Header>
                 <Modal.Body>{userError}</Modal.Body>
                 <Modal.Footer>
-                  <Button variant="primary" onClick={handleClose}>
+                  <Button 
+                    variant="flat" 
+                    style={{backgroundColor: '#c89be9', color: 'white'}}
+                    onClick={handleClose}>
                     Close
                   </Button>
                 </Modal.Footer>

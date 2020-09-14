@@ -7,7 +7,7 @@ import { Button } from "react-bootstrap"
 export const LikeButton = ({ messageId, message }) => {
     const user = useSelector(state => state.auth.username)
 
-    const [ isLiked, setIsLiked ] = useState(false)
+    const [isLiked, setIsLiked] = useState(false)
 
     const dispatch = useDispatch()
 
@@ -41,11 +41,11 @@ export const LikeButton = ({ messageId, message }) => {
 
     return (
         <>
-            Hoots: { message.message.likes.length }
-            <br/>
+            <p style={{ color: '#565656', marginLeft: '20px' }}>Hoots: {message.message.likes.length}</p>
+            <br />
             { messageIsLiked
-                ? <Button variant="flat" style={{ marginTop: '10px', backgroundColor: '#d64cf0', color: 'white'}} onClick={handleLike}>Peck</Button>
-                : <Button variant="flat" style={{ marginTop: '10px', backgroundColor: '#ff7825', color: 'white'}}onClick={handleLike}>Hoot</Button> 
+                ? <Button variant="flat" style={{ marginTop: '-3px', marginLeft: '20px', backgroundColor: '#d64cf0', color: 'white' }} onClick={handleLike}>Peck</Button>
+                : <Button variant="flat" style={{ marginTop: '-3px', marginLeft: '20px', backgroundColor: '#ff7825', color: 'white' }} onClick={handleLike}>Hoot</Button>
             }
         </>
     )

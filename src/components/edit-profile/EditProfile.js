@@ -92,7 +92,7 @@ export const EditProfile = () => {
 
             <br />
 
-            <Button variant="primary" type="submit">
+            <Button variant="flat" type="submit" style={{backgroundColor: '#c89be9', color: 'white'}}>
                 Submit
             </Button>
                 { toggle && show &&
@@ -103,13 +103,16 @@ export const EditProfile = () => {
                     <Modal.Body>Your profile has been updated.</Modal.Body>
                     <Modal.Footer>
                       <Button 
-                        variant="primary" 
+                        variant="flat" 
+                        style={{backgroundColor: '#c89be9', color: 'white'}}
                         onClick={handleClose}>
                         Close
                       </Button>
                       <Button 
-                        variant="primary" 
-                        href="/profile">
+                        variant="flat" 
+                        href="/profile"
+                        style={{backgroundColor: '#c89be9', color: 'white'}}
+                        >
                         Profile
                     </Button>
                     </Modal.Footer>

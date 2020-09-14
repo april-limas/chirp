@@ -6,6 +6,7 @@ import { actions } from "../../redux/actions/users"
 import { actions as messageActions } from "../../redux/actions/messages"
 import { DeleteMessage } from "../delete-message"
 import { Toast, Jumbotron } from "react-bootstrap"
+import moment from "moment"
 import "./MessageItem.css"
 
 export const MessageItem = ({ item }) => {
@@ -23,7 +24,7 @@ export const MessageItem = ({ item }) => {
   const handleMessageLink = () => {
     dispatch(messageActions.getMessageLinkInfo(item.id))
   }
- 
+
 
   return (
     <>
@@ -31,17 +32,16 @@ export const MessageItem = ({ item }) => {
         <Toast className="messageItem">
           <Toast.Header closeButton={false}>
             <img src="holder.js/20x20?text=%20" className="rounded mr-2" alt="" />
-            <strong 
+            <strong
               className="mr-auto spacing"><Link
-              style={{color: '#7d0c92'}}
-              to="/user"
-              onClick={handleUserLink}>
-              {item.username}
-            </Link></strong>
-            <small className="date">{item.createdAt}</small>
+                style={{ color: '#7d0c92',  marginLeft: '-7px' }}
+                to="/user"
+                onClick={handleUserLink}>
+                {item.username}
+              </Link></strong>
+            <small className="date">{moment(item.createdAt).startOf('minute').fromNow()}</small>
           </Toast.Header>
           <Toast.Body><Link
-            style={{color: '#af41c4'}}
             className="spacing"
             to="/message"
             onClick={handleMessageLink}>
@@ -52,7 +52,7 @@ export const MessageItem = ({ item }) => {
             <DeleteMessage message={{ message: item }} />
           </Toast.Body>
         </Toast>
-        </Jumbotron>
+      </Jumbotron>
     </>
   )
 }

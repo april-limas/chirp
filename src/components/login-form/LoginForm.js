@@ -37,35 +37,37 @@ export const LoginForm = () => {
             <br />
             <br />
             <Form.Group controlId="formBasicEmail">
-                    <Form.Label>Username</Form.Label>
+                    <Form.Label style={{color: '#565656'}}>Username</Form.Label>
                     <Form.Control
                         type="text"
                         name="username"
                         value={state.username}
                         autoFocus
                         required
+                        style={{color: '#565656'}}
                         onChange={handleChange}
                     />
             </Form.Group>
 
             <Form.Group controlId="formBasicPassword">
-                <Form.Label>Password</Form.Label>
+                <Form.Label style={{color: '#565656'}}>Password</Form.Label>
                 <Form.Control
                     type="password"
                     name="password"
                     value={state.password}
                     autoFocus
                     required
+                    style={{color: '#565656', }}
                     onChange={handleChange}
                 />
             </Form.Group>
             <br />
-            <Button variant="primary" type="submit" disabled={loading}>
+            <Button variant="flat" type="submit" style={{backgroundColor: '#c89be9', color: 'white'}} disabled={loading}>
                 Log In
             </Button>
             <br />
             <br />
-            <Link to="/sign-up">Sign up for Chirp</Link>
+            <Link to="/sign-up" style={{color: '#af41c4'}}>Sign up for Chirp</Link>
             {loading && <Loader />}
             {error && <p style={{ color: "red" }}>{error.message}</p>}
         </Form>

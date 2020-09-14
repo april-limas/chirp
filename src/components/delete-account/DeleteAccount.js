@@ -43,16 +43,22 @@ export const DeleteAccount = () => {
                     keyboard={false}
                 >
                 <Modal.Header closeButton>
-                    <Modal.Title>Is this goodbye?</Modal.Title>
+                    <Modal.Title style={{color: '#565656'}}>Is this goodbye?</Modal.Title>
                     </Modal.Header>
-                    <Modal.Body>
+                    <Modal.Body style={{color: '#565656'}}>
                         <strong>This action is permanent.</strong> Are you sure you don't want to reconsider?
             </Modal.Body>
                     <Modal.Footer>
-                        <Button variant="secondary" onClick={handleClose}>
+                        <Button 
+                            variant="flat"
+                            style={{backgroundColor: '#c89be9', color: 'white'}}
+                            onClick={handleClose}>
                             Close
             </Button>
-                        <Button variant="primary" onClick={handleDeleteUser}>Delete</Button>
+                        <Button 
+                            variant="flat" 
+                            style={{backgroundColor: '#c89be9', color: 'white'}}
+                            onClick={handleDeleteUser}>Delete</Button>
                     </Modal.Footer>
                 </Modal>
             }

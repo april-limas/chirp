@@ -19,3 +19,4 @@ export * from './trending'
 export * from "./page-not-found"
 export * from "./home"
 export * from "./deleted-user"
+export * from "./following"
