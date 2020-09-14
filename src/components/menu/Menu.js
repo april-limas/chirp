@@ -17,7 +17,7 @@ export const Menu = () => {
             <Nav className="mr-auto">
               <Nav.Link href="/profiles/:username" style={{ color: 'white' }}>Newsfeed</Nav.Link>
               <Nav.Link href="/trending" style={{ color: 'white' }}>Trending</Nav.Link>
-              <NavDropdown title="Profile" id="collasible-nav-dropdown" style={{ color: 'purple' }}>
+              <NavDropdown title="Profile" id="collasible-nav-dropdown" style={{ color: 'white' }}>
                 <NavDropdown.Item href="/profile" style={{ color: 'orange' }}>About</NavDropdown.Item>
                 <NavDropdown.Item href="/edit-profile" style={{ color: 'orange' }}>Edit Profile</NavDropdown.Item>
                 <NavDropdown.Item href="/following" style={{ color: 'orange' }}>Following</NavDropdown.Item>
