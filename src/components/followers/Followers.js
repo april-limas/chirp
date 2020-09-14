@@ -21,7 +21,8 @@ export const Followers = () => {
 
   return (
     <>
-      <h2 style={{color: '#565656', textAlign: 'center' }}>Followers</h2>
+      <br />
+      <h2 style={{color: '#565656', marginLeft: '670px' }}>Followers</h2>
       <ul style={{textAlign: 'center', listStyleType: 'none'}}>
         {data && data.map((item) => 
           <FollowersItem 

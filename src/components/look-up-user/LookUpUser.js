@@ -4,6 +4,7 @@ import { actions} from "../../redux/actions/users"
 import { UserInfo } from "../user-info"
 import { Loader } from "../loader"
 import { Button, Modal, Jumbotron, Form } from "react-bootstrap"
+import photo from "../../assets/purplebird.png"
 
 
 export const LookUpUser = () => {
@@ -35,10 +36,11 @@ export const LookUpUser = () => {
 
     return (
         <>
-            <Jumbotron style={{float: 'left', width: '20%', marginLeft: '20px', marginTop: '9px'}}>
+            <Jumbotron style={{float: 'left', width: '20%', marginLeft: '30px', marginTop: '29px'}}>
                 <Form onSubmit={handleSubmit}>
                     <Form.Group controlId="formBasicEmail">
-                        <Form.Label style={{color: '#565656'}}>Look Up Username</Form.Label>
+                    <img src={photo} className="rounded mr-2" alt="" style={{width: '50px', height: '50px', marginLeft: '-8px'}} />
+                        <Form.Label style={{color: '#565656', marginLeft: '-8px'}}>Look Up Username</Form.Label>
                     </Form.Group>
 
                     <Form.Group controlId="formBasicPassword">
@@ -53,7 +55,7 @@ export const LookUpUser = () => {
                     <Button 
                         variant="flat" 
                         type="submit"
-                        style={{backgroundColor: '#ff803d', color: 'white'}}
+                        style={{backgroundColor: '#ff803d', color: 'white', marginTop: '10px'}}
                         onClick={() => setToggle(true)}>
                         Submit
                     </Button>

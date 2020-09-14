@@ -34,12 +34,12 @@ export const Profile = () => {
                     <Card className="profileCard">
                         <Card.Img variant="top" src={profilePhoto} style={{ width: '300px', height: '300px', marginLeft: '60px' }} />
                         <Card.Body>
-                            <Card.Title>Chirper: {userInfo.user.displayName}</Card.Title>
-                            <Card.Text>Username: @{username}</Card.Text>
-                            <Card.Text>{userInfo.user.about && `About: ${userInfo.user.about}`}</Card.Text>
-                            <Card.Text>Created: {moment(userInfo.user.createdAt).startOf('minute').fromNow()}</Card.Text>
-                            <Card.Text>Updated: {moment(userInfo.user.updatedAt).startOf('minute').fromNow()}</Card.Text>
-                            <Button variant="flat" href="/edit-profile" style={{ backgroundColor: '#c89be9', color: 'white' }}>Edit Profile</Button>
+                            <Card.Title className="center">Chirper: {userInfo.user.displayName}</Card.Title>
+                            <Card.Text className="center">Username: @{username}</Card.Text>
+                            <Card.Text className="center">{userInfo.user.about && `About: ${userInfo.user.about}`}</Card.Text>
+                            <Card.Text className="center">Created: {moment(userInfo.user.createdAt).startOf('minute').fromNow()}</Card.Text>
+                            <Card.Text className="center">Updated: {moment(userInfo.user.updatedAt).startOf('minute').fromNow()}</Card.Text>
+                            <Button variant="flat" href="/edit-profile" style={{ backgroundColor: '#c89be9', color: 'white', position: 'relative', left: '145px' }}>Edit Profile</Button>
                         </Card.Body>
                     </Card>
                 </>
