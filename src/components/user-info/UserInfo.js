@@ -9,7 +9,7 @@ export const UserInfo = ({ user }) => {
     return (
         <>
             <br/>
-            <h2 className="center">Chirper Info</h2>
+            <h2 style={{position: 'absolute', left: '630px', top: '100px', color: '#565656'}}>Chirper Info</h2>
             <br/>
             
             <Card style={{ width: '30rem', height: '35rem', margin: '-30px auto', position: 'absolute', bottom: '130px', left: '470px'  }}>

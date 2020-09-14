@@ -31,7 +31,7 @@ export const DeleteAccount = () => {
     return (
         <>
             <Link
-                style={{ marginLeft: '20px', color: 'gray' }}
+                style={{ marginLeft: '40px', position: 'absolute', bottom: '80px', color: 'gray' }}
                 onClick={handleClick}>
                 Delete Account
             </Link>
