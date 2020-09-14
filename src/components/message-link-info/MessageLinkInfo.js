@@ -1,6 +1,8 @@
 import React from "react"
 import { useSelector } from "react-redux"
 import { Card } from "react-bootstrap"
+import moment from "moment"
+import photo from "../../assets/purplebird.png"
 
 export const MessageLinkInfo = () => {
     const { message } = useSelector(state => state.message.message)
@@ -9,15 +11,15 @@ export const MessageLinkInfo = () => {
     return (
         <>
             <br />
-            <h2 style={{textAlign: 'center'}}>Chirp Info</h2>
+            <h2 className="center">Chirp Info</h2>
             <br />
             <Card className="profileCard">
-                <Card.Img variant="top" src="https://nas-national-prod.s3.amazonaws.com/styles/hero_mobile/s3/h_a1_7443_5_painted-bunting_julie_torkomian_adult-male.jpg?itok=dMVj7z0b" />
+                <Card.Img variant="top" src={photo} src={photo} style={{width: '300px', height: '300px', margin: '0 auto'}} />
                 <Card.Body>
-                    <Card.Title>Chirper: {message.username}</Card.Title>
-                    <Card.Text>Chirp: {message.text}</Card.Text>
-                    <Card.Text>Posted: {message.createdAt}</Card.Text>
-                    <Card.Text>Hoots: {message.likes.length}</Card.Text>
+                    <Card.Title className="center">Chirper: {message.username}</Card.Title>
+                    <Card.Text className="center">Chirp: {message.text}</Card.Text>
+                    <Card.Text className="center">Posted: {moment(message.createdAt).startOf('minute').fromNow()}</Card.Text>
+                    <Card.Text className="center">Hoots: {message.likes.length}</Card.Text>
                 </Card.Body>
             </Card>
         </>

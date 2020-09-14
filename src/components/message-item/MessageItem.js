@@ -7,6 +7,7 @@ import { actions as messageActions } from "../../redux/actions/messages"
 import { DeleteMessage } from "../delete-message"
 import { Toast, Jumbotron } from "react-bootstrap"
 import moment from "moment"
+import photo from "../../assets/purplebird.png"
 import "./MessageItem.css"
 
 export const MessageItem = ({ item }) => {
@@ -31,10 +32,10 @@ export const MessageItem = ({ item }) => {
       <Jumbotron className="messageListBox">
         <Toast className="messageItem">
           <Toast.Header closeButton={false}>
-            <img src="holder.js/20x20?text=%20" className="rounded mr-2" alt="" />
+            <img src={photo} className="rounded mr-2" alt="" style={{width: '40px', height: '40px', marginLeft: '11px'}} />
             <strong
               className="mr-auto spacing"><Link
-                style={{ color: '#7d0c92',  marginLeft: '-7px' }}
+                style={{ color: '#7d0c92',  marginLeft: '-25px' }}
                 to="/user"
                 onClick={handleUserLink}>
                 {item.username}

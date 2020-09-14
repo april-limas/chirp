@@ -1,6 +1,9 @@
 import React from "react"
 import { useSelector } from "react-redux"
 import { Card } from "react-bootstrap"
+import moment from "moment"
+import photo from "../../assets/purplebird.png"
+import "./"
 
 
 export const UserInfoLink = () => {
@@ -10,18 +13,18 @@ export const UserInfoLink = () => {
     return (
         <>
             <br/>
-            <h2 style={{textAlign: 'center'}}>Chirper Info</h2>
+            <h2 className="center">Chirper Info</h2>
             <br/>
             { user && 
                 <>
                 <Card className="profileCard">
-                        <Card.Img variant="top" src="https://nas-national-prod.s3.amazonaws.com/styles/hero_mobile/s3/h_a1_7443_5_painted-bunting_julie_torkomian_adult-male.jpg?itok=dMVj7z0b" />
+                        <Card.Img variant="top" src={photo} style={{width: '300px', height: '300px', margin: '0 auto'}}/>
                         <Card.Body>
-                            <Card.Title>Chirper: {user.displayName}</Card.Title>
-                            <Card.Text>Username: @{user.username}</Card.Text>
-                            <Card.Text>{ user.about && `About: ${user.about}`}</Card.Text>
-                            <Card.Text>Created: {user.createdAt}</Card.Text>
-                            <Card.Text>Updated: {user.updatedAt}</Card.Text>
+                            <Card.Title className="center">Chirper: {user.displayName}</Card.Title>
+                            <Card.Text className="center">Username: @{user.username}</Card.Text>
+                            <Card.Text className="center">{ user.about && `About: ${user.about}`}</Card.Text>
+                            <Card.Text className="center">Created: {moment(user.createdAt).startOf('minute').fromNow()}</Card.Text>
+                            <Card.Text className="center">Updated: {moment(user.updatedAt).startOf('minute').fromNow()}</Card.Text>
                         </Card.Body>
                     </Card>
                 </>

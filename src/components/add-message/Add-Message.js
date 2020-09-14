@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux"
 import { actions } from "../../redux/actions/messages"
 import { Loader } from "../loader"
 import { Form, Jumbotron, Button } from "react-bootstrap"
+import photo from "../../assets/purplebird.png"
 import "./AddMessage.css"
 
 export const AddMessage = () => {
@@ -26,6 +27,7 @@ export const AddMessage = () => {
             <Jumbotron className="messageBox">
                 <Form onSubmit={handleAddMessage}>
                     <Form.Group controlId="formBasicEmail">
+                    <img src={photo} className="rounded mr-2" alt="" style={{width: '60px', height: '60px', marginLeft: '-8px'}} />
                         <Form.Label style={{color: '#565656'}}>What do you want to chirp today?</Form.Label>
                     </Form.Group>
 

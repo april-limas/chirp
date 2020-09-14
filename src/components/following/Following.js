@@ -18,10 +18,17 @@ export const Following = () => {
     dispatch(actions.getFollowers());
   }, [])
 
+//   const getFollowing = () => {
+//     let followingList = data.sort(data.displayName)
+//     return followingList
+// }
+
+// console.log(getFollowing())
 
   return (
     <>
-      <h2 style={{color: '#565656', textAlign: 'center'}}>Following</h2>
+    <br />
+      <h2 style={{color: '#565656', marginLeft: '670px' }}>Following</h2>
       <ul style={{textAlign: 'center', listStyleType: 'none'}}>
         {data && data.map((item) => 
           <FollowersItem 
