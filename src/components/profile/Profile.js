@@ -1,17 +1,20 @@
-import React, { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { actions } from '../../redux/actions/users';
+import React, { useEffect } from "react"
+import { useSelector, useDispatch } from "react-redux"
+import { actions } from "../../redux/actions/users"
 import { Loader } from "../loader"
+import { Card, Button } from "react-bootstrap"
+import { Link } from "react-router-dom"
+import profilePhoto from "../../assets/purplebird.png"
+import moment from "moment"
+import "./Profile.css"
+
 
 export const Profile = () => {
-
-    const { userInfo, username } = useSelector(state => ({
+    const { userInfo, username, userLoading } = useSelector(state => ({
         username: state.auth.username,
-        userInfo: state.users.userInfo
-    }
-    ));
-
-    const userLoading = useSelector(state => state.users.userLoading)
+        userInfo: state.users.userInfo,
+        userLoading: state.users.userLoading
+    }))
 
     const dispatch = useDispatch()
 
@@ -19,24 +22,31 @@ export const Profile = () => {
         dispatch(actions.getUserInfo(username))
     }, [])
 
+
     return (
         <>
-            <br/>
-            <h2>Profile</h2>
-            <br/>
-            <p>Username: {username}</p>
+            <br />
+            <h2 className="profile">Profile</h2>
+            <br />
             {
                 userInfo.user &&
                 <>
-                    <p>Display Name: {userInfo.user.displayName}</p>
-                    <p>About Me: {userInfo.user.about}</p>
-                    <p>Account Created: {userInfo.user.createdAt}</p>
-                    <p>Account Updated: {userInfo.user.updatedAt}</p>
-
+                    <Card className="profileCard">
+                        <Card.Img variant="top" src={profilePhoto} style={{ width: '300px', height: '300px', marginLeft: '60px' }} />
+                        <Card.Body>
+                            <Card.Title>Chirper: {userInfo.user.displayName}</Card.Title>
+                            <Card.Text>Username: @{username}</Card.Text>
+                            <Card.Text>{userInfo.user.about && `About: ${userInfo.user.about}`}</Card.Text>
+                            <Card.Text>Created: {moment(userInfo.user.createdAt).startOf('minute').fromNow()}</Card.Text>
+                            <Card.Text>Updated: {moment(userInfo.user.updatedAt).startOf('minute').fromNow()}</Card.Text>
+                            <Button variant="flat" href="/edit-profile" style={{ backgroundColor: '#c89be9', color: 'white' }}>Edit Profile</Button>
+                        </Card.Body>
+                    </Card>
                 </>
             }
-            <br/>
-            { userLoading && <Loader /> }
+            <br />
+
+            { userLoading && <Loader />}
         </>
-    );
+    )
 }

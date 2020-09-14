@@ -1,14 +1,13 @@
-import React, { useState, useEffect } from 'react';
-import { useSelector, useDispatch } from "react-redux";
-import { actions } from '../../redux/actions/auth';
-import { likesReducer } from '../../redux/reducers/likes';
-import { actions as likeActions } from '../../redux/actions/messages';
+import React, { useState, useEffect } from "react"
+import { useSelector, useDispatch } from "react-redux"
+import { actions as likeActions } from "../../redux/actions/messages"
+import { Button } from "react-bootstrap"
+
 
 export const LikeButton = ({ messageId, message }) => {
-
     const user = useSelector(state => state.auth.username)
 
-    const [isLiked, setIsLiked] = useState()
+    const [isLiked, setIsLiked] = useState(false)
 
     const dispatch = useDispatch()
 
@@ -42,11 +41,12 @@ export const LikeButton = ({ messageId, message }) => {
 
     return (
         <>
-            Likes: {message.message.likes.length}
-            <br/>
-            {messageIsLiked
-                ? <button onClick={handleLike}>Unlike</button>
-                : <button onClick={handleLike}>Like</button>}
+            <p style={{ color: '#565656', marginLeft: '20px' }}>Hoots: {message.message.likes.length}</p>
+            <br />
+            { messageIsLiked
+                ? <Button variant="flat" style={{ marginTop: '-3px', marginLeft: '20px', backgroundColor: '#d64cf0', color: 'white' }} onClick={handleLike}>Peck</Button>
+                : <Button variant="flat" style={{ marginTop: '-3px', marginLeft: '20px', backgroundColor: '#ff7825', color: 'white' }} onClick={handleLike}>Hoot</Button>
+            }
         </>
     )
 }

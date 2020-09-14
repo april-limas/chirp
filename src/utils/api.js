@@ -215,6 +215,19 @@ class API {
     }
   }
 
+  async uploadPhotoRequest({ username, picture }) {
+    try {
+      const result = await this.axiosInstance.put(`/users/${username/picture}`, {
+        picture
+      });
+      console.log(result)
+      return result;
+    } catch (err) {
+      helpMeInstructor(err);
+      throw err;
+    }
+  }
+
 }
 
 

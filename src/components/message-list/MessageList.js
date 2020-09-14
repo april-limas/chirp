@@ -1,7 +1,7 @@
-import React, { useEffect } from "react";
-import { useSelector, useDispatch } from 'react-redux';
-import { actions } from '../../redux/actions/messages';
-import { MessageItem } from '../message-item';
+import React, { useEffect } from "react"
+import { useSelector, useDispatch } from "react-redux"
+import { actions } from "../../redux/actions/messages"
+import { MessageItem } from "../message-item"
 import { Loader } from "../loader"
 
 
@@ -18,16 +18,16 @@ export const MessageList = () => {
 
   useEffect(() => {
     dispatch(actions.getMessageList())
-  }, []);
+  }, [])
 
   return (
     <>
       <ul>
         {messageList.map(item => (
           <MessageItem item={item} key={item.id} />
-          ))}
+        ))}
       </ul>
       { messageLoading && <Loader /> }
     </>
-    )
+  )
 }

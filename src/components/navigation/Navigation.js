@@ -1,9 +1,7 @@
-import React from "react";
-import { BrowserRouter, Switch } from "react-router-dom";
-import { Newsfeed, ProfileScreen, FollowersPage, NotFoundScreen, SearchUser, UserLinkDisplay, MessageLinkDisplay, EditProfileScreen, SignUpForm, LogInPage, DeletedUserPage, TrendingKweets } from "../../screens";
-import { ConnectedRoute } from "../connected-route/ConnectedRoute";
-
-
+import React from "react"
+import { BrowserRouter, Switch } from "react-router-dom"
+import { Newsfeed, ProfileScreen, FollowersPage, NotFoundScreen, SearchUser, UserLinkDisplay, MessageLinkDisplay, EditProfileScreen, SignUpForm, LogInPage, DeletedUserPage, TrendingChirps, HomePage, FollowingPage } from "../../screens"
+import { ConnectedRoute } from "../connected-route/ConnectedRoute"
 
 
 export const Navigation = () => (
@@ -13,67 +11,79 @@ export const Navigation = () => (
         exact
         path="/"
         redirectIfAuthenticated
-        component={LogInPage}
+        component={ HomePage }
+      />
+      <ConnectedRoute
+        exact
+        redirectIfAuthenticated
+        path="/log-in"
+        component={ LogInPage }
       />
       <ConnectedRoute
         exact
         isProtected
         path="/profiles/:username"
-        component={Newsfeed}
+        component={ Newsfeed }
       />
       <ConnectedRoute
         exact
         isProtected
         path="/profile"
-        component={ProfileScreen}
+        component={ ProfileScreen }
       />
       <ConnectedRoute
         exact
         isProtected
         path="/followers"
-        component={FollowersPage}
+        component={ FollowersPage }
+      />
+      <ConnectedRoute
+        exact
+        isProtected
+        path="/following"
+        component={ FollowingPage }
       />
       <ConnectedRoute
         exact
         isProtected
         path="/search"
-        component={SearchUser}
+        component={ SearchUser }
       />
       <ConnectedRoute
         exact
         isProtected
         path="/user"
-        component={UserLinkDisplay}
+        component={ UserLinkDisplay }
       />
       <ConnectedRoute
         exact
         isProtected
         path="/message"
-        component={MessageLinkDisplay}
+        component={ MessageLinkDisplay }
       />
       <ConnectedRoute
         exact
         isProtected
         path="/edit-profile"
-        component={EditProfileScreen}
+        component={ EditProfileScreen } 
       />
       <ConnectedRoute
         exact
         isProtected
         path="/trending"
-        component={TrendingKweets}
+        component={ TrendingChirps }
       />
       <ConnectedRoute
         exact
         path="/sign-up"
-        component={SignUpForm}
+        component={ SignUpForm }
       />
       <ConnectedRoute
         exact
         path="/delete"
-        component={DeletedUserPage}
+        component={ DeletedUserPage }
       />
-      <ConnectedRoute path="*" component={NotFoundScreen} />
+      <ConnectedRoute path="*" component={ NotFoundScreen } />
     </Switch>
   </BrowserRouter>
-);
+)

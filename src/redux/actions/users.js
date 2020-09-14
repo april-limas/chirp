@@ -8,6 +8,8 @@ export const DELETE_USER_FAILURE = 'DELETE_USER_FAILURE'
 export const REMOVE_USER_DISPLAY = 'REMOVE_USER_DISPLAY'
 export const GET_FOLLOWERS_SUCCESS = 'GET_FOLLOWERS_SUCCESS'
 export const GET_FOLLOWERS_FAILURE = 'GET_FOLLOWERS_FAILURE'
+export const ADD_PHOTO_SUCCESS = 'ADD_PHOTO_SUCCESS'
+export const ADD_PHOTO_FAILURE = 'ADD_PHOTO_FAILURE'
 
 export const userRequest = () => {
     return {
@@ -52,6 +54,20 @@ export const getFollowersSuccess = (followers) => {
 export const getFollowersFailure = (err) => {
     return {
         type: GET_FOLLOWERS_FAILURE,
+        payload: err
+    }
+}
+
+export const addPhotoSuccess = (pictureLocation) => {
+    return {
+        type: ADD_PHOTO_SUCCESS,
+        payload: pictureLocation
+    }
+}
+
+export const addPhotoFailure = (err) => {
+    return {
+        type: ADD_PHOTO_FAILURE,
         payload: err
     }
 }
@@ -111,10 +127,21 @@ const editUserProfile = (state) => async (dispatch, getState) => {
     }
 }
 
+const uploadPhoto = (username) => async (dispatch, getState) => {
+    try {
+        dispatch(userRequest());
+        const payload = await api.uploadPhotoRequest(username);
+        dispatch(addPhotoSuccess(payload));
+    } catch (err) {
+        dispatch(addPhotoFailure(err.message));
+    }
+}
+
 export const actions = { 
     getUserInfo, 
     deleteUserAccount, 
     getFollowers, 
     userSignUp,
-    editUserProfile
+    editUserProfile,
+    uploadPhoto
  }

@@ -1,16 +1,18 @@
 import React, { useState } from "react"
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux"
 import { actions } from "../../redux/actions/messages"
 import { Loader } from "../loader"
+import { Form, Jumbotron, Button } from "react-bootstrap"
+import "./AddMessage.css"
 
 export const AddMessage = () => {
-    const [ text, setText ] = useState("")
     const messageLoading = useSelector(state => state.message.messageLoading)
+
+    const [text, setText] = useState("")
 
     const dispatch = useDispatch()
 
     const handleChange = (e) => setText(e.target.value)
-    
 
     const handleAddMessage = (event) => {
         event.preventDefault()
@@ -18,14 +20,49 @@ export const AddMessage = () => {
         setText("")
     }
 
+
     return (
         <>
-            <form onSubmit={handleAddMessage}>
-                <p>What's on your mind?</p>
-                <input type="text" value={text} onChange={handleChange} placeholder="New Message"></input>
-                <button type="submit">Post New Message</button>
-            </form>
-            { messageLoading && <Loader /> }
+            <Jumbotron className="messageBox">
+                <Form onSubmit={handleAddMessage}>
+                    <Form.Group controlId="formBasicEmail">
+                        <Form.Label style={{color: '#565656'}}>What do you want to chirp today?</Form.Label>
+                    </Form.Group>
+
+                    <Form.Group controlId="formBasicPassword">
+                        <Form.Control 
+                            type="text" 
+                            size="lg"
+                            value={text} 
+                            style={{color: '#565656'}}
+                            onChange={handleChange}
+                        />
+                    </Form.Group>
+                    
+                    <Button 
+                        variant="flat" 
+                        type="submit"
+                        style={{backgroundColor: '#ff803d', color: 'white', marginTop: '20px'}}>
+                        Post Chirp
+                    </Button>
+                    { messageLoading && <Loader /> } 
+                </Form>
+            </Jumbotron>
         </>
     )
 }
+                    {/* // <form onSubmit={handleAddMessage}>
+                    //     <p>What do you want to chirp today?</p>
+                    //     <input  */}
+                    {/* //         type="text" 
+                    //         value={text} 
+                    //         onChange={handleChange}>
+                    //     </input> */}
+                        {/* <br />
+                        <br />
+                     <button  */}
+                    {/* //         type="submit">
+                    //             Post Chirp
+                    //     </button> */}
+                    {/* // </form> */}
+                    {/* // { messageLoading && <Loader /> } */}

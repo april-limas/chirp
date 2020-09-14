@@ -6,7 +6,7 @@ import { v4 } from "uuid"
 import { Loader } from "../loader"
 
 
-export const Followers = () => {
+export const Following = () => {
   const { data, userLoading } = useSelector((state) => ({
     data: state.users.usersList.users,
     userLoading: state.users.userLoading
@@ -21,7 +21,7 @@ export const Followers = () => {
 
   return (
     <>
-      <h2 style={{color: '#565656', textAlign: 'center' }}>Followers</h2>
+      <h2 style={{color: '#565656', textAlign: 'center'}}>Following</h2>
       <ul style={{textAlign: 'center', listStyleType: 'none'}}>
         {data && data.map((item) => 
           <FollowersItem 

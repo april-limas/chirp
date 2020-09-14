@@ -8,10 +8,6 @@ export const LogInPage = () => (
     <br />
     <br />
     <LoginFormContainer />
-    <br />
-    <p>Not registered yet?</p>
-    <p>Sign up today and join our community! Click <Link to="/sign-up">here</Link>.</p>
     
-
   </>
 )
