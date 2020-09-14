@@ -1,9 +1,13 @@
 body {
     background: linear-gradient(rgba(233, 229, 229, 0.2), rgba(233, 229, 229, 0.2)), url('../assets/background.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
 }
 
 input:focus {
-    border-color: #af41c4;
+    border: 1px solid #af41c4;
 }
 
 .center {
