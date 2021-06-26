@@ -11,3 +11,32 @@ A social media application created for a capstone project which was inspired by 
 - Used the component library Bootstrap
 - Followed Scrum processes, supervised the team as a scrum master and also took on the QA Tester role.
 
+<br />
+
+<img src="https://github.com/april-limas/chirp/blob/master/src/assets/chirp.png" width='600' height='400'>
+
+<br />
+
+<img src="https://github.com/april-limas/chirp/blob/master/src/assets/chirp3.png" width='600' height='400'>
+
+<br />
+
+<img src="https://github.com/april-limas/chirp/blob/master/src/assets/chirp4.png" width='600' height='400'>
+
+<br />
+
+<img src="https://github.com/april-limas/chirp/blob/master/src/assets/chirp5.png" width='600' height='400'>
+
+<br />
+
+<img src="https://github.com/april-limas/chirp/blob/master/src/assets/chirp6.png" width='600' height='400'>
+
+<br />
+
+<img src="https://github.com/april-limas/chirp/blob/master/src/assets/chirp7.png" width='600' height='400'>
+
+<br /> 
+
+<img src="https://github.com/april-limas/chirp/blob/master/src/assets/chirp8.png" width='600' height='400'>
+
+
